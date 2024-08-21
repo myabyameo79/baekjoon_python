@@ -1,0 +1,8 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+c,d=map(int,sys.stdin.readline().split())
+e,f=map(int,sys.stdin.readline().split())
+cc=(c-a)*(f-d)-(d-b)*(e-c)
+if cc>0:print(1)
+elif cc==0:print(0)
+else:print(-1)
