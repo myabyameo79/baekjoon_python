@@ -1,0 +1,32 @@
+import sys
+from collections import deque
+input=sys.stdin.readline
+for _ in range(int(input())):
+    st=input()
+    n=int(input())
+    b=input().strip()
+    deq=deque(b[1:-1].split(','))
+    real=True
+    r=0
+    if n==0:
+        deq=deque()
+    for i in st:
+        if i=='R':
+            r+=1
+        elif i=='D':
+            try:
+                if r%2==0:
+                    deq.popleft()
+                else:
+                    deq.pop()
+            except:
+                print('error')
+                real=False
+                break
+    if real==True:
+        li=list(deq)
+        if r%2==0:
+            print('['+','.join(li)+']')
+        else:
+            li=li[::-1]
+            print('['+','.join(li)+']')
