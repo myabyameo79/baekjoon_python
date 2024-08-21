@@ -1,0 +1,10 @@
+import sys
+a,b = map(int, sys.stdin.readline().split())
+q=a//b
+r=a-b*q
+mul=1
+for _ in range(r):
+  mul*=(q+1)
+for _ in range(b-r):
+  mul*=q
+print(mul)
