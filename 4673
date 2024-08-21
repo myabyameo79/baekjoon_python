@@ -1,0 +1,8 @@
+for i in range(1,10001):
+    real=True
+    for j in range(i):
+        if i==sum(list(map(int,list(str(i-j)))))+i-j:
+            real=False
+            break
+    if real:
+        print(i)
