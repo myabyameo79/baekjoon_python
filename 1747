@@ -1,0 +1,15 @@
+import sys
+n=1003002
+che=[True]*n
+che[1]=False
+for i in range(2,n):
+    if che[i]==True:
+        for j in range(i+i, n, i):
+            che[j]=False
+n=int(sys.stdin.readline())
+while True:
+    st=str(n)
+    if che[n]==True and st==st[::-1]:
+        print(n)
+        break
+    n=int(n)+1
