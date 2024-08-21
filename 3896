@@ -1,0 +1,17 @@
+import sys
+from bisect import bisect_left
+n=1299709+1
+che=[True]*n
+li=[]
+for i in range(2,n):
+    if che[i]:
+        li.append(i)
+        for j in range(i+i,n,i):
+            che[j]=False
+for i in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    k=bisect_left(li,n)
+    if che[n]:
+        print(0)
+    else:
+        print(li[k]-li[k-1])
