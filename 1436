@@ -1,0 +1,8 @@
+t=1
+k=666
+n=int(input())
+while t<n:
+    k+=1
+    if '666' in str(k):
+        t+=1
+print(k)
