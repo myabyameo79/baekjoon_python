@@ -1,0 +1,15 @@
+n = list(input())
+n1 = []
+a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+b = 'abcdefghijklmnopqrstuvwxyz'
+A = list(a)
+B = list(b)
+for i in n:
+    if i in A:
+        k = A.index(i)
+        n1.append(B[k])
+    else:
+        k = B.index(i)
+        n1.append(A[k])
+for i in range(len(n)):
+    print(n1[i], end='')
