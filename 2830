@@ -1,0 +1,15 @@
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=f'{bin(int(input()))[2:]}'.rjust(20,'0')
+dic={x:0 for x in range(20)}
+for i in range(19,-1,-1):
+    a,b=0,0
+    for j in li:
+        if j[i]=='0':a+=1
+        elif j[i]=='1':b+=1
+    dic[i]=a*b
+    ans=0
+for i in range(19,-1,-1):
+    ans+=2**(19-i)*dic[i]
+print(ans)
