@@ -1,0 +1,26 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+li=[[] for _ in range(a+1)]
+visit=[0 for _ in range(a+1)]
+deq=deque()
+ans=deque()
+for i in range(b):
+    t=list(map(int,input().split()))
+    for j in range(1,t[0]):
+        li[t[j]].append(t[j+1])
+        visit[t[j+1]]+=1
+for i in range(1,a+1):
+    if visit[i]==0:
+        deq.append(i)
+while deq:
+    c=deq.popleft()
+    ans.append(c)
+    for i in li[c]:
+        visit[i]-=1
+        if visit[i]==0:
+            deq.append(i)
+if len(ans)!=a:print(0)
+else:
+    for i in ans:
+        print(i)
