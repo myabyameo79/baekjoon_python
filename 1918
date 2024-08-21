@@ -1,0 +1,24 @@
+s=list(input())
+li=[]
+ans=''
+for i in s:
+    if i.isalpha():
+        ans+=i
+    else:
+        if i=='(':
+            li.append(i)
+        elif i=='*' or i=='/':
+            while li and (li[-1]=='*' or li[-1]=='/'):
+                ans+=li.pop()
+            li.append(i)
+        elif i=='+' or i=='-':
+            while li and li[-1]!='(':
+                ans+=li.pop()
+            li.append(i)
+        elif i==')':
+            while li and li[-1]!='(':
+                ans+=li.pop()
+            li.pop()
+while li:
+    ans+=li.pop()
+print(ans)
