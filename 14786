@@ -1,0 +1,12 @@
+from math import sin
+a,b,c=map(int,input().split())
+low=0
+high=c*2
+for i in range(10**6):
+    mid=(low+high)/2
+    f=a*mid+b*sin(mid)
+    if f>=c:
+        high=mid
+    else:
+        low=mid
+print(high)
