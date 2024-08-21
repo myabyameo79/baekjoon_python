@@ -1,0 +1,17 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+i=0;j=0
+li=list(map(int,sys.stdin.readline().split()))
+s=li[0]
+ans=100001
+while True:
+    if s>=b:
+        s-=li[i]
+        ans=min(j-i+1,ans)
+        i+=1
+    else:
+        j+=1
+        if j==a:
+            break
+        s+=li[j]
+print(0 if ans==100001 else ans)
