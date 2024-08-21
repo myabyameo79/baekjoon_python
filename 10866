@@ -1,0 +1,45 @@
+import sys
+from collections import deque
+k=0
+n=int(sys.stdin.readline())
+deq = deque([], maxlen=n)
+for _ in range(n):
+    li=sys.stdin.readline().split()
+    a=li[0]
+    if a=='push_front':
+        deq.appendleft(li[1])
+        k+=1
+    elif a=='push_back':
+        deq.append(li[1])
+        k+=1
+    elif a=='pop_front':
+        if k==0:
+            print(-1)
+        else:
+            print(deq[0])
+            deq.popleft()
+            k-=1
+    elif a=='pop_back':
+        if k==0:
+            print(-1)
+        else:
+            print(deq[-1])
+            deq.pop()
+            k-=1
+    elif a=='size':
+        print(k)
+    elif a=='empty':
+        if k==0:
+            print(1)
+        else:
+            print(0)
+    elif a=='front':
+        if k==0:
+            print(-1)
+        else:
+            print(deq[0])
+    elif a=='back':
+        if k==0:
+            print(-1)
+        else:
+            print(deq[-1])
