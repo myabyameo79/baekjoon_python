@@ -1,0 +1,12 @@
+import sys
+for i in range(int(sys.stdin.readline())):
+    s=sys.stdin.readline().split()
+    ans=float(s[0])
+    for i in s[1:]:
+        if i=='%':
+            ans+=5
+        elif i=='#':
+            ans-=7
+        else:
+            ans*=3
+    print('%.2f' %(ans))
