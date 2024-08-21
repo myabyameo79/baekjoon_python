@@ -1,0 +1,4 @@
+n= int(input())
+for i in range(3):
+    t = list(input())
+    print(f'{t[0]}{t[-1]}')
