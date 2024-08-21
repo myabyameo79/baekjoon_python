@@ -1,0 +1,10 @@
+k = input()
+t = []
+t = list(k)
+c = 'abcdefghijklmnopqrstuvwxyz'
+
+for i in c:
+    if i in k:
+        print(k.index(i), end =' ')
+    else:
+        print(-1, end=' ')
