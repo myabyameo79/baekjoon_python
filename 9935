@@ -1,0 +1,22 @@
+import sys
+from collections import deque
+a=sys.stdin.readline().strip()
+s=sys.stdin.readline().strip()
+l=len(s)
+deq=deque()
+li=[0]
+for i in a:
+    if i==s[li[-1]]:
+        li[-1]+=1
+    elif i==s[0]:
+        li.append(1)
+    else:li=[0]
+    deq.append(i)
+    if li[-1]==l:
+        for i in range(l):
+            deq.pop()
+        if len(li)>1:li.pop()
+        else:li[-1]=0
+deq=list(deq)
+if deq:print(''.join(deq))
+else:print('FRULA')
