@@ -1,0 +1,32 @@
+from math import asin,pi,acos
+def height(s1,s2,mitbyeon):
+    s=(s1+s2+mitbyeon)/2
+    return 2*(s*(s-s1)*(s-s2)*(s-mitbyeon))**0.5/d
+def distance(x1,y1,x2,y2):
+    return ((x2-x1)**2+(y2-y1)**2)**0.5
+def pitagoras(r,h):
+    return (r**2-h**2)**0.5
+def cosrule(r1,d,r2):
+    return acos((d**2+r2**2-r1**2)/(2*d*r2))
+def sjfqdl(a,b,c):
+    s=(a+b+c)/2
+    return (s*(s-a)*(s-b)*(s-c))**0.5
+x1,y1,r1,x2,y2,r2=map(float,input().split())
+if r1<r2:
+    x1,y1,r1,x2,y2,r2=x2,y2,r2,x1,y1,r1
+d=distance(x1,y1,x2,y2)
+if d>r1+r2:
+    print('0.000')
+elif d>=r1:
+    h=height(r1,r2,d)
+    b1=pitagoras(r1,h);b2=pitagoras(r2,h)
+    S1=(asin(h/r1)*r1**2)/2-(b1*h)/2
+    S2=(asin(h/r2)*r2**2)/2-(b2*h)/2
+    print('%.3f' %(2*(S1+S2)))
+elif r1-r2<d<r1:
+    S1=(cosrule(r1,d,r2)*r2**2)/2
+    h=height(r1,r2,d)
+    S2=(asin(h/r1)*r1**2)/2-sjfqdl(r1,r2,d)
+    print('%.3f' %((S1+S2)*2))
+elif d<=r1-r2:
+    print('%.3f'%(pi*r2**2))
