@@ -1,0 +1,10 @@
+import sys
+import decimal
+decimal.getcontext().prec=1000
+for _ in range(int(sys.stdin.readline())):
+    n=decimal.Decimal(sys.stdin.readline().strip()+'.0000000000')
+    p=decimal.Decimal('1')/decimal.Decimal('3')
+    n=decimal.Decimal(n**p)
+    n=round(n,500)
+    n=decimal.Decimal(n).quantize(decimal.Decimal('.0000000001'),rounding=decimal.ROUND_DOWN)
+    print(n)
