@@ -1,0 +1,9 @@
+import sys
+a=int(sys.stdin.readline())
+m=[0,0,0]
+M=[0,0,0]
+for i in range(a):
+    t=list(map(int,sys.stdin.readline().split()))
+    m=[t[0]+min(m[0],m[1]),t[1]+min(m[0],m[1],m[2]),t[2]+min(m[1],m[2])]
+    M = [t[0] + max(M[0], M[1]), t[1] + max(M[0], M[1], M[2]), t[2] + max(M[1], M[2])]
+print(max(M),min(m))
