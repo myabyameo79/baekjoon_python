@@ -1,0 +1,6 @@
+n=0
+for i in range(int(input())):
+    n+=1
+    print(i+1, end=' ')
+    if n==6:print('Go!', end=' ');n=0
+if n:print('Go!')
