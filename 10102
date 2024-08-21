@@ -1,0 +1,7 @@
+input()
+if (n:=input()).count('B')>n.count('A'):
+    print('B')
+elif n.count('B')==n.count('A'):
+    print('Tie')
+else:
+    print('A')
