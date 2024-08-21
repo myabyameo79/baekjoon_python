@@ -1,0 +1,13 @@
+import sys
+n=6000
+che=[True]*n
+for i in range(2,n):
+    if che[i]==True:
+        for j in range(i+i, n, i):
+            che[j]=False
+for _ in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    for i in range(n//2+1):
+        if che[n//2+i]==che[n//2-i]==True:
+            print(n//2-i, n//2+i)
+            break
