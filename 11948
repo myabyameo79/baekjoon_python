@@ -1,0 +1,10 @@
+t = []
+t.append(int(input()))
+t.append(int(input()))
+t.append(int(input()))
+t.append(int(input()))
+h = []
+h.append(int(input()))
+h.append(int(input()))
+t.remove(min(t))
+print(t[0]+t[1]+t[2]+max(h))
