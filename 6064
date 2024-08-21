@@ -1,0 +1,13 @@
+import sys
+for _ in range(int(sys.stdin.readline())):
+    a,b,c,d=map(int,sys.stdin.readline().split())
+    k=c
+    real=True
+    while k<=a*b:
+        if (k-d)%b==0:
+            print(k)
+            real=False
+            break
+        k+=a
+    if real:
+        print(-1)
