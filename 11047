@@ -1,0 +1,14 @@
+import sys
+N, K = map(int, sys.stdin.readline().split())
+t = []
+for _ in range(N):
+    t.append(int(input()))
+t.sort(reverse=True)
+a = 0
+for i in t:
+    if K >= i:
+        a = a + K //i
+        K %= i 
+        if K <= 0:
+       		break
+print(a)
