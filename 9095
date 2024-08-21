@@ -1,0 +1,11 @@
+import math
+import sys
+for _ in range(int(sys.stdin.readline())):
+    li = []
+    n=int(sys.stdin.readline())
+    for i in range(n//3+1):
+        a=n-3*i
+        for j in range(a//2+1):
+            b=a-2*j
+            li.append(math.factorial(n-2*i-j)//(math.factorial(i) * math.factorial(j) * math.factorial(n-3*i-2*j)))
+    print(sum(li))
