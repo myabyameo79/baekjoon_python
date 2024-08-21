@@ -1,0 +1,10 @@
+import sys
+for i in range(int(sys.stdin.readline())):
+    a,b=map(int,sys.stdin.readline().split())
+    while True:
+        if b%a==0:
+            print(b//a)
+            break
+        c=b//a+1
+        a=a*c-b
+        b*=c
