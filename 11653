@@ -1,0 +1,11 @@
+import sys
+x = int(input())
+li = [] ; d = 2
+while d <= x:
+    if x % d == 0:
+        li.append(d)
+        x = x // d
+    elif x % d != 0:
+        d += 1
+for i in li:
+    print(i)
