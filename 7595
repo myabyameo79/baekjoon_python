@@ -1,0 +1,4 @@
+def s(n):
+    for i in range(n):print('*'*(i+1))
+while (n:=int(input()))!=0:
+    s(n)
