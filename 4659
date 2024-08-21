@@ -1,0 +1,25 @@
+import sys
+m='aeiou'
+while True:
+    s=sys.stdin.readline().strip()
+    if s=='end':break
+    real=False
+    if 'a' in s or 'e' in s or 'i' in s or 'o' in s or 'u' in s:
+        real=True
+    j,n=0,0
+    for i in s:
+        if i in m:n+=1;j=0
+        else:j+=1;n=0
+        if j>=3 or n>=3:real=False;break
+    for i in range(len(s)-1):
+        if s[i]==s[i+1]=='e':
+            continue
+        if s[i]==s[i+1]=='o':
+            continue
+        if s[i]==s[i+1]:
+            real=False
+            break
+    if real:
+        print(f'<{s}> is acceptable.')
+    else:
+        print(f'<{s}> is not acceptable.')
