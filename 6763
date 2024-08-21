@@ -1,0 +1,11 @@
+a=int(input())
+b=int(input())
+if a>=b:
+    print('Congratulations, you are within the speed limit!')
+else:
+    if 1<=b-a<=20:
+        print(f'You are speeding and your fine is ${100}.')
+    elif b-a<=30:
+        print(f'You are speeding and your fine is ${270}.')
+    else:
+        print(f'You are speeding and your fine is ${500}.')
