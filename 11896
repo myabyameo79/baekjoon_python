@@ -1,0 +1,5 @@
+a,b=map(int,input().split())
+if a<=2 and b>=2:a=3
+a-=1
+a//=2;b//=2
+print(b*(b+1)-a*(a+1))
