@@ -1,0 +1,6 @@
+while 1:
+    try:
+        m, n = map(int, input().split())
+        print(m + n)
+    except:
+        break
