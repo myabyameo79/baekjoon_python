@@ -1,0 +1,15 @@
+import sys
+def power(a,b):
+    if b<0:return 0
+    if b==0:return 1
+    if b==1:return a%p
+    t=power(a,b//2)
+    if b%2==0:return (t*t)%p
+    else:return (t*t*a)%p
+p=10**9+7
+ans=0
+for i in range(int(sys.stdin.readline())):
+    a,b=map(int,sys.stdin.readline().split())
+    ans+=a*b*power(2,b-1)%p
+    ans%=p
+print(ans)
