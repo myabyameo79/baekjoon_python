@@ -1,0 +1,13 @@
+a, b = input().split()
+a = int(a)
+b = int(b)
+c = a // 100
+d = (a // 10) - c*10
+e = a - c*100 - d*10
+x = 100*e + 10*d + c
+f = b // 100
+g = (b // 10) - f*10
+h = b - f*100 - g*10
+y = 100*h + 10*g + f
+list = [x, y]
+print(max(list))
