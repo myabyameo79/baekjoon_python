@@ -1,0 +1,8 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+li=[x+1 for x in range(a)]
+for _ in range(b):
+    a,b=map(int,sys.stdin.readline().split())
+    t=li[a-1:b][::-1]
+    li[a-1:b]=t
+print(*li)
