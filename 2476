@@ -1,0 +1,14 @@
+ans=0
+for i in range(int(input())):
+    li=list(map(int,input().split()))
+    se=set(li)
+    if len(se)==3:
+        ans=max(ans,max(se)*100)
+    elif len(se)==2:
+        for i in list(se):
+            if li.count(i)==2:
+                ans=max(ans,1000+i*100)
+                break
+    else:
+        ans=max(ans,max(se)*1000+10000)
+print(ans)
