@@ -1,0 +1,12 @@
+n = int(input())
+k = []
+k.append(input().split())
+kn = []
+k = list(map(int, k[0]))
+p = int(max(k))
+for i in range(n):
+  kn.append(int(k[i])/p*100)
+
+s = sum(kn)
+a = s/len(kn)
+print(a)
