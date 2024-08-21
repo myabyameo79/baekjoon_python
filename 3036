@@ -1,0 +1,12 @@
+def gcd(a,b):
+    if a%b!=0:return gcd(b,a%b)
+    else:return b
+n=int(input())
+li=list(map(int,input().split()))
+for i in range(1,n):
+    if li[0]>=li[i]:
+        g=gcd(li[0],li[i])
+        print(f'{li[0]//g}/{li[i]//g}')
+    else:
+        g=gcd(li[i],li[0])
+        print(f'{li[0]//g}/{li[i]//g}')
