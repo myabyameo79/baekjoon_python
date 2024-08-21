@@ -1,0 +1,18 @@
+import sys
+
+n = int(sys.stdin.readline()) 
+for i in range(n):
+    m = int(sys.stdin.readline()) 
+    clothes = {}
+    for j in range(m):
+        c_n, c_t = sys.stdin.readline().split() 
+
+        if c_t in clothes.keys():
+            clothes[c_t] += 1
+        else:
+            clothes[c_t] = 1
+    
+    ans = 1
+    for i in clothes:
+        ans *= (clothes[i]+1)
+    print(ans-1) 
