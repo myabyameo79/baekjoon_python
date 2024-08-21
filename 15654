@@ -1,0 +1,5 @@
+from itertools import permutations
+n,m = map(int, input().split())
+t = list(map(int, input().split()))
+for i in sorted(permutations(t, m)):
+    print(*i)
