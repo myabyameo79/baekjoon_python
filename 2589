@@ -1,0 +1,33 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+li=[0]*a
+deq=deque()
+for i in range(a):
+    li[i]=list(sys.stdin.readline())
+    for j in range(b):
+        if li[i][j]=='L':
+            li[i][j]=0
+            deq.append((i,j))
+        elif li[i][j]=='W':
+            li[i][j]=-1
+dx=[1,-1,0,0]
+dy=[0,0,1,-1]
+ans=0
+for i in deq:
+    dq=deque()
+    dq.append(list(i)+[0])
+    map_island=[[li[y][x] for x in range(b)] for y in range(a)]
+    map_island[i[0]][i[1]]='0'
+    while dq:
+        c,k,m=dq.popleft()
+        for l in range(4):
+            x=c+dx[l]
+            y=k+dy[l]
+            if 0<=x<a and 0<=y<b and map_island[x][y]==0:
+                map_island[x][y]=m+1
+                dq.append([x,y,m+1])
+    map_island[i[0]][i[1]]=0
+    for k in map_island:
+        ans=max(ans,max(k))
+print(ans)
