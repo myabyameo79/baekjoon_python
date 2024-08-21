@@ -1,0 +1,11 @@
+for i in range(int(input())):
+    a,b=map(int,input().split())
+    li=[0]*b
+    for j in range(b):
+        li[j]=eval(input().replace(' ','*'))
+    li.sort(reverse=True)
+    for j in range(b):
+        a-=li[j]
+        if a<=0:
+            print(j+1)
+            break
