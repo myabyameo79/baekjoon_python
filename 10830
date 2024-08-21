@@ -1,0 +1,25 @@
+a, b = map(int, input().split())
+t = [list(map(int, input().split())) for _ in range(a)]
+
+def hangrealnanugy(a, b):
+    x = len(a)
+    result = [[0]*x for _ in range(x)]
+    for i in range(x):
+        for j in range(x):
+            for k in range(x):
+                result[i][j] += a[i][k] * b[k][j]
+                result[i][j] %= 1000
+    return result
+def hangrealguphagy(a, b):
+    x = len(a)
+    result = [[1 if i == j else 0 for j in range(x)] for i in range(x)]
+    while b > 0:
+        if b % 2 == 1:
+            result = hangrealnanugy(result, a)
+        a = hangrealnanugy(a, a)
+        b = b//2
+    return result
+
+hehe = hangrealguphagy(t, b)
+for i in hehe:
+    print(*i)
