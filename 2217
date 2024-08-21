@@ -1,0 +1,12 @@
+import sys
+n=int(sys.stdin.readline())
+li=[0]*n
+for _ in range(n):
+    li[_]=int(sys.stdin.readline())
+li.sort()
+ans=0
+t=[]
+for i in li:
+    t.append(i*n)
+    n-=1
+print(max(t))
