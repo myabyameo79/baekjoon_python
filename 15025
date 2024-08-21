@@ -1,0 +1,6 @@
+a,b=sorted(map(int,input().split()))
+if a==b==0:
+    print('Not a moose')
+elif a!=b:
+    print('Odd',b*2)
+elif a==b:print('Even',b+a)
