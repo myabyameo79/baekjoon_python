@@ -1,0 +1,12 @@
+n = int(input())
+for _ in range(n):
+    t= list(input())
+    s = 0  
+    sum_score = 0 
+    for ox in t:
+        if ox == 'O':
+            s += 1
+            sum_score += s 
+        else:
+            s= 0
+    print(sum_score)
