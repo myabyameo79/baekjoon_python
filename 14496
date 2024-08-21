@@ -1,0 +1,25 @@
+from collections import deque
+a,b=map(int,input().split())
+c,d=map(int,input().split())
+dic={x+1:[] for x in range(c)}
+for i in range(d):
+    m,n=map(int,input().split())
+    dic[m].append(n)
+    dic[n].append(m)
+check=[True]*(c+1)
+check[a]=False
+deq=deque()
+deq.append((a,0))
+real=True
+while deq:
+    c,k=deq.popleft()
+    if c==b:
+        print(k)
+        real=False
+        break
+    for i in dic[c]:
+        if check[i]:
+            check[i]=False
+            deq.append((i,k+1))
+if real:
+    print(-1)
