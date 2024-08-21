@@ -1,0 +1,13 @@
+import sys
+from itertools import permutations
+f=lambda a,b:(b[0]-a[0])**2+(b[1]-a[1])**2
+for i in range(int(sys.stdin.readline())):
+    li=[list(map(int,sys.stdin.readline().split())) for _ in range(4)]
+    real=False
+    for j in permutations(li,4):
+        t=[f(j[0],j[1]),f(j[1],j[2]),f(j[2],j[3]),f(j[3],j[0])]
+        if len(set(t))==1 and f(j[0],j[2])==t[0]+t[1]:
+            real=True
+            break
+    if real:print(1)
+    else:print(0)
