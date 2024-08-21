@@ -1,0 +1,19 @@
+import sys
+n=int(sys.stdin.readline())
+k=int(sys.stdin.readline())
+nn=n+1
+che=[True]*nn
+che[1]=False
+for i in range(2, nn):
+    if che[i]:
+        for j in range(i+i, nn, i):
+            che[j]=False
+num=n
+ans=[True]*(n+1)
+for i in range(k+1,nn):
+    if che[i]:
+        for j in range(i, n+1, i):
+            if ans[j]:
+                num-=1
+                ans[j]=False
+print(num)
