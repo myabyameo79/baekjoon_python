@@ -1,0 +1,11 @@
+a, b, c, d = map(int, input().split())
+A, B, C, D = map(int, input().split())
+
+k = a+b+c+d 
+t = A + B + C + D
+if k>t:
+    print(k)
+elif k<t:
+    print(t)
+elif k == t:
+    print(k)
