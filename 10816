@@ -1,0 +1,28 @@
+import sys
+from collections import deque
+a=int(sys.stdin.readline())
+li = sorted(list(map(int,sys.stdin.readline().split())))
+b=int(sys.stdin.readline())
+t = list(map(int, sys.stdin.readline().split()))
+deq = deque()
+li.append(max(t)+1)
+li.insert(0, min(t)-1)
+for i in t:
+    low=0
+    high=a+1
+    while low<=high:
+        mid=(low+high)//2
+        if i-1<li[mid]:
+            high=mid-1
+        elif i-1>=li[mid]:
+            low=mid+1
+    low2=0
+    high2=a+1
+    while low2<=high2:
+        mid2=(low2+high2)//2
+        if i+1<=li[mid2]:
+            high2=mid2-1
+        elif i+1>li[mid2]:
+            low2=mid2+1
+    deq.append(high2-high)
+print(*deq)
