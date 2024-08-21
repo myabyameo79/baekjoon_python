@@ -1,0 +1,12 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+li=list(map(int,sys.stdin.readline().split()))
+ans=-200
+i=0;j=b
+s=sum(li[i:j])
+t=s
+while j<a:
+    t=t-li[i]+li[j]
+    i+=1;j+=1
+    s=max(s,t)
+print(s)
