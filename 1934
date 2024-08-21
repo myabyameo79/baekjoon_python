@@ -1,0 +1,12 @@
+import sys
+def choisogongbaesu(a,b):
+    b%=a
+    if b==0:
+        b=a
+        return b
+    return choisogongbaesu(b,a)
+for _ in range(int(sys.stdin.readline())):
+    li=list(map(int,sys.stdin.readline().split()))
+    a=min(li)
+    b=max(li)
+    print((a*b)//choisogongbaesu(a,b))
