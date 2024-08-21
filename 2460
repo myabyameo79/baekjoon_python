@@ -1,0 +1,10 @@
+a,b=map(int,input().split())
+m=b
+num=b
+for i in range(9):
+    a,b=map(int,input().split())
+    num-=a
+    m=max(m,num)
+    num+=b
+    m=max(m,num)
+print(m)
