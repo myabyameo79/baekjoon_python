@@ -1,0 +1,9 @@
+s='9780921418'
+ans=0
+for i in range(len(s)):
+    if i%2:ans+=int(s[i])*3
+    else:ans+=int(s[i])
+ans+=int(input())
+ans+=int(input())*3
+ans+=int(input())
+print(f'The 1-3-sum is {ans}')
