@@ -1,0 +1,7 @@
+a,b=map(int,input().split())
+li=[2**x for x in range(50)]
+li.insert(0,1)
+k=0
+for i in range(1,51):
+    k+=(b//li[i]-(a-1)//li[i])*li[i-1]
+print(k)
