@@ -1,0 +1,20 @@
+import sys
+ip=sys.stdin.readline
+a=int(ip())
+li=sorted(list(map(int,ip().split())))
+b=int(ip())
+t=list(map(int,ip().split()))
+ans=[0]*b
+for i in range(b):
+    low=0
+    high=a-1
+    while low<=high:
+        mid=(low+high)//2
+        if li[mid]==t[i]:
+            ans[i]=1
+            break
+        if li[mid]<t[i]:
+            low=mid+1
+        else:
+            high=mid-1
+print(*ans)
