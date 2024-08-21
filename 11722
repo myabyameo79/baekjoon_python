@@ -1,0 +1,8 @@
+n=int(input())
+li=list(map(int,input().split()))
+t=[1]*(n+1)
+for i in range(n):
+    for j in range(i):
+        if li[j]>li[i]:
+            t[i+1]=max(t[j+1]+1, t[i+1])
+print(max(t))
