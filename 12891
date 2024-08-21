@@ -1,0 +1,19 @@
+import sys
+m,n=map(int,sys.stdin.readline().split())
+s=sys.stdin.readline().strip()
+a,b,c,d=map(int,sys.stdin.readline().split())
+dic={'A':0,'C':0,'G':0,'T':0}
+for i in range(n):
+    dic[s[i]]+=1
+t=0
+if dic['A']>=a and dic['C']>=b and dic['G']>=c and dic['T']>=d:
+    t+=1
+i=0;j=n
+while j<m:
+    dic[s[i]]-=1
+    dic[s[j]]+=1
+    i+=1
+    j+=1
+    if dic['A']>=a and dic['C']>=b and dic['G']>=c and dic['T']>=d:
+        t+=1
+print(t)
