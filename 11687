@@ -1,0 +1,23 @@
+import sys
+n=int(sys.stdin.readline())
+low=1
+high=n*5
+res=100000000
+while low<=high:
+    mid=(low+high)//2
+    t=0
+    i=1
+    while 5**i<=mid:
+        t+=mid//(5**i)
+        i+=1
+    if t<n:
+        low=mid+1
+    elif t>n:
+        high=mid-1
+    else:
+        res=mid
+        high=mid-1
+if res==100000000:
+    print(-1)
+else:
+    print(res)
