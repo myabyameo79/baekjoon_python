@@ -1,0 +1,17 @@
+a, b = map(int, input().split())
+t1 = [] 
+t2 = []
+for i in range(a):
+  t1.append(input())
+for i in range(b):
+  t2.append(input())
+
+t1 = set(t1)
+t2 = set(t2)
+
+a = t1&t2 
+a = list(a) 
+a.sort()
+print(len(a))
+
+print(*a, sep = "\n")
