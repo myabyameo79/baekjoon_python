@@ -1,0 +1,12 @@
+import sys
+li=[[]]*15
+li[0]=[x+1 for x in range(14)]
+for i in range(1,15):
+    t=[]
+    for j in range(14):
+        t.append(sum(li[i-1][:j+1]))
+    li[i]=t
+for _ in range(int(sys.stdin.readline())):
+    k=int(sys.stdin.readline())
+    n=int(sys.stdin.readline())
+    print(li[k][n-1])
