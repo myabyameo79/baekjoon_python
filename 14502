@@ -1,0 +1,42 @@
+import sys
+from itertools import combinations
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+li=[0]*a
+clean=deque()
+deq2=deque()
+for i in range(a):
+    li[i]=list(map(int,sys.stdin.readline().split()))
+    for j in range(b):
+        if li[i][j]==0:
+            clean.append([i,j])
+        elif li[i][j]==2:
+            deq2.append([i,j])
+dx=[1,-1,0,0]
+dy=[0,0,1,-1]
+ans=0
+ans2=[]
+for l,m,n in combinations(clean,3):
+    test=[[y for y in x] for x in li]
+    test[l[0]][l[1]]=1
+    test[m[0]][m[1]]=1
+    test[n[0]][n[1]]=1
+    deq=list(deq2)
+    deq=deque(deq)
+    while deq:
+        x,y=deq.popleft()
+        for i in range(4):
+            ix=x+dx[i]
+            iy=y+dy[i]
+            if 0<=ix<a and 0<=iy<b and test[ix][iy]==0:
+                test[ix][iy]=2
+                deq.append([ix,iy])
+    um=0
+    for i in test:
+        for j in i:
+            if j==0:
+                um+=1
+    if um>ans:
+        ans2=test
+    ans=max(ans,um)
+print(ans)
