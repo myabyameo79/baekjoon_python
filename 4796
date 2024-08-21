@@ -1,0 +1,11 @@
+import sys
+n=0
+while True:
+    n+=1
+    a,b,c=map(int,sys.stdin.readline().split())
+    if a==0:
+        break
+    t=0
+    t+=(c//b)*a
+    t+=min(a, c%b)
+    print(f'Case {n}: {t}')
