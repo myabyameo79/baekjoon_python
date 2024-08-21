@@ -1,0 +1,9 @@
+for i in range(int(input())):
+    s=input()
+    ans=s[0]
+    k=s[0]
+    for i in s[1:]:
+        if i!=k:
+            ans+=i
+            k=i
+    print(ans)
