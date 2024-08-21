@@ -1,0 +1,18 @@
+from itertools import permutations
+li=[0,1,2,3,4,5,6,7,8,9]
+n=int(input())
+real=True
+for d,e,h,l,o,r,w in permutations(li,7):
+    if h==0 or w==0:
+        continue
+    one=h*10000+e*1000+l*100+l*10+o
+    two=w*10000+o*1000+r*100+l*10+d
+    if one+two==n:
+        real=False
+        if len(str(n))==5:
+            print(f'  {one}\n+ {two}\n-------\n  {n}')
+        elif len(str(n))==6:
+            print(f'  {one}\n+ {two}\n-------\n {n}')
+        break
+if real:
+    print('No Answer')
