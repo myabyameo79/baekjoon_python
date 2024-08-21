@@ -1,0 +1,17 @@
+import sys
+a,b,c=map(int,sys.stdin.readline().split())
+n=1
+while True:
+    na=n%15
+    if na==0:
+        na=15
+    nb=n%28
+    if nb==0:
+        nb=28
+    nc=n%19
+    if nc==0:
+        nc=19
+    if na==a and nb==b and nc==c:
+        print(n)
+        break
+    n+=1
