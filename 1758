@@ -1,0 +1,9 @@
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=int(input())
+li.sort(reverse=True)
+ans=0
+for i in range(n):
+    ans+=li[i]-i if li[i]-i>=0 else 0
+print(ans)
