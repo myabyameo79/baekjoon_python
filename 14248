@@ -1,0 +1,17 @@
+from collections import deque
+a=int(input())
+li=list(map(int,input().split()))
+b=int(input())-1
+deq=deque()
+check=[True]*a
+check[b]=False
+deq.append(b)
+while deq:
+    c=deq.popleft()
+    if 0<=c+li[c]<a and check[c+li[c]]:
+        check[c+li[c]]=False
+        deq.append(c+li[c])
+    if 0<=c-li[c]<a and check[c-li[c]]:
+        check[c-li[c]]=False
+        deq.append(c-li[c])
+print(check.count(False))
