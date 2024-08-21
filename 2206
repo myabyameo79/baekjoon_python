@@ -1,0 +1,30 @@
+import sys
+from collections import deque
+input=sys.stdin.readline
+a,b=map(int,input().split())
+li=[0]*a
+for i in range(a):
+    li[i]=list(map(int,input().strip()))
+check=[[[0,0] for _ in range(b)] for _ in range(a)]
+check[0][0][0]=1
+def bfs(q,w,e):
+    deq=deque()
+    deq.append((q,w,e))
+    dx=[1,-1,0,0]
+    dy=[0,0,1,-1]
+    while deq:
+        c,k,r=deq.popleft()
+        if c==a-1 and k==b-1:
+            return check[c][k][r]
+        for i in range(4):
+            x=c+dx[i]
+            y=k+dy[i]
+            if 0<=x<a and 0<=y<b:
+                if li[x][y]==1 and r==0:
+                    check[x][y][1]=check[c][k][0]+1
+                    deq.append((x,y,1))
+                elif li[x][y]==0 and check[x][y][r]==0:
+                    check[x][y][r]=check[c][k][r]+1
+                    deq.append((x,y,r))
+    return -1
+print(bfs(0,0,0))
