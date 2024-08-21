@@ -1,0 +1,12 @@
+import sys
+n=int(sys.stdin.readline())
+s=list(map(int,sys.stdin.readline().split()))
+a,b=map(int,sys.stdin.readline().split())
+ans=n
+s=list(map(lambda x:x-a, s))
+for i in s:
+    if i<=0:continue
+    ans+=i//b
+    if i%b!=0:
+        ans+=1
+print(ans)
