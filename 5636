@@ -1,0 +1,15 @@
+import sys
+n=10**5+1
+che=[True]*n
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+while (n:=sys.stdin.readline().strip())!='0':
+    ans=[]
+    real=True
+    for i in range(5,0,-1):
+        for j in range(len(n)-i):
+            if che[int(n[j:j+i])]:
+                ans.append(int(n[j:j+i]))
+    print(max(ans))
