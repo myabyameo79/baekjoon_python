@@ -1,0 +1,7 @@
+ans=0
+a,b=map(int,input().split())
+while b-a>=0:
+    ans+=1
+    b-=a
+    a*=2
+print(ans)
