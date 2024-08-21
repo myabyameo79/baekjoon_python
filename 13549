@@ -1,0 +1,22 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+M=10**5
+visit=[0]*(M+1)
+visit[a]=0
+deq=deque()
+deq.append(a)
+while deq:
+    c=deq.popleft()
+    if c==b:
+        print(visit[c])
+        break
+    if 0<=c-1<=M and visit[c-1]==0:
+        visit[c-1]=visit[c]+1
+        deq.append(c-1)
+    if 0<c*2<=M and visit[c*2]==0:
+        visit[c*2]=visit[c]
+        deq.append(c*2)
+    if 0<=c+1<=M and visit[c+1]==0 and c+1!=c*2:
+        visit[c+1]=visit[c]+1
+        deq.append(c+1)
