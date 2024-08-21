@@ -1,0 +1,7 @@
+s=input()
+l=len(s)
+se=set()
+for i in range(l):
+    for j in range(l-i):
+        se.add(s[j:j+i+1])
+print(len(se))
