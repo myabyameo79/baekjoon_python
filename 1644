@@ -1,0 +1,21 @@
+import sys
+n=4000001
+che=[True]*n
+li=[]
+for i in range(2,n):
+    if che[i]:
+        li.append(i)
+        for j in range(i+i,n,i):
+            che[j]=False
+n=int(sys.stdin.readline())
+i=0;j=0
+s=li[0]
+t=0
+while True:
+    if s==n:t+=1
+    if s>=n:s-=li[i];i+=1
+    else:
+        j+=1
+        if j==283146:break
+        s+=li[j]
+print(t)
