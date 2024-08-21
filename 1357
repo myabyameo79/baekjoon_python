@@ -1,0 +1,4 @@
+zz, yy = input().split()
+zz = int(zz[::-1]) 
+yy = int(yy[::-1]) 
+print(int(str(zz+yy)[::-1])) 
