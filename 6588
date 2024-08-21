@@ -1,0 +1,19 @@
+import sys
+n=1000000
+che=[True]*n
+for i in range(2,n):
+    if che[i]==True:
+        for j in range(i+i, n, i):
+            che[j]=False
+while True:
+    n=int(sys.stdin.readline())
+    if n==0:
+        break
+    real=True
+    for i in range(3,n//2+1):
+        if che[i]==che[n-i]==True:
+            print(f'{n} = {i} + {n-i}')
+            real=False
+            break
+    if real:
+        print("Goldbach's conjecture is wrong.")
