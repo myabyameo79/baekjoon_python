@@ -1,0 +1,15 @@
+import sys
+input=sys.stdin.readline
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=list(map(int,input().split()))
+li.sort(key=lambda x:x[0])
+li.sort(key=lambda x:x[1])
+b=0
+n=0
+for i,j in li:
+    if i>=b:
+        n+=1
+        b=j
+print(n)
