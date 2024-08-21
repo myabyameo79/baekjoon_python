@@ -1,0 +1,21 @@
+l = int(input())
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+if a%c == 0:
+  k = a//c
+else:
+  k = a//c+1
+
+if b%d == 0:
+    t = b//d
+else:
+  t = b//d+1
+
+if k>t:
+  print(l-k)
+elif t>k:
+  print(l-t)
+elif t == k:
+  print(l-t)
