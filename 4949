@@ -1,0 +1,24 @@
+while True :
+    n = input()
+    t = []
+    if n == "." :
+        break
+    for i in n :
+        if i == '[' or i == '(' :
+            t.append(i)
+        elif i == "]" :
+            if len(t) != 0 and t[-1] == '[' :
+                t.pop() 
+            else : 
+                t.append(']')
+                break
+        elif i == ")" :
+            if len(t) != 0 and t[-1] == '(' :
+                t.pop()
+            else :
+                t.append(')')
+                break
+    if len(t) == 0 :
+        print('yes')
+    else :
+        print('no')
