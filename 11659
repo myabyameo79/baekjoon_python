@@ -1,0 +1,11 @@
+import sys
+a, b = map(int, sys.stdin.readline().split())
+li = list(map(int, sys.stdin.readline().split()))
+bubunhab = 0
+hab_li = [0]
+for i in li:
+    bubunhab+=i
+    hab_li.append(bubunhab)
+for i in range(b):
+    a,b=map(int,sys.stdin.readline().split())
+    print(hab_li[b]-hab_li[a-1])
