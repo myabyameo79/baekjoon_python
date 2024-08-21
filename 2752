@@ -1,0 +1,11 @@
+a, b, c = map(int, input().split())
+t = []
+t.append(a)
+t.append(b)
+t.append(c)
+print(min(t), end = " ")
+t.remove(min(t))
+k = max(t)
+t.remove(max(t))
+print(t[0], end = " ")
+print(k)
