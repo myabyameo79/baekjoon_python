@@ -1,0 +1,8 @@
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    li=[0]*b
+    for i in range(b):li[i]=int(input())
+    li.sort()
+    long=max(a-li[0],li[-1])
+    short=max(min(i,a-i) for i in li)
+    print(short,long)
