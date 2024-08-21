@@ -1,0 +1,16 @@
+import sys
+ans=0
+for i in range(n:=int(sys.stdin.readline())):
+    real=True
+    s=sys.stdin.readline().strip()
+    li=[]
+    for i in s:
+        li.append(i)
+        if len(li)<=1:
+            continue
+        if li[-1]==li[-2]:
+            del li[-1]
+            del li[-1]
+    if len(li):
+        n-=1
+print(n)
