@@ -1,0 +1,11 @@
+while True:
+    a,b=map(int,input().split())
+    if a==b==0:
+        break
+    s=set()
+    u=set()
+    for i in range(a):
+        s.add(int(input()))
+    for j in range(b):
+        u.add(int(input()))
+    print(len(s&u))
