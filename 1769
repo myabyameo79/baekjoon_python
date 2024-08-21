@@ -1,0 +1,11 @@
+t = list(map(int, list(input())))
+s = 0
+while len(t) != 1:
+  t = list(str(sum(t)))
+  t = list(map(int, t))
+  s += 1
+print(s)
+if t[0]%3 == 0:
+  print("YES")
+else:
+  print("NO")
