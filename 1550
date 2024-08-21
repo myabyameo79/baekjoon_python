@@ -1,0 +1,3 @@
+k = input()
+n = int(k, 16)
+print(n)
