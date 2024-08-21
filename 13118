@@ -1,0 +1,9 @@
+dic=dict()
+a,b,c,d=map(int,input().split())
+x,y,r=map(int,input().split())
+dic[1]=a;dic[2]=b;dic[3]=c;dic[4]=d;dic[0]=x
+real=True
+for i in range(4,-1,-1):
+    if dic[i]==x:
+        print(i)
+        break
