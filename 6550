@@ -1,0 +1,12 @@
+while True:
+    try:
+        a,b=input().split()
+        a=list(a)[::-1]
+        for i in b:
+            if i==a[-1]:
+                a.pop()
+            if len(a)==0:break
+        if a:print('No')
+        else:print('Yes')
+    except:
+        break
