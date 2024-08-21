@@ -1,0 +1,13 @@
+import sys
+while True:
+    n=int(sys.stdin.readline())
+    if n==0:
+        break
+    li = []
+    t = [0 for _ in range(n)]
+    for _ in range(n):
+        li.append(int(sys.stdin.readline()))
+    t[0] = li[0]
+    for i in range(1,n):
+        t[i] = max(t[i-1]+li[i], li[i])
+    print(max(t))
