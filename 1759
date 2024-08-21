@@ -1,0 +1,13 @@
+import sys
+import itertools
+a,b=map(int,sys.stdin.readline().split())
+li=sys.stdin.readline().split()
+li.sort()
+for i in itertools.combinations(li,a):
+    t=0
+    if 'a' in i:t+=1
+    if 'e' in i:t+=1
+    if 'o' in i:t+=1
+    if 'i' in i:t+=1
+    if 'u' in i:t+=1
+    if t>=1 and len(i)-t>=2:print(''.join(i))
