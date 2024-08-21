@@ -1,0 +1,8 @@
+a=int(input())
+li=[0]*a
+for i in range(a):
+    li[i]=list(map(int,input().split()))
+li.sort(key=lambda x:x[0])
+li.sort(key=lambda x:x[1])
+for i in li:
+    print(*i)
