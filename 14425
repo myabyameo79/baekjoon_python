@@ -1,0 +1,10 @@
+import sys
+a,b=map(int,input().split())
+se=set()
+for i in range(a):
+    se.add(sys.stdin.readline().strip())
+t=0
+for j in range(b):
+    if sys.stdin.readline().strip() in se:
+        t+=1
+print(t)
