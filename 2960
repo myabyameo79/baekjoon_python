@@ -1,0 +1,17 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+che=[True]*(a+1)
+n=0
+for i in range(2,a+1):
+    if che[i]:
+        n+=1
+        if n==b:
+            print(i)
+            break
+        for j in range(i+i, a+1,i):
+            if che[j]:
+                che[j]=False
+                n+=1
+            if n==b:
+                print(j)
+                break
