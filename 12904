@@ -1,0 +1,13 @@
+a=input()
+b=input()
+real=True
+while b:
+    if b==a:
+        real=False
+        break
+    if b[-1]=='A':
+        b=b[:-1]
+    elif b[-1]=='B':
+        b=b[:-1][::-1]
+    else:break
+print(0 if real else 1)
