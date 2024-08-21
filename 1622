@@ -1,0 +1,12 @@
+while True:
+    try:
+        a=sorted(input())
+        b=sorted(input())
+        li=[]
+        for i in a:
+            if i in b:
+                li.append(i)
+                b.remove(i)
+        print(''.join(li))
+    except:
+        break
