@@ -1,0 +1,37 @@
+import sys
+def dollyeo(a,i,j):
+    a.append(0)
+    t2=a[i:j+1]
+    a= a[:i]+t2[::-1]+a[j+1:]
+    a.pop()
+    return a
+a=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+t=li
+li2=[x+1 for x in range(a)]
+res=[[1,1]]*4
+for _ in range(2):
+    for i in range(a):
+        if t[i]!=i+1:
+            for j in range(a):
+                if t[j]==i+1:
+                    res[_]=([i+1,j+1])
+                    t=dollyeo(t,i,j)
+                    break
+            break
+
+for _ in range(2):
+    for i in range(a-1,-1,-1):
+        if li[i]!=i+1:
+            for j in range(a-1,-1,-1):
+                if li[j]==i+1:
+                    res[_+2]=([j+1,i+1])
+                    li=dollyeo(li,j,i)
+                    break
+            break
+if li[:-1]==li2:
+    for i in range(2,4):
+        print(*res[i])
+elif t==li2:
+    for i in range(2):
+        print(*res[i])
