@@ -1,0 +1,12 @@
+n=int(input())
+low=0;high=2**32
+while low<=high:
+    mid=(low+high)//2
+    if mid**2<n:
+        low=mid+1
+    elif mid**2>n:
+        high=mid-1
+    else:
+        low=mid
+        break
+print(low)
