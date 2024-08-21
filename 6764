@@ -1,0 +1,9 @@
+li=[int(input()) for _ in range(4)]
+if len(set(li))==1:
+    print('Fish At Constant Depth')
+elif len(set(li))==4 and li==sorted(li):
+    print('Fish Rising')
+elif len(set(li))==4 and li==sorted(li,reverse=True):
+    print('Fish Diving')
+else:
+    print('No Fish')
