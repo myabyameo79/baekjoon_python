@@ -1,0 +1,12 @@
+n = int(input())
+t = []
+while True:
+  if n== 0:
+    break
+  else:
+    a, b = map(int, input().split())
+    t.append(a+b)
+    n-=1
+
+for i in range(len(t)):
+  print(f"Case #{i+1}: {t[i]}")
