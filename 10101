@@ -1,0 +1,11 @@
+li=[int(input()) for _ in range(3)]
+if sum(li)==180:
+    li=set(li)
+    if len(li)==1:
+        print('Equilateral')
+    elif len(li)==2:
+        print('Isosceles')
+    elif len(li)==3:
+        print('Scalene')
+else:
+    print('Error')
