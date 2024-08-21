@@ -1,0 +1,13 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+ans=[1]*n
+for i in range(1,n):
+    for j in range(i):
+        if li[i]>li[j]:
+            ans[i]=max(ans[i], ans[j]+1)
+for i in range(n):
+    for j in range(i):
+        if li[j]>li[i]:
+            ans[i]=max(ans[i],ans[j]+1)
+print(max(ans))
