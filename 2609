@@ -1,0 +1,28 @@
+def gcd_euclidean(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return a * b // gcd_euclidean(a, b)
+
+def main():
+    try:
+        n, m = map(int, input().split())
+        
+        if n <= 0 or m <= 0:
+            raise ValueError()
+        
+        gcd_result = gcd_euclidean(n, m)
+        lcm_result = lcm(n, m)
+        
+        print(gcd_result)
+        print(lcm_result)
+        
+    except ValueError as ve:
+        print(f"에러: {ve}")
+    except Exception as e:
+        print(f"에러 발생: {e}")
+
+if __name__ == "__main__":
+    main()
