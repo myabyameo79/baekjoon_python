@@ -1,0 +1,6 @@
+import sys
+pad=[1,1,1]
+for i in range(4,101):
+    pad.append(pad[i-3]+pad[i-4])
+for i in range(int(sys.stdin.readline())):
+    print(pad[int(sys.stdin.readline())-1])
