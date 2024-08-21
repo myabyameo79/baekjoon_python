@@ -1,0 +1,7 @@
+for i in range(int(input())):
+    a,b,c=map(int,input().split())
+    ans=0
+    for j in range(a):
+        x,y=map(int,input().split())
+        if x<=c*b:ans+=y
+    print(f'Data Set {i+1}:\n{ans}\n')
