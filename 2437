@@ -1,0 +1,12 @@
+n=int(input())
+li=sorted(list(map(int,input().split())))
+s=0
+real=True
+for i in range(n):
+    if li[i]>s+1:
+        print(s+1)
+        real=False
+        break
+    s+=li[i]
+if real:
+    print(s+1)
