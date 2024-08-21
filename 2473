@@ -1,0 +1,19 @@
+n=int(input())
+li=sorted(list(map(int,input().split())))
+ans=float('inf')
+t=[]
+for i in range(n-2):
+    low=i+1
+    high=n-1
+    while low<high:
+        mid=li[i]+li[low]+li[high]
+        if abs(mid)<ans:
+            t=[i,low,high]
+            ans=abs(mid)
+        if mid<0:
+            low+=1
+        elif mid>0:
+            high-=1
+        else:
+            break
+print(li[t[0]],li[t[1]],li[t[2]])
