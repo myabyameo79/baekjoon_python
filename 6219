@@ -1,0 +1,13 @@
+n=4000001
+che=[True]*n
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+a,b,c=map(int,input().split())
+c=str(c)
+n=0
+for i in range(a,b+1):
+    if c in str(i) and che[i]:
+        n+=1
+print(n)
