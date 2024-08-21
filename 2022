@@ -1,0 +1,10 @@
+x,y,c=map(float,input().split())
+high=min(x,y)
+low=0
+for i in range(1000):
+    mid=(high+low)/2
+    a=(x**2-mid**2)**0.5;b=(y**2-mid**2)**0.5
+    umm=(a*b)/(a+b)
+    if umm<c:high=mid
+    else:low=mid
+print('%.3f'%(mid))
