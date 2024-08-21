@@ -1,0 +1,5 @@
+li=[0]*3
+for _ in range(3):
+    li[_]=int(input())
+li.sort()
+print(li[1])
