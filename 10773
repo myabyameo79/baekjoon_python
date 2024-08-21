@@ -1,0 +1,14 @@
+a = input()
+a = int(a)
+list = []
+while a != 0:
+    b = input()
+    b = int(b)
+    if b != 0:
+        list.append(b)
+    elif b == 0:
+        del list[-1]
+    a -= 1
+
+
+print(sum(list))
