@@ -1,0 +1,6 @@
+X = int(input())
+Y = int(input())
+
+for i in range(X, Y + 1):
+    if (i - X) % 4 == 0 and (i - X) % 2 == 0 and (i - X) % 3 == 0 and (i - X) % 5 == 0:
+        print("All positions change in year", i)
