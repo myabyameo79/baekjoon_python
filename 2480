@@ -1,0 +1,13 @@
+import sys
+li = list(map(int, sys.stdin.readline().split()))
+se=set(li)
+k=3-len(se)
+if k == 2:
+    print(li[0]*1000+10000)
+if k == 0:
+    print(max(li)*100)
+if k == 1:
+    if li[0]==li[1] or li[0]==li[2]:
+        print(li[0]*100+1000)
+    elif li[1]==li[2]:
+        print(li[1]*100+1000)
