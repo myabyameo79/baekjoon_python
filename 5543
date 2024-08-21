@@ -1,0 +1,3 @@
+burger=[int(input()) for x in range(3)]
+juice=[int(input()) for x in range(2)]
+print(min(burger)+min(juice)-50)
