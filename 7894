@@ -1,0 +1,11 @@
+import sys
+from math import log10,ceil
+for i in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    if n==1:
+        print(1)
+        continue
+    a=0
+    for i in range(n):
+        a+=log10(i+1)
+    print(ceil(a))
