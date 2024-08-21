@@ -1,0 +1,33 @@
+import sys
+from collections import deque
+n=123456*2+13
+che=[True]*n
+for i in range(2,n):
+    if che[i]==True:
+        for j in range(i+i, n, i):
+            che[j]=False
+deq=deque()
+for i in range(n):
+    if che[i]:
+        deq.append(i)
+while True:
+    low=0
+    high=len(deq)
+    k=int(sys.stdin.readline())
+    if k==0:
+        break
+    while low<=high:
+        mid=(low+high)//2
+        if deq[mid]>k:
+            high=mid-1
+        else:
+            low=mid+1
+    low2=0
+    high=len(deq)
+    while low2<=high:
+        mid2=(low2+high)//2
+        if deq[mid2]>k*2:
+            high=mid2-1
+        else:
+            low2=mid2+1
+    print(low2-low)
