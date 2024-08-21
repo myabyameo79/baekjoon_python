@@ -1,0 +1,8 @@
+s='abcdefghijklmnopqrstuvwxyz'
+s=s+s.upper()
+dic=dict(zip(list(s),[x+1 for x in range(52)]))
+n=input()
+a=0
+for i in n:
+    a+=dic[i]
+print('It is a prime word.' if all(a%i for i in range(2,a)) else 'It is not a prime word.')
