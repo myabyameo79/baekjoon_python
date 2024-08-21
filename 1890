@@ -1,0 +1,16 @@
+import sys
+n=int(sys.stdin.readline())
+li=[0]*n
+for i in range(n):
+    li[i]=list(map(int,sys.stdin.readline().split()))
+ans=[[0 for _ in range(n)] for _ in range(n)]
+ans[0][0]=1
+for i in range(n):
+    for j in range(n):
+        if i==n-1 and j==n-1:
+            print(ans[i][j])
+            break
+        if i+li[i][j]<n:
+            ans[i+li[i][j]][j]+=ans[i][j]
+        if j+li[i][j]<n:
+            ans[i][j+li[i][j]]+=ans[i][j]
