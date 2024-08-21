@@ -1,0 +1,24 @@
+import sys
+from collections import deque
+for _ in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    home=list(map(int,sys.stdin.readline().split()))
+    vusdmlwja=[list(map(int,sys.stdin.readline().split()))+[x+1] for x in range(n)]
+    visit=[True]*(n+2)
+    fest=list(map(int,sys.stdin.readline().split()))
+    vusdmlwja+=[fest+[n+1]]
+    real=True
+    deq=deque()
+    deq.append(home+[0])
+    visit[0]=False
+    while deq:
+        c,k,l=deq.popleft()
+        if [c,k]==fest:
+            real=False
+            break
+        for i,j,q in vusdmlwja:
+            if abs(i-c)+abs(j-k)<=1000 and visit[q]:
+                deq.append([i,j,q])
+                visit[q]=False
+    if real:print('sad')
+    else:print('happy')
