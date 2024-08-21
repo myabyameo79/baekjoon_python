@@ -1,0 +1,9 @@
+i=1
+while (s:=list(map(int,input().split())))!=[0]:
+    li=s[1:]
+    s=s[0]
+    if s%2:
+        print(f'Case {i}: {float(li[s//2])}')
+    else:
+        print(f'Case {i}: {(li[s//2]+li[s//2-1])/2}')
+    i+=1
