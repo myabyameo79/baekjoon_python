@@ -1,0 +1,18 @@
+dic={1:0,2:0,3:0,4:0,5:0}
+for i in range(int(input())):
+    a,b=map(int,input().split())
+    if a*b==0:
+        dic[5]+=1
+    elif a>0 and b>0:
+        dic[1]+=1
+    elif a>0 and b<0:
+        dic[4]+=1
+    elif a<0 and b>0:
+        dic[2]+=1
+    elif a<0 and b<0:
+        dic[3]+=1
+print(f'Q1: {dic[1]}')
+print(f'Q2: {dic[2]}')
+print(f'Q3: {dic[3]}')
+print(f'Q4: {dic[4]}')
+print(f'AXIS: {dic[5]}')
