@@ -1,0 +1,4 @@
+ho = int(input())
+for i in range(ho):
+  str = input().lower()
+  print(str)
