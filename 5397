@@ -1,0 +1,22 @@
+import sys
+from collections import deque
+for _ in range(int(sys.stdin.readline())):
+    s=sys.stdin.readline().rstrip()
+    deq=deque()
+    li=deque()
+    for i in s:
+        if i=='<':
+            if deq:
+                li.append(deq.pop())
+        elif i=='>':
+            if li:
+                deq.append(li.pop())
+        elif i=='-':
+            if deq:
+                deq.pop()
+        else:
+            deq.append(i)
+    while li:
+        deq.append(li.pop())
+    deq=list(deq)
+    print(''.join(deq))
