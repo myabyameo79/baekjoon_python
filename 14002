@@ -1,0 +1,16 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+su=[1]*n
+res=[]
+for i in range(n):
+    for j in range(i):
+        if li[i]>li[j]:
+            su[i]=max(su[i], su[j]+1)
+m=max(su)
+print(m)
+for i in range(n-1,-1,-1):
+    if su[i]==m:
+        res.append(li[i])
+        m-=1
+print(*res[::-1])
