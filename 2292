@@ -1,0 +1,9 @@
+n=int(input())
+k=1
+c=1
+while True:
+    if k>=n:
+        print(c)
+        break
+    k+=c*6
+    c+=1
