@@ -1,0 +1,22 @@
+from math import log,comb
+a,b,c=map(int,input().split())
+if b==0:
+    print(1)
+else:
+    lia=[]
+    m=int(log(a,c))
+    for i in range(m,-1,-1):
+        n=c**i
+        lia.append(a//n)
+        a%=n
+    m2=int(log(b,c))
+    lib=[0]*(m-m2)
+    for i in range(m2,-1,-1):
+        n=c**i
+        lib.append(b//n)
+        b%=n
+    ans=1
+    for i in range(m+1):
+        ans*=(comb(lia[i],lib[i]))%c
+        ans%=c
+    print(ans)
