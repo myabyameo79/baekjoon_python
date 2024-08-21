@@ -1,0 +1,6 @@
+import statistics
+li=[]
+for i in range(5):
+    li.append(int(input()))
+print(statistics.mean(li))
+print(statistics.median(li))
