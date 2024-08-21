@@ -1,0 +1,28 @@
+from collections import deque
+n=int(input())
+check=[True]*(n+1)
+check[n]=False
+deq=deque()
+deq.append(([n],0))
+while deq:
+    c1,k=deq.popleft()
+    c=c1[-1]
+    if c==1:
+        print(k)
+        print(*c1)
+        break
+    if c%3==0 and c//3>0 and check[c//3]:
+        c2=c1.copy()
+        check[c//3]=False
+        c2=(list(c2)+[c//3])
+        deq.append((c2,k+1))
+    if c%2==0 and c//2>0 and check[c//2]:
+        c3=c1.copy()
+        check[c//2]=False
+        c3=(list(c3)+[c//2])
+        deq.append((c3,k+1))
+    if c>1 and check[c-1]:
+        c4=c1.copy()
+        check[c-1]=False
+        c4=(list(c4)+[c-1])
+        deq.append((c4,k+1))
