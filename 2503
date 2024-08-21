@@ -1,0 +1,22 @@
+from itertools import permutations
+li=[f'{x+1}' for x in range(9)]
+n=int(input())
+t=[0]*n
+for i in range(n):
+    t[i]=list(map(int,input().split()))
+ans=0
+for i in permutations(li,3):
+    i=list(i)
+    num=0
+    for j in t:
+        s=list(str(j[0]))
+        j=j[1:]
+        strike=0
+        ball=0
+        for k in range(3):
+            if i[k]==s[k]:strike+=1
+            elif s[k] in i:ball+=1
+        if strike==j[0] and ball==j[1]:
+            num+=1
+    if num==n:ans+=1
+print(ans)
