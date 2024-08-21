@@ -1,0 +1,12 @@
+import sys
+from collections import deque
+
+n=int(sys.stdin.readline())
+x = deque()
+for i in range(n):
+    x.append(i+ 1)
+while len(x) > 1:
+    x.popleft()
+    x.append(x.popleft())
+
+print(x.pop())
