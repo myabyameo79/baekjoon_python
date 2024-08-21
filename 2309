@@ -1,0 +1,16 @@
+t = []
+for i in range(9):
+    t.append(int(input()))
+s = sum(t)
+t.sort()
+k = t
+for i in t:
+  for j in t:
+    if s- i -j == 100:
+      k.remove(i)
+      k.remove(j)
+      break
+  if sum(k) == 100:
+    break
+for u in k:
+  print(u)
