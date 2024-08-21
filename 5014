@@ -1,0 +1,24 @@
+from collections import deque
+a,b,g,d,e=map(int,input().split())
+check=[True]*(a+1)
+check[b]=False
+deq=deque()
+deq.append((b,0))
+real=False
+while deq:
+    c,k=deq.popleft()
+    if c==g:
+        real=True
+        break
+    if c-e>0:
+        if check[c-e]:
+            deq.append((c-e,k+1))
+            check[c-e]=False
+    if c+d<=a:
+        if check[c+d]:
+            deq.append((c+d,k+1))
+            check[c+d]=False
+if real:
+    print(k)
+else:
+    print('use the stairs')
