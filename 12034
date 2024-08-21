@@ -1,0 +1,13 @@
+for i in range(int(input())):
+    n=int(input())
+    li=list(map(int,input().split()))[::-1]
+    ans=[]
+    while li:
+        c=li.pop()
+        if c%3==0 and c*4//3 in li:
+            li.remove(c*4//3)
+            ans.append(c)
+        else:
+            li=[c]+li
+    print(f'Case #{i+1}: ',end='')
+    print(*ans)
