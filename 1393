@@ -1,0 +1,20 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+x,y,dx,dy=map(int,sys.stdin.readline().split())
+if dx!=0:
+    if dy!=0:
+        ans=((dy**2)*x-dy*dx*y+(dx**2)*a+dy*dx*b)//(dy**2+dx**2)
+        if dx<0:
+            if ans<x:
+                print(ans, (dy*ans-dy*x+dx*y)//dx)
+            else:
+                print(x,y)
+        else:
+            if ans>x:
+                print(ans, (dy*ans-dy*x+dx*y)//dx)
+            else:
+                print(x,y)
+    else:
+        print(a,y)
+else:
+    print(x,b)
