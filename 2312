@@ -1,0 +1,20 @@
+import sys
+input=sys.stdin.readline
+n=100001
+che=[True]*n
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+for _ in range(int(input())):
+    n=int(input())
+    for i in range(2,n+1):
+        if che[i]:
+            t=0
+            while n%i==0:
+                t+=1
+                n//=i
+            if t!=0:
+                print(i, t)
+        if n==1:
+            break
