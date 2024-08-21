@@ -1,0 +1,18 @@
+import sys
+from collections import deque
+for _ in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    li=list(map(int,sys.stdin.readline().split()))
+    k=0
+    check=[True]*n
+    for i in range(n):
+        if check[i]:
+            k+=1
+            deq=deque()
+            deq.append(li[i])
+            while deq:
+                c=deq.popleft()
+                if check[c-1]:
+                    check[c-1]=False
+                    deq.append(li[c-1])
+    print(k)
