@@ -1,0 +1,35 @@
+import sys
+from collections import deque
+def direction(a,b):
+    if b==0:return [a]
+    tmp=direction(a,b-1)
+    t=tmp.copy()
+    t=deque(t)
+    while t:
+        c=t.pop()
+        tmp.append((c+1)%4)
+    return tmp
+n=int(sys.stdin.readline())
+t=[0]*n
+field=[[False for _ in range(101)] for _ in range(101)]
+for i in range(n):
+    t[i]=list(map(int,sys.stdin.readline().split()))
+li=[]
+for i,j in map(lambda x:[x[2],x[3]],t):
+    li.append([i,j])
+dx=[1,0,-1,0]
+dy=[0,-1,0,1]
+for i in range(n):
+    x=t[i][0]
+    y=t[i][1]
+    field[y][x]=True
+    for j in direction(li[i][0],li[i][1]):
+        x+=dx[j]
+        y+=dy[j]
+        field[y][x]=True
+n=0
+for i in range(100):
+    for j in range(100):
+        if field[i][j] and field[i][j+1] and field[i+1][j] and field[i+1][j+1]:
+            n+=1
+print(n)
