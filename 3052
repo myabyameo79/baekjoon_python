@@ -1,0 +1,11 @@
+t = []
+n = 10
+while True:
+  if n == 0:
+    break
+  else:
+    a = int(input())
+    t.append(a%42)
+    n-=1
+k = list(set(t))
+print(len(k))
