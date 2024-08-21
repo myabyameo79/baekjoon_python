@@ -1,0 +1,13 @@
+while True:
+  n, a, g = input().split()
+  a = int(a)
+  g = int(g)
+  if n == "#":
+    break
+  else:
+    if a > 17:
+      print(n, "Senior")
+    elif g >= 80:
+      print(n, "Senior")
+    else:
+      print(n, "Junior")
