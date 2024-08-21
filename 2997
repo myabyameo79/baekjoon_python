@@ -1,0 +1,8 @@
+a,b,c=sorted(list(map(int,input().split())))
+li=[b-a, c-b]
+if li[0]==li[1]:
+    print(c+li[1])
+elif li[0]==li[1]*2:
+    print(a+li[1])
+elif li[1]==li[0]*2:
+    print(b+li[0])
