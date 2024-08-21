@@ -1,0 +1,26 @@
+n = int(input())
+t = [list(map(int, input().split())) for _ in range(6)]
+x = 0
+x1 = 0
+y = 0
+y1 = 0
+for i in range(len(t)):
+    if t[i][0] == 1:
+        if x < t[i][1]:
+            x = t[i][1]
+            x1 = i
+    elif t[i][0] == 2:
+        if x < t[i][1]:
+            x = t[i][1]
+            x1 = i
+    elif t[i][0] == 3:
+        if y < t[i][1]:
+            y = t[i][1]
+            y1 = i
+    elif t[i][0] == 4:
+        if y < t[i][1]:
+            y = t[i][1]
+            y1 = i
+ha = abs(t[(x1-1)%6][1] - t[(x1+1)%6][1])
+he = abs(t[(y1-1)%6][1] - t[(y1+1)%6][1])
+print(((x*y)-(ha*he))*n)
