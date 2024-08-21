@@ -1,0 +1,11 @@
+a,b,c=map(int,input().split(' : '))
+d,e,f=map(int,input().split(' : '))
+if d<a:
+    d+=24
+elif d==a:
+    if e<b:
+        d+=24
+    elif e==b:
+        if f<c:
+            d+=24
+print(3600*(d-a)+60*e+f-60*b-c)
