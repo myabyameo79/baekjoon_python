@@ -1,0 +1,9 @@
+li=[0]*5
+for i in range(5):
+    li[i]=input()
+for j in range(15):
+    for i in range(5):
+        try:
+            print(li[i][j],end='')
+        except:
+            continue
