@@ -1,0 +1,14 @@
+import sys
+n = int(sys.stdin.readline())
+if n!=1 :
+    t = [0]*(n+1)
+    t[2] = 3
+    for i in range(4,n+1) :
+        if i%2 == 1 :
+            t[i] = 0
+        else :
+            t[i] = t[i-2]*3 + sum(t[:i-2])*2 + 2
+    print(t[n])
+else:
+    print(0)
+    
