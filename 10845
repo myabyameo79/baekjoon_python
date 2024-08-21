@@ -1,0 +1,33 @@
+import sys
+n=1
+t=[]
+for _ in range(int(sys.stdin.readline())):
+    li=sys.stdin.readline().split()
+    a=li[0]
+    if a=='push':
+        t.append(li[1])
+        n+=1
+    elif a=='front':
+        if n<=1:
+            print(-1)
+        else:
+            print(t[0])
+    elif a=='pop':
+        if n<=1:
+            print(-1)
+        else:
+            print(t[0])
+            del t[0]
+            n-=1
+    elif a=='size':
+        print(n-1)
+    elif a=='empty':
+        if n<=1:
+            print(1)
+        else:
+            print(0)
+    else:
+        if n<=1:
+            print(-1)
+        else:
+            print(t[-1])
