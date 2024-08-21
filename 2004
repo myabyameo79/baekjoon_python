@@ -1,0 +1,9 @@
+def cnt(a,b):
+    ans=0
+    i=1
+    while a>=i:
+        i*=b
+        ans+=a//i
+    return ans
+a,b=map(int,input().split())
+print(min(cnt(a,5)-cnt(b,5)-cnt(a-b,5), cnt(a,2)-cnt(b,2)-cnt(a-b,2)))
