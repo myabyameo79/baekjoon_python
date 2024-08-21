@@ -1,0 +1,19 @@
+import sys
+che=[True]*10001
+che[1]=False
+for i in range(2,10001):
+    if che[i]:
+        for j in range(i+i, 10001,i):
+            che[j]=False
+a=int(sys.stdin.readline())
+b=int(sys.stdin.readline())
+res=0
+for i in range(b, a-1,-1):
+    if che[i]:
+        res+=i
+        p=i
+if res!=0:
+    print(res)
+    print(p)
+else:
+    print(-1)
