@@ -1,0 +1,18 @@
+import sys
+n=int(sys.stdin.readline())
+li=[0]*n
+for i in range(n):
+    li[i]=list(map(int,sys.stdin.readline().split()))
+li.sort(key=lambda x:x[0])
+start=li[0][0];end=li[0][1]
+ans=0
+for i,j in li[1:]:
+    if j<=end:
+        continue
+    if i<=end and j>end:
+        end=j
+    elif i>end:
+        ans+=end-start
+        start=i
+        end=j
+print(ans+end-start)
