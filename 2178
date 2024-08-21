@@ -1,0 +1,25 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+li=[0]*a
+for i in range(a):
+    li[i]=list(map(int,sys.stdin.readline().rstrip()))
+dx=[1,-1,0,0]
+dy=[0,0,1,-1]
+deq=deque()
+deq.append([0,0])
+real=False
+while deq:
+    m,n=deq.popleft()
+    for i in range(4):
+        x=m+dx[i]
+        y=n+dy[i]
+        if 0<=x<a and 0<=y<b and li[x][y]==1:
+            deq.append([x,y])
+            li[x][y]=li[m][n]+1
+        if li[-1][-1]!=1:
+            real=True
+            break
+    if real:
+        break
+print(li[-1][-1])
