@@ -1,0 +1,16 @@
+import sys
+while True:
+    n=int(sys.stdin.readline())
+    if n==-1:
+        break
+    yaksu=[]
+    for i in range(int(n**0.5), 0, -1):
+        if n%i==0:
+            yaksu.insert(0, i)
+            yaksu.append(n//i)
+    if int(n**0.5)**2==n:
+        yaksu.remove(int(n**0.5))
+    if sum(yaksu)-n==n:
+        print(n,'=', f'{yaksu[:-1]}'[1:-1].replace(', ', ' + '))
+    else:
+        print(f'{n} is NOT perfect.')
