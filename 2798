@@ -1,0 +1,15 @@
+m, n = map(int, input().split())
+cards = list(map(int, input().split()))
+sol=[]
+for i in range(m):
+    m2 = 0
+    m3 = 0
+    m4 = 0
+    m2 = n - cards[i]
+    for j in range(i+1, m):
+        m3 = m2 - cards[j]
+        for k in range(j+1, m):
+            m4 = m3 - cards[k]
+            if m4 >= 0:
+                sol.append(m4)
+print(n-min(sol))
