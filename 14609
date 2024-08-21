@@ -1,0 +1,25 @@
+import sys
+def f(x):
+    res = 0
+    for i in range(chasu+1):
+        res += gyesu[i]*(x**(chasu-i))
+    return res
+chasu = int(sys.stdin.readline())
+gyesu = list(map(int, sys.stdin.readline().split()))
+a, b, n=map(int, sys.stdin.readline().split())
+sjfqdl=0
+for i in range(chasu+1):
+    sjfqdl+= gyesu[chasu - i] * (b ** (i + 1) - a ** (i + 1)) / (i + 1)
+low=0
+high=(b-a)/n
+for i in range(1000):
+    mid=(low+high)/2
+    s=0
+    dx=(b-a)/n
+    for i in range(n):
+        s+=f(a+dx*i+mid)*dx
+    if s>sjfqdl:
+        high=mid
+    else:
+        low=mid
+print(high)
