@@ -1,0 +1,18 @@
+m,n=map(int,input().split())
+hap=m-n
+def gcd(a,b):
+    while b!=0:
+        li.append(a//b)
+        a,b=b,a%b
+    return a
+li=[]
+if gcd(m,n)==1:
+    x=1;y=0
+    for i in li[::-1]:
+        x2=y
+        y2=x-y*i
+        x=x2;y=y2
+    gop=y if y>0 else m+y
+else:
+    gop=-1
+print(hap,gop)
