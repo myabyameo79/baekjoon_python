@@ -1,0 +1,11 @@
+list = []
+x, y, w, h = input().split()
+x = int(x)
+y = int(y)
+w = int(w)
+h = int(h)
+list.append(w-x)
+list.append(x)
+list.append(h-y)
+list.append(y)
+print(min(list))
