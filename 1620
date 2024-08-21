@@ -1,0 +1,14 @@
+t = []
+k = []
+a, b = map(int, input().split())
+for _ in range(a):
+  t.append(input())
+for _ in range(b):
+  k.append(input())
+for i in k:
+  if i.isnumeric() == False:
+    v = t.index(i) +1
+    print(v)
+  else:
+    v = t[int(i)-1]
+    print(v)
