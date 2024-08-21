@@ -1,0 +1,13 @@
+import sys
+a=list(sys.stdin.readline().strip())
+st='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+dic=dict()
+for i in range(18):
+    dic[st[i]]=i//3+2
+for i in range(18, len(st)):
+    dic[st[i]]=(i-1)//3+2
+dic['Z']=9
+time=0
+for i in a:
+    time+=dic[i]+1
+print(time)
