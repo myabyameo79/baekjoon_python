@@ -1,0 +1,19 @@
+from collections import deque
+import sys
+a=int(sys.stdin.readline())
+b=int(sys.stdin.readline())
+t=[[] for _ in range(a+1)]
+li=[0]*(a+1)
+for i in range(b):
+    n,m=map(int,sys.stdin.readline().split())
+    t[n]+=[m]
+    t[m]+=[n]
+li[1]=1
+deq=deque([1])
+while deq:
+    c=deq.popleft()
+    for i in t[c]:
+        if li[i]==0:
+            deq.append(i)
+            li[i]=1
+print(sum(li)-1)
