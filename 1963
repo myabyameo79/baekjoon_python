@@ -1,0 +1,28 @@
+import sys
+from collections import deque
+n=10000
+che=[True]*n
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+for _ in range(int(sys.stdin.readline())):
+    a,b=map(list,sys.stdin.readline().split())
+    s='0123456789'
+    check={''.join(a):True}
+    deq=deque()
+    deq.append((a,0))
+    while deq:
+        c,k=deq.popleft()
+        if c==b:
+            print(k)
+            break
+        for i in range(4):
+            for j in s:
+                st=c.copy()
+                if i==0 and j=='0':
+                    continue
+                st[i]=j
+                if not check.get(''.join(st),False) and che[int(''.join(st))]:
+                    check[''.join(st)]=True
+                    deq.append((st,k+1))
