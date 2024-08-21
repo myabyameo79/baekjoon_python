@@ -1,0 +1,11 @@
+import sys
+n=int(sys.stdin.readline())
+li=[0]*(10**6+1)
+li[1]=1
+s=1
+i=1
+while s<n:
+    i+=1
+    li[i]=1+li[i-li[li[i-1]]]
+    s+=li[i]
+print(i)
