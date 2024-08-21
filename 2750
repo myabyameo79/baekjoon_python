@@ -1,0 +1,6 @@
+li=[0]*(n:=int(input()))
+for i in range(n):
+    li[i]=int(input())
+li.sort()
+for i in li:
+    print(i)
