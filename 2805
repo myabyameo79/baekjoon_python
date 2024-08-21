@@ -1,0 +1,16 @@
+import sys
+a,b=map(int, sys.stdin.readline().split())
+li = sorted(list(map(int, sys.stdin.readline().split())))
+low=1
+high=li[-1]
+while low<=high:
+    mid = (low+high)//2
+    l=0
+    for i in li:
+        if i>mid:
+            l+=i-mid
+    if l>=b:
+        low=mid+1
+    elif l<b:
+        high=mid-1
+print(high)
