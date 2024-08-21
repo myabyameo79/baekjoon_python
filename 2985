@@ -1,0 +1,14 @@
+a,b,c=input().split()
+for i in ['+','-','*','//']:
+    if eval(f'{a}{i}{b}=={c}'):
+        if i=='//':
+            print(f'{a}/{b}={c}')
+        else:
+            print(f'{a}{i}{b}={c}')
+        break
+    if eval(f'{a}=={b}{i}{c}'):
+        if i=='//':
+            print(f'{a}={b}/{c}')
+        else:
+            print(f'{a}={b}{i}{c}')
+        break
