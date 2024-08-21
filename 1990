@@ -1,0 +1,14 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+if b>=10000000:
+    b=10000001
+che=[1]*(b+1)
+for i in range(2,b+1):
+    if che[i]==1:
+        for j in range(i+i, b+1, i):
+            che[j]=0
+for i in range(a,b+1):
+    if che[i]==1:
+        if str(i)[::-1]==str(i):
+            print(i)
+print(-1)
