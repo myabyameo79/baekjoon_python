@@ -1,0 +1,17 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+t=[[0]*n for _ in range(n)]
+for i in range(n):
+    t[i][i]=1
+for i in range(n-1):
+    if li[i]==li[i+1]:
+        t[i][i+1]=1
+for i in range(n-2):
+    for j in range(n-2-i):
+        k=j+2+i
+        if li[j]==li[k] and t[j+1][k-1]==1:
+            t[j][k]=1
+for i in range(int(sys.stdin.readline())):
+    a,b=map(int,sys.stdin.readline().split())
+    print(t[a-1][b-1])
