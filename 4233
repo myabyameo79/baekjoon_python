@@ -1,0 +1,23 @@
+import sys
+def isprime(k):
+    m=int(k**0.5)+1
+    real=True
+    for i in range(2,m):
+        if k%i==0:
+            real=False
+    return real
+def pow(o,p):
+    if p==1:
+        return o%a
+    t=pow(o,p//2)
+    if p%2!=0:
+        return (t*t*o)%a
+    return (t*t)%a
+while True:
+    a,b=map(int,sys.stdin.readline().split())
+    if a==0:
+        break
+    if pow(b,a)==b and isprime(a)==False:
+        print('yes')
+    else:
+        print('no')
