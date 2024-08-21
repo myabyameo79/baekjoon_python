@@ -1,0 +1,11 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+pd = 'GOOD'
+for i in range(2,b):
+    if a%i==0:
+        pd='BAD'
+        break
+if pd=='GOOD':
+    print(pd)
+else:
+    print(pd, i)
