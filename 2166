@@ -1,0 +1,19 @@
+import math
+n = int(input())
+t = [0]*10001
+for i in range(n):
+  t1 = []
+  a, b = map(int, input().split())
+  t1.append(a)
+  t1.append(b)
+  t[i] = t1
+t[n] = t[0]
+x = 0
+y = 0
+for i in range(n):
+  x += (t[i][0]*t[i+1][1])
+for i in range(n):
+  y += (t[i][1]*t[i+1][0])
+
+n = (x-y)/2
+print(abs(math.floor(n*10+0.5)/10))
