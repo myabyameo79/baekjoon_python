@@ -1,0 +1,12 @@
+import sys
+import heapq
+li=[]
+for _ in range(int(sys.stdin.readline())):
+    a=int(sys.stdin.readline())
+    if a==0:
+        try:
+            print(-heapq.heappop(li))
+        except:
+            print(0)
+    else:
+        heapq.heappush(li, -a)
