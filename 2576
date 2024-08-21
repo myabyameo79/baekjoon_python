@@ -1,0 +1,6 @@
+s=0
+m=100
+for i in range(7):
+    n=int(input())
+    if n%2:s+=n;m=min(m,n)
+print(f'{s}\n{m}' if s else -1)
