@@ -1,0 +1,6 @@
+for _ in range(int(input())):
+    n=int(input())
+    q=n//25;n%=25
+    d=n//10;n%=10
+    ni=n//5;n%=5
+    print(q,d,ni,n)
