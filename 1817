@@ -1,0 +1,12 @@
+a,b=map(int,input().split())
+if a==0:print(0)
+else:
+    li=list(map(int,input().split()))
+    n=0
+    w=0
+    for i in range(a):
+        w+=li[i]
+        if w>b:
+            n+=1
+            w=li[i]
+    print(n+1)
