@@ -1,0 +1,5 @@
+l, p = map(int, input().split())
+t = []
+t.append(input().split())
+for i in range(len(t[0])):
+  print(int(t[0][i])-l*p, end =" ")
