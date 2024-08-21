@@ -1,0 +1,2 @@
+a,b=input().split()
+print(eval(f'{a}+{b}'.replace('6','5')),eval(f'{a}+{b}'.replace('5','6')))
