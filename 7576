@@ -1,0 +1,34 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+li=[[]]*b
+dx=[1,-1,0,0]
+dy=[0,0,1,-1]
+for i in range(b):
+    li[i]=list(map(int,sys.stdin.readline().split()))
+one_wichi=[]
+for i in range(b):
+    for j in range(a):
+        if li[i][j]==1:
+            one_wichi.append([i,j])
+deq=deque(one_wichi)
+k=0
+while deq:
+    for i in range(len(deq)):
+        m,n=deq.popleft()
+        for i in range(4):
+            x=m+dx[i]
+            y=n+dy[i]
+            if 0<=x<b and 0<=y<a and li[x][y]==0:
+                deq.append([x,y])
+                li[x][y]=1
+    k+=1
+real=True
+for i in range(b):
+    for j in range(a):
+        if li[i][j]==0:
+            real=False
+            break
+    if not real:
+        break
+print(k-1) if real else print(-1)
