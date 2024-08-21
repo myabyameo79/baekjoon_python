@@ -1,0 +1,22 @@
+a,b=map(int,input().split())
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=int(input())
+left=1
+right=1+b-1
+ans=0
+for i in li:
+    if left<=i<=right:
+        continue
+    if i<left:
+        t=left-i
+        ans+=t
+        left-=t
+        right-=t
+    elif i>right:
+        t=i-right
+        ans+=t
+        right+=t
+        left+=t
+print(ans)
