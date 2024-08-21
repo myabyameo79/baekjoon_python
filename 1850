@@ -1,0 +1,10 @@
+import sys
+def G(m, M):
+    M=M%m
+    if M!=0:
+        G(M,m)
+    else:
+        for i in range(m):
+            print(1, end='')
+a,b = map(int, sys.stdin.readline().split())
+G(min(a,b),max(a,b))
