@@ -1,0 +1,20 @@
+import sys
+input=sys.stdin.readline
+n=int(input())
+p='IO'*n+'I'
+s=int(input())
+st=input().strip()
+num=0
+i=0
+res=0
+while i<s-1:
+    if st[i:i+3]=='IOI':
+        num+=1
+        i+=2
+        if num==n:
+            res+=1
+            num-=1
+    else:
+        i+=1
+        num=0
+print(res)
