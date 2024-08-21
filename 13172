@@ -1,0 +1,13 @@
+def power(a,b):
+    if b==1:return a%p
+    t=power(a,b//2)
+    if b%2==0:return (t*t)%p
+    else:return (t*t*a)%p
+p=10**9+7
+m=int(input())
+ans=0
+for i in range(m):
+    a,b=map(int,input().split())
+    ans+=b*power(a,p-2)%p
+    ans%=p
+print(ans)
