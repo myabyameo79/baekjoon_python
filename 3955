@@ -1,0 +1,31 @@
+import sys
+def gcd(a,b):
+    while b!=0:
+        li.append(a//b)
+        a,b=b,a%b
+    return a
+for _ in range(int(sys.stdin.readline())):
+    m,n=map(int,sys.stdin.readline().split())
+    if n==1:
+        if m+1>10**9:
+            print('IMPOSSIBLE')
+            continue
+        else:
+            print(m+1)
+            continue
+    if m==1:
+        print(1)
+        continue
+    li=[]
+    if gcd(m,n)==1:
+        x=1;y=0
+        for i in li[::-1]:
+            x2=y;y2=x-y*i;x=x2;y=y2
+        if y<0:
+            y+=m
+        if y>10**9:
+            y='IMPOSSIBLE'
+        gop=y
+    else:
+        gop='IMPOSSIBLE'
+    print(gop)
