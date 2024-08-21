@@ -1,0 +1,18 @@
+n=10**5+100
+che=[True]*n
+che[1]=False
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+for i in range(int(input())):
+    k=int(input())
+    while True:
+        real=False
+        for i in range(2,k):
+            if che[i] and not k%i and i!=k//i and che[k//i]:
+                print(k)
+                real=True
+                break
+        if real:break
+        k+=1
