@@ -1,0 +1,14 @@
+li=[0,1]
+n=int(input())
+a=1
+if n<0:
+    n*=-1
+    a=-1 if n%2==0 else 1
+elif n==0:
+    a=0
+for i in range(n):
+    t=(li[0]+li[1])%(10**9)
+    li[0]=li[1]%(10**9)
+    li[1]=t
+print(a)
+print(li[0])
