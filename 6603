@@ -1,0 +1,10 @@
+import sys
+import itertools
+while True:
+    li=list(map(int,sys.stdin.readline().split()))
+    a=li[0]
+    if a==0:break
+    li=li[1:]
+    for i in itertools.combinations(li,6):
+        print(*i)
+    print()
