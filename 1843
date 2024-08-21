@@ -1,0 +1,32 @@
+import sys
+n=int(sys.stdin.readline())
+a=0
+for i in range(2,n):
+    a+=i//2
+print(a)
+yaksu=[]
+num=0
+for i in range(int(n**0.5), 0 ,-1):
+    if n%i==0:
+        yaksu.insert(0,i)
+        yaksu.append(n//i)
+        num+=2
+if int(n**0.5)**2==n:
+    yaksu.remove(int(n**0.5))
+    num-=1
+b=0
+for i in range(num):
+    for j in range(i,num):
+        if n%(yaksu[i]+yaksu[j])==0:
+            b+=1
+print(b)
+che=[True]*(n+1)
+for i in range(2,n+1):
+    if che[i]:
+        for j in range(i+i, n+1, i):
+            che[j]=False
+c=0
+for i in range(3,n-1):
+    if che[i] and che[i+2]:
+        c+=1
+print(c)
