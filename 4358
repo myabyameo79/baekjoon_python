@@ -1,0 +1,14 @@
+import sys
+li=[]
+while True:
+    s=sys.stdin.readline().strip()
+    if s=='':
+        break
+    li.append(s)
+dic={i:0 for i in li}
+for i in li:
+    dic[i]+=1
+t=sorted(list(set(li)))
+l=len(li)
+for i in range(len(t)):
+    print('%s %.4f' %(t[i], dic[t[i]]*100/l))
