@@ -1,0 +1,6 @@
+a,b=map(int,input().split())
+m=abs(a-b)
+for i in range(int(input())):
+    n=int(input())
+    m=min(m,abs(n-b)+1)
+print(m)
