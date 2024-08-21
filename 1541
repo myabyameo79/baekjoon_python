@@ -1,0 +1,8 @@
+s='+-()'
+e='('+input()+')'
+for _ in range(50):
+    for i in range(len(e)-1):
+        if e[i] in s and e[i+1]=='0':
+            e=e[:i+1]+e[i+2:]
+            break
+print(eval(e.replace('-', ')-(')))
