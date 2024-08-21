@@ -1,0 +1,29 @@
+s=input()[::-1]
+t=0;i=0;l=len(s)
+while i<l:
+    if s[i]=='-':
+        if s[i+1]=='c' or s[i+1]=='d':
+            t+=1
+            i+=2
+    elif s[i]=='=':
+        if i==len(s)-2:
+            i+=2
+            t+=1
+        elif s[i+1:i+3]=='zd':
+            i+=3
+            t+=1
+        else:
+            i+=2
+            t+=1
+    elif s[i]=='j':
+        if i!=len(s)-1 and (s[i+1]=='l' or s[i+1]=='n'):
+            i+=2
+            t+=1
+        else:
+            i+=1
+            t+=1
+            continue
+    else:
+        t+=1
+        i+=1
+print(t)
