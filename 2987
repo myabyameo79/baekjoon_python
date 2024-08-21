@@ -1,0 +1,16 @@
+import sys
+def ccw(ax,ay,bx,by,cx,cy):
+    return (bx-ax)*(cy-by)-(by-ay)*(cx-bx)
+triangle=[0]*3
+for i in range(3):
+    triangle[i]=list(map(int,sys.stdin.readline().split()))
+print(abs(triangle[0][0]*(triangle[1][1]-triangle[2][1])+triangle[1][0]*(triangle[2][1]-triangle[0][1])+triangle[2][0]*(triangle[0][1]-triangle[1][1]))/2)
+n=0
+for i in range(int(sys.stdin.readline())):
+    x,y=map(int,sys.stdin.readline().split())
+    w1=ccw(triangle[0][0],triangle[0][1],x,y,triangle[1][0],triangle[1][1])*ccw(triangle[0][0],triangle[0][1],x,y,triangle[2][0],triangle[2][1])
+    w2=ccw(triangle[1][0],triangle[1][1],x,y,triangle[0][0],triangle[0][1])*ccw(triangle[1][0],triangle[1][1],x,y,triangle[2][0],triangle[2][1])
+    w3=ccw(triangle[2][0],triangle[2][1],x,y,triangle[0][0],triangle[0][1])*ccw(triangle[2][0],triangle[2][1],x,y,triangle[1][0],triangle[1][1])
+    if w1<=0 and w2<=0 and w3<=0:
+        n+=1
+print(n)
