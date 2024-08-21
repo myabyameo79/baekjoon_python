@@ -1,0 +1,6 @@
+se=('a','e','i','o','u')
+ans=0
+for i in input():
+    if i in se:
+        ans+=1
+print(ans)
