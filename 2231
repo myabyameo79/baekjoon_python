@@ -1,0 +1,12 @@
+import sys
+a=int(sys.stdin.readline())
+li=[]
+n=a-1
+while n>0:
+    if n+sum(list(map(int,list(str(n)))))==a:
+        li.append(n)
+    n-=1
+try:
+    print(li[-1])
+except:
+    print(0)
