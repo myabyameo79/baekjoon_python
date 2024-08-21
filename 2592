@@ -1,0 +1,10 @@
+sum=0
+dic={}
+for i in range(10):
+    n=int(input())
+    sum+=n
+    if not dic.get(n,0):dic[n]=1
+    else:dic[n]+=1
+print(sum//10)
+li=sorted(list(dic.items()),key=lambda x:x[1],reverse=True)
+print(li[0][0])
