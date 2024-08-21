@@ -1,0 +1,18 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+i=0;j=n-1
+a=abs(li[i]+li[j])
+ans=[i,j]
+while i<j:
+    mid=li[i]+li[j]
+    if abs(mid)<a:
+        a=abs(mid)
+        ans=[i,j]
+        if a==0:
+            break
+    if mid>=0:
+        j-=1
+    else:
+        i+=1
+print(li[ans[0]], li[ans[1]])
