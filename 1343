@@ -1,0 +1,8 @@
+s=input()
+s=s.replace('XXXX','AAAA')
+s=s.replace('XX','BB')
+real=True
+for i in s:
+    if i=='X':real=False
+if real:print(s)
+else:print(-1)
