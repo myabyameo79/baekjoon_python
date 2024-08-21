@@ -1,0 +1,9 @@
+def gcd(a,b):
+    if a%b==0:return b
+    return gcd(b,a%b)
+a,b=map(int,input().split())
+c=b//a
+for i in range(int(c**0.5),0,-1):
+    if c%i==0 and gcd(i,c//i)==1:
+        print(a*i,a*(c//i))
+        break
