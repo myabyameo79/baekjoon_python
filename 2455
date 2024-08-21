@@ -1,0 +1,5 @@
+li=[0]*5
+for i in range(4):
+    a,b=map(int,input().split())
+    li[i+1]=li[i]-a+b
+print(max(li))
