@@ -1,0 +1,5 @@
+from itertools import combinations
+n,m = map(int, input().split())
+t = sorted(map(int, input().split()))
+for i in combinations(t, m):
+    print(*i)
