@@ -1,0 +1,11 @@
+dic={
+    'kg':'*2.2046 lb',
+    'lb':'*0.4536 kg',
+    'l':'*0.2642 g',
+    'g':'*3.7854 l'
+}
+for i in range(int(input())):
+    a,b=input().split()
+    li=(a+dic[b]).split()
+    li[0]=eval(li[0])
+    print(f'%.4f {li[1]}' %li[0])
