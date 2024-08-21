@@ -1,0 +1,6 @@
+s='abcdefghijklmnopqrstuvwxyz'
+dic={x:0 for x in s}
+s=input()
+for i in s:
+    dic[i]+=1
+print(*dic.values())
