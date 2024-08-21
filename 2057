@@ -1,0 +1,13 @@
+li=[1]*101
+for i in range(1,101):
+    li[i]=i*li[i-1]
+    if li[i]>=10**18:break
+li=li[:21][::-1]
+n=int(input())
+if n==0:print('NO')
+else:
+    for i in range(len(li)):
+        if li[i]<=n:
+            n-=li[i]
+    if n==0:print('YES')
+    else:print('NO')
