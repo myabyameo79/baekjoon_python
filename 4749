@@ -1,0 +1,14 @@
+li=[]
+while True:
+    t=input().split(' ',3)
+    if t[0]=='-1.0':break
+    a=float(t[0])
+    b=float(t[2])
+    if a/b*100<1:
+        li.append(t[-1])
+        continue
+    print('%s %.1f %s %.0f' %(t[-1],float(t[0]),t[1],a/b*100),end='')
+    print('%')
+print('Provides no significant amount of:')
+for i in li:
+    print(i)
