@@ -1,0 +1,15 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+a=int(sys.stdin.readline())
+high=max(li)
+low=0
+while low<=high:
+    mid=(low+high)//2
+    money=0
+    for i in li:money+=i if i<=mid else mid
+    if money>a:
+        high=mid-1
+    else:
+        low=mid+1
+print(high)
