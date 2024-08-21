@@ -1,0 +1,8 @@
+dic={1:[],0:[]}
+a,b,c=map(int,input().split())
+dic[a].append('A')
+dic[b].append('B')
+dic[c].append('C')
+if len(dic[1])==1:print(dic[1][0])
+elif len(dic[0])==1:print(dic[0][0])
+else:print('*')
