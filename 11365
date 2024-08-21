@@ -1,0 +1,7 @@
+while True:
+    ngx = str(input())
+    
+    if ngx == "END":
+        break
+    
+    print(ngx[::-1])
