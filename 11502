@@ -1,0 +1,19 @@
+import sys
+che=[True]*1000
+che[0]=False;che[1]=False
+for i in range(2,1000):
+    if che[i]:
+        for j in range(i+i,1000,i):
+            che[j]=False
+for _ in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    real=True
+    for i in range(2,1000):
+        if che[i]:
+            for j in range(i,1000):
+                if che[j]==che[n-i-j]==True:
+                    print(*sorted([i,j,n-i-j]))
+                    real=False
+                    break
+            if not real:
+                break
