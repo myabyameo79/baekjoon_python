@@ -1,0 +1,11 @@
+import sys
+def remain(a,n):
+    if n==1:
+        return a%c
+    t=remain(a,n//2)
+    if n%2==0:
+        return (t*t)%c
+    else:
+        return (t*t*a)%c
+a,b,c=map(int,sys.stdin.readline().split())
+print(remain(a,b))
