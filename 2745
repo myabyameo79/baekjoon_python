@@ -1,0 +1,18 @@
+import sys
+s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+dic={}
+for i in range(10,36):
+    dic[s[i-10]]=i
+a,b=sys.stdin.readline().split()
+b=int(b)
+ans=0
+if b<=10:
+    for i in range(len(a)-1,-1,-1):
+        ans+=int(a[-i-1])*b**i
+else:
+    for i in range(len(a)-1,-1,-1):
+        try:
+            ans+=int(a[-i-1])*b**i
+        except:
+            ans+=dic[a[-i-1]]*b**i
+print(ans)
