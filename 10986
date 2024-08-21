@@ -1,0 +1,13 @@
+import sys
+from math import comb
+a,b=map(int,sys.stdin.readline().split())
+li=list(map(int,sys.stdin.readline().split()))
+n=0
+t=[0]*b
+for i in range(a):
+    n+=li[i]
+    t[n%b]+=1
+ans=t[0]
+for i in t:
+    ans+=comb(i,2)
+print(ans)
