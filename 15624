@@ -1,0 +1,7 @@
+li=[0,1]
+n=int(input())
+for i in range(n):
+    t=(li[0]+li[1])%(10**9+7)
+    li[0]=li[1]%(10**9+7)
+    li[1]=t
+print(li[0])
