@@ -1,0 +1,7 @@
+n=0
+for i in range(6):
+    if input()=='W':n+=1
+if 5<=n<=6:print(1)
+elif 3<=n<5:print(2)
+elif 1<=n<=2:print(3)
+else:print(-1)
