@@ -1,0 +1,26 @@
+import sys
+from bisect import bisect_right
+input=sys.stdin.readline
+def l(a,b,c,d):
+    return ((a-c)**2+(b-d)**2)**0.5
+num=1
+while True:
+    n=int(input())
+    if n==0:break
+    print(f'Case {num}:')
+    li=[0]*n
+    for i in range(n):
+        li[i]=list(map(int,input().split()))
+    x1,y1,x2,y2,a=map(int,input().split())
+    t1=[0]*n
+    t2=[0]*n
+    for i in range(n):
+        t1[i]=l(x1,y1,li[i][0],li[i][1])
+        t2[i]=l(x2,y2,li[i][0],li[i][1])
+    t1.sort()
+    t2.sort()
+    for i in range(a):
+        r1,r2=map(int,input().split())
+        ans=bisect_right(t1,r1)+bisect_right(t2,r2)
+        print(n-ans if n-ans>=0 else 0)
+    num+=1
