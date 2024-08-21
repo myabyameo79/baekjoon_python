@@ -1,0 +1,18 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+i=0;j=0
+li=list(map(int,sys.stdin.readline().split()))
+s=li[0]
+t=0
+while True:
+    if s==b:
+        t+=1
+    if s>=b:
+        s-=li[i]
+        i+=1
+    else:
+        j+=1
+        if j==a:
+            break
+        s+=li[j]
+print(t)
