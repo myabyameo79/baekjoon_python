@@ -1,0 +1,18 @@
+import sys
+a=int(sys.stdin.readline())
+b=int(sys.stdin.readline())
+t=[0]*b
+for i in range(b):
+    n,m=map(int,input().split())
+    t[i]=[n,m]
+t.sort()
+imsi_ans=list(filter(lambda x:1 in x, t))
+se=list(map(lambda x:x[1], imsi_ans))
+an=set(se)
+for i in se:
+    for j in t:
+        if j[0]==i:
+            an.add(j[1])
+        elif j[1]==i and j[0]!=1:
+            an.add(j[0])
+print(len(an))
