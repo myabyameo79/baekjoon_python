@@ -1,0 +1,9 @@
+import sys
+from itertools import combinations_with_replacement
+n,m=map(int,sys.stdin.readline().split())
+li=sorted(list(map(int,sys.stdin.readline().split())))
+t=list(set(combinations_with_replacement(li,m)))
+for i in range(m-1, -1, -1):
+    t.sort(key=lambda x:x[i])
+for i in t:
+    print(*i)
