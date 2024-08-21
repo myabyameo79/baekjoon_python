@@ -1,0 +1,29 @@
+a, b = map(int, input().split())
+matrix1 = []
+for i in range(a):
+    matrix1.append(list(map(int, input().split())))
+c, d= map(int, input().split())
+matrix2 = []
+for i in range(c):
+    a1 = list(map(int, input().split()))
+    matrix2.append(a1)
+matrix2_1bu = []
+matrix2_1 = []
+for i in range(d):
+    for j in range(c):
+        matrix2_1bu.append(matrix2[j][i])
+    matrix2_1.append(matrix2_1bu)
+    matrix2_1bu = []
+summ = 0
+multiple = []
+choijong = []
+for i in range(a):
+    for j in range(d):
+        for k in range(c):
+            summ += matrix1[i][k]*matrix2_1[j][k]
+        multiple.append(summ)
+        summ=0
+    choijong.append(multiple)
+    multiple = []
+for i in range(a):
+    print(*choijong[i])
