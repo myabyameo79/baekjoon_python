@@ -1,0 +1,10 @@
+from decimal import *
+a,b,c,d=map(int,input().split())
+ans=a*c
+ans=Decimal(ans/b)
+ans=Decimal(ans/d)
+ans=Decimal(ans/2)
+if ans==((a*c//b)//d)//2:
+    print(1)
+else:
+    print(0)
