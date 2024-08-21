@@ -1,0 +1,11 @@
+li=[1,1]
+while li[-1]+li[-2]<=10**9:
+    li.append(li[-1]+li[-2])
+for i in range(int(input())):
+    a=int(input())
+    ans=[]
+    for i in li[::-1]:
+        if i<=a:
+            ans.append(i)
+            a-=i
+    print(*ans[::-1])
