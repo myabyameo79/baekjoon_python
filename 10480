@@ -1,0 +1,12 @@
+def hehe(x):
+    if x % 2 == 0:
+        return 'even'
+    else:
+        return 'odd'
+
+n = int(input())
+
+for _ in range(n):
+    x = int(input())
+    dd = hehe(x)
+    print(f'{x} is {dd}')
