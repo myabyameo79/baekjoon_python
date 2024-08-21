@@ -1,0 +1,17 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+li = [0 for _ in range(a)]
+for i in range(a):
+    li[i]=int(sys.stdin.readline())
+low=1
+high=max(li)
+while low<=high:
+    mid=(low+high)//2
+    n=0
+    for i in li:
+        n+=i//mid
+    if b<=n:
+        low=mid+1
+    else:
+        high=mid-1
+print(high)
