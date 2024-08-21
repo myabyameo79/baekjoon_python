@@ -1,0 +1,15 @@
+from math import log
+a,b=map(int,input().split())
+ans=[]
+k=int(log(a,b))
+for i in range(k,-1,-1):
+    c=b**i
+    ans.append(a//c)
+    a%=c
+s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+dic={x:s[x-10] for x in range(10,36)}
+for i in range(10):
+    dic[i]=str(i)
+for i in range(k+1):
+    ans[i]=dic[ans[i]]
+print(''.join(ans))
