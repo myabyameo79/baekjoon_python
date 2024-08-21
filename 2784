@@ -1,0 +1,21 @@
+li=[input() for _ in range(6)]
+ans=[]
+for i in range(6):
+    for j in range(6):
+        for k in range(6):
+            if i==j or j==k or i==k:
+                continue
+            t=[li[i],li[j],li[k]]
+            t2=t.copy()
+            for _ in range(3):
+                t2.append(t2[0][_]+t2[1][_]+t2[2][_])
+            t2.sort()
+            if t2==li:
+                ans.append(''.join(t))
+ans.sort()
+if ans:
+    print(ans[0][:3])
+    print(ans[0][3:6])
+    print(ans[0][6:])
+else:
+    print(0)
