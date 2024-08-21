@@ -1,0 +1,9 @@
+n, m = map(int, input().split())
+t = []
+k = []
+t.append(input().split())
+for i in range(len(t[0])):
+  k.append(int(t[0][i]))
+for j in range(len(k)):
+  if k[j]<m:
+    print(k[j], end = " ")
