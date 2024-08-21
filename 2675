@@ -1,0 +1,7 @@
+n = int(input())
+
+for i in range(n):
+    cnt, word = input().split()
+    for y in word:
+        print(y*int(cnt), end='')
+    print()
