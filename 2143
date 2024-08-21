@@ -1,0 +1,21 @@
+import sys
+from bisect import bisect_left, bisect_right
+n=int(sys.stdin.readline())
+a=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+b=int(sys.stdin.readline())
+t=list(map(int,sys.stdin.readline().split()))
+sli=[]
+for i in range(a):
+    for j in range(i,a):
+        sli.append(sum(li[i:j+1]))
+sli.sort()
+st=[]
+for i in range(b):
+    for j in range(i,b):
+        st.append(sum(t[i:j+1]))
+st.sort()
+ans=0
+for i in sli:
+    ans+=bisect_right(st,n-i)-bisect_left(st,n-i)
+print(ans)
