@@ -1,0 +1,24 @@
+f=lambda a,b:((a[0]-b[0])**2+(a[1]-b[1])**2)
+ccw=lambda a,b,c:(b[0]-a[0])*(c[1]-b[1])-(b[1]-a[1])*(c[0]-b[0])
+joem=[list(map(int,input().split())) for _ in range(3)]
+dist=[f(joem[0],joem[1]),f(joem[0],joem[2]),f(joem[1],joem[2])]
+dist.sort()
+if ccw(joem[0],joem[1],joem[2])==0:
+    print('X')
+elif dist[2]>dist[1]+dist[0]:
+    if len(set(dist))==2:
+        print('Dunkak2Triangle')
+    else:
+        print('DunkakTriangle')
+elif dist[2]==dist[1]+dist[0]:
+    if len(set(dist))==2:
+        print('Jikkak2Triangle')
+    else:
+        print('JikkakTriangle')
+elif dist[2]<dist[1]+dist[0]:
+    if len(set(dist))==2:
+        print('Yeahkak2Triangle')
+    elif len(set(dist))==1:
+        print('JungTriangle')
+    else:
+        print('YeahkakTriangle')
