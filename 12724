@@ -1,0 +1,10 @@
+for _ in range(int(input())):
+    n=int(input())
+    li1=list(map(int,input().split()))
+    li1.sort()
+    li2=list(map(int,input().split()))
+    li2.sort(reverse=True)
+    ans=0
+    for i in range(n):
+        ans+=li1[i]*li2[i]
+    print(f'Case #{_+1}: {ans}')
