@@ -1,0 +1,4 @@
+for i in range(int(input())):
+    n=input()
+    if n=='P=NP':print('skipped')
+    else:print(eval(n))
