@@ -1,0 +1,6 @@
+try:
+    while True:
+        k = input()
+        print(k)
+except:
+    a = 1
