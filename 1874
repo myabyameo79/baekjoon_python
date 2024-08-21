@@ -1,0 +1,25 @@
+import sys
+a=int(sys.stdin.readline())
+li=[0]*a
+for i in range(a):
+    li[i]=int(sys.stdin.readline())
+t=[x for x in range(0,li[0]+1)]
+k=li[0]
+ans=['+']*li[0]
+real=True
+while li:
+    if t[-1]==li[0]:
+        ans.append('-')
+        li.pop(0)
+        t.pop()
+    elif t[-1]>li[0]:
+        print('NO')
+        real=False
+        break
+    else:
+        k+=1
+        ans.append('+')
+        t.append(k)
+if real:
+    for i in ans:
+        print(i)
