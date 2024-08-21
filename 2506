@@ -1,0 +1,6 @@
+input()
+ans=0;j=0
+for i in input().split():
+    j+=1 if i=='1' else -j
+    ans+=j
+print(ans)
