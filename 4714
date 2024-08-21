@@ -1,0 +1,4 @@
+from decimal import *
+k=Decimal('0.167')
+while (n:=Decimal(input()))!=-1.0:
+    print('Objects weighing %.2f on Earth will weigh %.2f on the moon.'%(n,n*k))
