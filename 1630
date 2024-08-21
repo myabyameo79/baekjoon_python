@@ -1,0 +1,22 @@
+import sys
+n=int(sys.stdin.readline())
+che=[True]*(n+1)
+for i in range(2,n+1):
+    if che[i]:
+        for j in range(i+i, n+1,i):
+            che[j]=False
+li=[]
+for i in range(2,n+1):
+    if che[i]:
+        li.append(i)
+ans=1
+for i in li:
+    t=1
+    while True:
+        if t>n:
+            t//=i
+            break
+        t*=i
+    ans*=t
+    ans%=987654321
+print(ans)
