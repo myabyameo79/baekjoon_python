@@ -1,0 +1,41 @@
+a, b, c = input().split()
+a = int(a)
+b = int(b)
+c = int(c)
+list = [a, b, c]
+d = max(list)
+list.remove(d)
+
+e = max(list)
+list.remove(e)
+
+f = list[0]
+
+list.remove(f)
+if a == 0 and b == 0 and c == 0:
+    hello = 0
+elif d * d == e * e + f * f:
+    print("right")
+else:
+    print("wrong")
+while a != 0 and b != 0 and c != 0:
+    a, b, c = input().split()
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    list = [a, b, c]
+    d = max(list)
+    list.remove(d)
+
+    e = max(list)
+    list.remove(e)
+
+    f = list[0]
+
+    list.remove(f)
+    if a == 0 and b == 0 and c == 0:
+        break
+    elif d*d == e*e + f*f:
+        print("right")
+    else:
+        print("wrong")
