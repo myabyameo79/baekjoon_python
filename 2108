@@ -1,0 +1,32 @@
+n=int(input())
+ar=[]
+
+for i in range(n):
+    ar.append(int(input()))
+
+ar.sort()
+
+print(round(sum(ar)/len(ar)))
+print(ar[len(ar)//2])
+
+
+dic=dict()
+for i in ar:
+    if i in dic:
+        dic[i]+=1
+    else:
+        dic[i]=1
+        
+mx=max(dic.values())
+mx_dic=[]
+
+for i in dic:
+    if mx==dic[i]:
+        mx_dic.append(i)
+
+if len(mx_dic)>1:
+    print(mx_dic[1])
+else:
+    print(mx_dic[0])
+    
+print(max(ar)-min(ar))
