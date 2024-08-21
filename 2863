@@ -1,0 +1,12 @@
+def hoijeon(a,b,c,d):
+    return c,a,d,b
+a,b=map(int,input().split())
+c,d=map(int,input().split())
+ans=a/c+b/d
+k=0
+for i in range(3):
+    a,b,c,d=hoijeon(a,b,c,d)
+    if a/c+b/d > ans:
+        ans=a/c+b/d
+        k=i+1
+print(k)
