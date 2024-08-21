@@ -1,0 +1,40 @@
+n=4000001
+che=[True]*n
+primes=[]
+for i in range(2,n):
+    if che[i]:
+        primes.append(i)
+        for j in range(i+i,n,i):
+            che[j]=False
+
+def dic(a:int,b:dict):
+    for i in primes:
+        p=i
+        b[i]=0
+        while p<=a:
+            b[i]+=a//p
+            p*=i
+    return b
+def pow(a,b):
+    if b==1:return a%c
+    t=pow(a,b//2)
+    if b%2:return (t*t*a)%c
+    return (t*t)%c
+a,b,c=map(int,input().split())
+dn=dict()
+dk=dict()
+dnk=dict()
+dn=dic(a,dn)
+dk=dic(b,dk)
+dnk=dic(a-b,dnk)
+ans=dict()
+for i,j in dn.items():
+    k=dn[i]-dk[i]-dnk[i]
+    if k==0:
+        continue
+    ans[i]=k
+res=1
+for i,j in ans.items():
+    res*=pow(i,j)
+    res%=c
+print(res)
