@@ -1,0 +1,5 @@
+input()
+li=list(map(int,input().split()))
+input()
+s=sum(list(map(abs,li)))
+print(s*2)
