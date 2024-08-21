@@ -1,0 +1,17 @@
+n=int(input())
+li=sorted(list(map(int,input().split())))
+i=0;j=n-1
+a=abs(li[i]+li[j])
+ans=[li[0],li[-1]]
+while i<j:
+    mid=li[i]+li[j]
+    if abs(mid)<a:
+        a=abs(mid)
+        ans=[li[i],li[j]]
+        if a==0:
+            break
+    if mid>=0:
+        j-=1
+    else:
+        i+=1
+print(*ans)
