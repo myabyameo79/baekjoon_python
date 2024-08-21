@@ -1,0 +1,11 @@
+a=int(input())
+if a%10!=0:
+    print(-1)
+else:
+    ans=0
+    x=a//300
+    a%=300
+    y=a//60
+    a%=60
+    z=a//10
+    print(x,y,z)
