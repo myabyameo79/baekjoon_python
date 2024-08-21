@@ -1,0 +1,8 @@
+li = [x for x in range(1, 31)]
+n = 28
+while n > 0:
+    a = int(input())
+    if a in li:
+        li.remove(a)
+    n-=1
+print(*li)
