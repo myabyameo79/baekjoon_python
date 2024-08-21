@@ -1,0 +1,16 @@
+import sys
+for _ in range(int(sys.stdin.readline())):
+    gualho=input()
+    yeollingeo = 0
+    for i in range(len(gualho)):
+        if gualho[i]=='(':
+            yeollingeo+=1
+        else:
+            yeollingeo-=1
+        if yeollingeo<0:
+            print('NO')
+            break
+    if yeollingeo>0:
+        print('NO')
+    elif yeollingeo==0:
+        print('YES')
