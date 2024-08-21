@@ -1,0 +1,2 @@
+ngx=int(input())
+print(chr(ngx+44031))
