@@ -1,0 +1,7 @@
+a,b=map(int,input().split())
+li=[0]*a
+for i in range(b):
+    a,b,c=map(int, input().split())
+    for j in range(a,b+1):
+        li[j-1]=c
+print(*li)
