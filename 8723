@@ -1,0 +1,9 @@
+li=sorted(list(map(int,input().split())))
+a=li[0];b=li[1];c=li[2]
+ans=0
+if a+b>c:
+    if a==b==c:
+        ans=2
+    elif a**2+b**2==c**2:
+        ans=1
+print(ans)
