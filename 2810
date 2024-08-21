@@ -1,0 +1,3 @@
+input()
+n=input()
+print(min(n.count('S')+n.count('LL')+1,len(n)))
