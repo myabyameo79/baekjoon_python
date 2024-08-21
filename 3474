@@ -1,0 +1,8 @@
+from math import log
+for i in range(int(input())):
+    n=int(input())
+    k=int(log(n,5))
+    ans=0
+    for i in range(k,0,-1):
+        ans+=n//5**i
+    print(ans)
