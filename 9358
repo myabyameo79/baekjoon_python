@@ -1,0 +1,18 @@
+import sys
+for _ in range(int(sys.stdin.readline())):
+    ngrfds=int(sys.stdin.readline())
+    li=list(map(int,sys.stdin.readline().split()))
+    l=ngrfds
+    while l>2:
+        if l%2==1:
+            l+=1
+            li.insert(l//2-1, li[l//2-1])
+        res=[0]*(l//2)
+        for i in range(l//2):
+            res[i]=li[i]+li[l-i-1]
+        li=res
+        l//=2
+    if li[0]>li[1]:
+        print(f'Case #{_+1}: Alice')
+    else:
+        print(f'Case #{_+1}: Bob')
