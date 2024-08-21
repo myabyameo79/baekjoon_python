@@ -1,0 +1,15 @@
+from collections import deque
+n=int(input())
+s=input()
+st='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+dic={st[i]:int(input()) for i in range(n)}
+deq=deque()
+for i in s:
+    if i=='+' or i=='-' or i=='/' or i=='*':
+        a=deq.pop()
+        b=deq.pop()
+        deq.append(eval(f'{dic.get(b,b)}{i}{dic.get(a,a)}'))
+    else:
+        deq.append(i)
+ans=deq[0]
+print('%.2f'%ans)
