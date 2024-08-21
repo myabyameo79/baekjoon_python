@@ -1,0 +1,17 @@
+import sys
+f=lambda a,b,c,d:(c-a)**2+(d-b)**2
+n=int(sys.stdin.readline())
+li=[tuple(map(int,sys.stdin.readline().split())) for _ in range(n)]
+cnt=0
+for i in range(n-2):
+    for j in range(i+1,n-1):
+        for k in range(j+1,n):
+            p1=li[i]
+            p2=li[j]
+            p3=li[k]
+            d1=(p1[0]-p2[0])**2+(p1[1]-p2[1])**2
+            d2=(p1[0]-p3[0])**2+(p1[1]-p3[1])**2
+            d3=(p2[0]-p3[0])**2+(p2[1]-p3[1])**2
+            if 2*max(d1,d2,d3)==d1+d2+d3:
+                cnt+=1
+print(cnt)
