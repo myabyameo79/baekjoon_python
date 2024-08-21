@@ -1,0 +1,16 @@
+a,b,c=map(int,input().split())
+li=set(map(int,input().split()))
+t=set(map(int,input().split()))
+t2=t&li
+li=li-t2
+t=t-t2
+li=sorted(list(li))
+ans=0
+for i in li:
+    if i-1 in t:
+        t.remove(i-1)
+    elif i+1 in t:
+        t.remove(i+1)
+    else:
+        ans+=1
+print(ans)
