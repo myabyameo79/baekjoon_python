@@ -1,0 +1,15 @@
+import sys
+n=int(sys.stdin.readline())
+li=sorted(list(map(int,sys.stdin.readline().split())))
+k=int(sys.stdin.readline())
+i=0;j=n-1
+t=0
+while i<j:
+    s=li[i]+li[j]
+    if s==k:
+        t+=1
+    if s>=k:
+        j-=1
+    else:
+        i+=1
+print(t)
