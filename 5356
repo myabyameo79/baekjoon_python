@@ -1,0 +1,7 @@
+s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+for j in range((n:=int(input()))):
+    a,b=input().split()
+    for i in range(int(a)):
+        print(f'{s[(s.index(b)+i)%26]}'*(i+1))
+    if j!=n-1:
+        print()
