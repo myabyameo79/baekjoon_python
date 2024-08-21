@@ -1,0 +1,6 @@
+n = int(input())
+t = []
+for i in range(n):
+  t.append(input())
+for i in range(1, n+1):
+  print(f"{i}. {t[i-1]}")
