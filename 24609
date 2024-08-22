@@ -1,0 +1,10 @@
+n=int(input())
+ans=0
+m=0
+for _ in range(n):
+    a=int(input())
+    m+=a
+    if m<0:
+        ans+=-m
+        m=0
+print(ans)
