@@ -1,0 +1,33 @@
+from collections import deque
+a=input()
+b=input()
+deq=deque()
+check=[False]*2048
+deq.append((a,0))
+while deq:
+    c,k=deq.popleft()
+    if c==b:
+        print(k)
+        break
+    c=list(c)
+    for i in range(1,len(c)):
+        t=c.copy()
+        if t[i]=='0':
+            t[i]='1'
+        else:
+            t[i]='0'
+        if check[int(''.join(t),2)]:
+            continue
+        deq.append((''.join(t),k+1))
+        check[int(''.join(t),2)]=True
+    c=''.join(c)
+    c=int(c,2)
+    t=c+1
+    if not check[t] and len(bin(t))<=12:
+        deq.append((bin(t)[2:],k+1))
+        check[t]=True
+    if c>0:
+        t=c-1
+        if not check[t]:
+            check[t]=True
+            deq.append((bin(t)[2:],k+1))
