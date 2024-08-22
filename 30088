@@ -1,0 +1,10 @@
+n=int(input())
+li=[0]*n
+for i in range(n):
+    t=list(map(int,input().split()))
+    li[i]=sum(t[1:])
+li.sort(reverse=True)
+ans=0
+for i in range(n):
+    ans+=sum(li[i:])
+print(ans)
