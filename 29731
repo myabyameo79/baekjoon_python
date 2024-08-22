@@ -1,0 +1,19 @@
+t = ['Never gonna give you up',
+'Never gonna let you down',
+'Never gonna run around and desert you',
+'Never gonna make you cry',
+'Never gonna say goodbye',
+'Never gonna tell a lie and hurt you',
+'Never gonna stop']
+n = int(input())
+u = [0]*n
+for i in range(n):
+    k = input()
+    if k in t:
+        u[i] = 1
+    else:
+        u[i] = 0
+if 0 in u:
+    print("Yes")
+else:
+    print("No")
