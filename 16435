@@ -1,0 +1,5 @@
+a,b=map(int,input().split())
+li=sorted(list(map(int,input().split())))
+for i in li:
+    if i<=b:b+=1
+print(b)
