@@ -1,0 +1,9 @@
+import sys
+n=int(sys.stdin.readline())
+li=sys.stdin.readline().strip().split()
+s=sys.stdin.readline().strip()
+t=0
+for i in li:
+    if i==s:
+        t+=1
+print(t)
