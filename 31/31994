@@ -1,0 +1,7 @@
+li=[]
+for i in range(7):
+    a,b=input().split()
+    b=int(b)
+    li.append([a,b])
+li.sort(key=lambda x:x[1])
+print(li[-1][0])
