@@ -1,0 +1,15 @@
+import sys
+n=int(sys.stdin.readline())
+sum=0
+hehe=0
+for i in range(n):
+    t=list(map(int,sys.stdin.readline().split()))
+    if t[0]==1:
+        sum+=t[1]
+        hehe = hehe^t[1]
+    elif t[0]==2 :
+        hehe=hehe^t[1]
+        sum-=t[1]
+        
+    elif t[0]==3: print(sum)
+    elif t[0]==4: print(hehe)
