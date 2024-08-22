@@ -1,0 +1,59 @@
+import sys
+n=int(sys.stdin.readline())
+for _ in range(n):
+    low=2100
+    high=2400
+    lie=True
+    canlie=False
+    while low+1<high:
+        mid=(low+high)//2
+        sys.stdout.write(f"? {mid}\n")
+        sys.stdout.flush()
+        n=int(sys.stdin.readline())
+        if n==1:one=True
+        else:one=False
+        if canlie:
+            if n==0:
+                sys.stdout.write(f'? {before}\n')
+                sys.stdout.flush()
+                k=int(sys.stdin.readline())
+                if k==0:
+                    lie=False
+                    high=before
+                    low=before2
+                    canlie=False
+                else:
+                    canlie=False
+                    high=mid
+                    before=mid
+            else:
+                canlie=False
+                before2=low
+                low=mid
+                before=mid
+                if lie:
+                    canlie=True
+        else:
+            if n==0:
+                high=mid
+                before=mid
+                before2=low
+            else:
+                before2=low
+                low=mid
+                before=mid
+                if lie:
+                    canlie=True
+    if one and lie:
+        sys.stdout.write(f'? {low}\n')
+        sys.stdout.flush()
+        k=int(sys.stdin.readline())
+        if k==1:
+            sys.stdout.write(f'! {low}\n')
+            sys.stdout.flush()
+        else:
+            sys.stdout.write(f'! {low-1}\n')
+            sys.stdout.flush()
+    else:
+        sys.stdout.write(f'! {low}\n')
+        sys.stdout.flush()
