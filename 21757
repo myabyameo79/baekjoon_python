@@ -1,0 +1,22 @@
+import sys
+
+N = int(sys.stdin.readline())
+t = list(map(int, sys.stdin.readline().split()))
+
+s = 0
+k = []
+for i in t:
+    s += i
+    k.append(s)
+
+if s % 4 != 0:
+    print(0)
+else:    
+    u = [1, 0, 0, 0]
+    zz = s // 4
+    for i in range(N - 1):
+        for j in range(3, 0, -1):
+            if k[i] == zz * j:
+                u[j] += u[j - 1]
+
+    print(u[3])
