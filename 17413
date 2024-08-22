@@ -1,0 +1,20 @@
+s=input()+' '
+real=True
+open=False
+t=[]
+for i in range(len(s)):
+    if s[i]=='<':
+        open=True
+        s=s[:i-len(t)]+''.join(t[::-1])+s[i:]
+        t=[]
+        continue
+    elif s[i]=='>':
+        open=False
+        continue
+    if (s[i]=='<' or s[i]==' ') and not open:
+        s=s[:i-len(t)]+''.join(t[::-1])+s[i:]
+        t=[]
+        continue
+    if not open:
+        t.append(s[i])
+print(s[:-1])
