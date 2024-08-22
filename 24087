@@ -1,0 +1,2 @@
+from math import ceil
+print(250+100*ceil(max(0,int(input())-int(input()))/int(input())))
