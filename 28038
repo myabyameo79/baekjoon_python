@@ -1,0 +1,32 @@
+import sys
+from math import asin,acos,sin,cos,pi
+input=sys.stdin.readline
+for _ in range(int(input())):
+    n=int(input())
+    a,b=map(float,input().split())
+    if n==2:
+        x=a*cos(b)
+        y=a*sin(b)
+        print(x,y)
+    else:
+        r=(a*a+b*b)**0.5
+        if b>0:
+            if a==0:
+                theta=pi/2
+            else:
+                theta=acos(a/r)
+        elif b<0:
+            if a>0:
+                theta=2*pi+asin(b/r)
+            elif a<0:
+                theta=pi+acos(-a/r)
+            else:
+                theta=3*pi/2
+        else:
+            if a>0:
+                theta=0
+            elif a<0:
+                theta=pi
+            else:
+                theta=0
+        print(r,theta)
