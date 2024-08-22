@@ -1,0 +1,7 @@
+n=int(input())
+ans=0
+li=list(map(int,input().split()))
+t=list(map(int,input().split()))
+for i in range(n):
+    if li[i]<=t[i]:ans+=1
+print(ans)
