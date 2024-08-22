@@ -1,0 +1,6 @@
+dic={'i':2,'j':2,'o':1}
+input()
+ans=0
+for i in input():
+    ans+=dic[i]
+print(ans)
