@@ -1,0 +1,27 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+field=[0]*a
+for i in range(a):
+    field[i]=sys.stdin.readline().strip()
+field=list(map(lambda x:x.replace('.','D'),field))
+deq=deque()
+for i in range(a):
+    for j in range(b):
+        if field[i][j]=='W':
+            deq.append((i,j))
+dx=[1,-1,0,0]
+dy=[0,0,1,-1]
+ans=1
+while deq:
+    x,y=deq.popleft()
+    for i in range(4):
+        rx=x+dx[i]
+        ry=y+dy[i]
+        if 0<=rx<a and 0<=ry<b and field[rx][ry]=='S':
+            ans=0
+            break
+print(ans)
+if ans:
+    for i in field:
+        print(i)
