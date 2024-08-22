@@ -1,0 +1,9 @@
+a,b=map(int,input().split())
+li=[input() for i in range(a)]
+input()
+li2=[input() for i in range(a)]
+ans=0
+for i in range(a):
+    for j in range(b):
+        if li[i][j]==li2[i][j]:ans+=1
+print(ans)
