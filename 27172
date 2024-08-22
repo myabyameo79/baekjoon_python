@@ -1,0 +1,14 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+m=max(li);s=set(li)
+che=[0]*(m+1)
+for i in li:
+    if i==m:
+        continue
+    for j in range(i+i,m+1,i):
+        if j in s:
+            che[i]+=1
+            che[j]-=1
+for i in range(n):
+    print(che[li[i]],end=' ')
