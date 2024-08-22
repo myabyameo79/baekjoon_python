@@ -1,0 +1,6 @@
+for i in range(int(input())):
+    ans=0
+    for j in input():
+        if j=='D':break
+        ans+=1
+    print(ans)
