@@ -1,0 +1,8 @@
+for i in range(int(input())):
+    a,b,c=map(int,input().split())
+    print(f'Data set: {a} {b} {c}')
+    a,b=sorted([a,b],reverse=True)
+    for i in range(c):
+        a, b = sorted([a//2, b], reverse=True)
+    print(a,b)
+    print()
