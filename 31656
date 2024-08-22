@@ -1,0 +1,5 @@
+k='0'
+for i in input():
+    if i==k[-1]:continue
+    k+=i
+print(k[1:])
