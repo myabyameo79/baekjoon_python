@@ -1,0 +1,6 @@
+li=set()
+input()
+for i in input().split():
+    if len(i)>=6 and i[-6:]=='Cheese':
+        li.add(i)
+print('yummy' if len(li)>=4 else 'sad')
