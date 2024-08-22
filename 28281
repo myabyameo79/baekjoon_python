@@ -1,0 +1,6 @@
+ans=float('inf')
+a,b=map(int,input().split())
+li=list(map(int,input().split()))
+for i in range(1,a):
+    ans=min(ans,li[i-1]*b+li[i]*b)
+print(ans)
