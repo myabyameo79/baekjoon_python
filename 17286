@@ -1,0 +1,7 @@
+def l(a,b,c,d):return ((a-c)**2+(b-d)**2)**0.5
+a,b=map(int,input().split())
+c,d=map(int,input().split())
+e,f=map(int,input().split())
+g,h=map(int,input().split())
+le=[l(a,b,c,d),l(a,b,e,f),l(a,b,g,h),l(c,d,e,f),l(c,d,g,h),l(e,f,g,h)]
+print(int(min(le[0]+min(le[3]+le[5],le[4]+le[5]),le[1]+min(le[3]+le[4],le[4]+le[5]),le[2]+min(le[3]+le[4],le[3]+le[5]))))
