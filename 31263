@@ -1,0 +1,19 @@
+import sys
+n=int(sys.stdin.readline())
+s=sys.stdin.readline().strip()
+k=0
+while n>3:
+    k+=1
+    if int(s[:3])<=641 and s[3]!='0':
+        n-=3
+        s=s[3:]
+    elif s[2]!='0':
+        n-=2
+        s=s[2:]
+    elif s[1]!='0':
+        n-=1
+        s=s[1:]
+if int(s)>641:
+    print(k+2)
+else:
+    print(k+1)
