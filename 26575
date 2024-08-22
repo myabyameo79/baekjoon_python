@@ -1,0 +1,8 @@
+def hehe(a, b, c):
+    sum = a*b*c
+    return sum
+n = int(input())
+for _ in range(n):
+    a, b, c = map(float, input().split())
+    sum = hehe(a, b, c)
+    print('${:.2f}'.format(sum))
