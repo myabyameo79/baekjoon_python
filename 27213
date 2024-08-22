@@ -1,0 +1,6 @@
+a,b=int(input()),int(input())
+if a>=2 and b>=2:
+    ans=a*b-(a-2)*(b-2)
+else:
+    ans=a*b
+print(ans)
