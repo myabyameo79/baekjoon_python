@@ -1,0 +1,7 @@
+def factorial(k):
+  d = 1
+  for i in range(1, k+1):
+    d*=i
+  return d
+k = int(input())
+print(factorial(k)//(60*60*24*7))
