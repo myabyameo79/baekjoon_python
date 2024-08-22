@@ -1,0 +1,15 @@
+import sys
+from itertools import combinations
+def mul(a):
+    ans=1
+    for i in a:
+        ans*=i
+    return ans
+a,b=map(int,sys.stdin.readline().split())
+li=list(map(int,sys.stdin.readline().split()))
+ans=0
+for i in range(1,11):
+    c=combinations(li,i)
+    for j in c:
+        ans+=(-1)**(i+1)*(b//mul(j))
+print(ans)
