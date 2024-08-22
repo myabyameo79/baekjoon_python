@@ -1,0 +1,3 @@
+input()
+li=list(map(int,input().split()))
+print(180*sum(li)-360)
