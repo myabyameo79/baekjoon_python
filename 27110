@@ -1,0 +1,5 @@
+n=int(input())
+ans=0
+for i in map(int,input().split()):
+    ans+=min(i,n)
+print(ans)
