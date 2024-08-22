@@ -1,0 +1,11 @@
+n=int(input())
+ans=8
+i=0
+if n==1:ans+=2
+while n>2**i:
+    i+=1
+    if n-2**i==0:
+        ans+=i+2
+    elif n-2**i<0:
+        ans+=i+1
+print(ans)
