@@ -1,0 +1,14 @@
+s1=input()
+s2=input()
+s=''
+for i in range(len(s1)):
+    s+=s1[i]+s2[i]
+while True:
+    if len(s)==2:break
+    im=''
+    for i in range(len(s)-1):
+        im+=str((int(s[i])+int(s[i+1]))%10)
+    s=''
+    for i in im:
+        s+=i
+print(s)
