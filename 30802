@@ -1,0 +1,5 @@
+n=int(input())
+li=list(map(lambda x:x-1,map(int,input().split())))
+t,p=map(int,input().split())
+print(sum(list(map(lambda x:x//t+1,li))))
+print(n//p,n%p)
