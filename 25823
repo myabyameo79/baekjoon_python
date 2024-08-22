@@ -1,0 +1,19 @@
+import sys
+def power(a,b):
+    if b==1:
+        return a%p
+    t=power(a,b//2)
+    if b%2==0:
+        return (t*t)%p
+    else:
+        return (t*t*a)%p
+p=10**9+7
+m=int(sys.stdin.readline())
+li=[1]*400001
+for i in range(2,400001):
+    li[i]=li[i-1]*i%p
+ans=0
+for i in range(3,m+1):
+    ans+=(li[i*2]*power(li[i]*li[i], p-2)%p)
+    ans%=p
+print(ans)
