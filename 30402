@@ -1,0 +1,11 @@
+ischunbae=False
+isnabi=False
+isyeongcheol=False
+for i in range(15):
+    s=input().split()
+    if 'w' in s:ischunbae=True
+    if 'b' in s:isnabi=True
+    if 'g' in s:isyeongcheol=True
+if ischunbae:print('chunbae')
+if isnabi:print('nabi')
+if isyeongcheol:print('yeongcheol')
