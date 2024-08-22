@@ -1,0 +1,17 @@
+dic={
+0:' @@@   @@@ ',
+1:'@   @ @   @',
+2:'@    @    @',
+3:'@         @',
+4:' @       @ ',
+5:'  @     @  ',
+6:'   @   @   ',
+7:'    @ @    ',
+8:'     @     '}
+n=int(input())
+for i in range(9):
+    for _ in range(n):
+        if _!=n-1:
+            print(dic[i],end=' ')
+        else:
+            print(dic[i])
