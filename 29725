@@ -1,0 +1,11 @@
+dic={'k':0,'p':1,'n':3,'b':3,'r':5,'q':9}
+white=0
+black=0
+for i in range(8):
+    s=input()
+    for j in s:
+        if j.isupper():
+            white+=dic[j.lower()]
+        elif j.islower():
+            black+=dic[j]
+print(white-black)
