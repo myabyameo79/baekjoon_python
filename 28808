@@ -1,0 +1,2 @@
+a,b=map(int,input().split())
+print(len(list(filter(lambda x:'+' in x, [input() for _ in range(a)]))))
