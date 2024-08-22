@@ -1,4 +1,4 @@
-from collections import deque
+18from collections import deque
 a=input()
 b=input()
 deq=deque()
