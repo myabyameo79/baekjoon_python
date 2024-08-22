@@ -1,0 +1,7 @@
+ans=0
+n=int(input())
+s1,s2=input(),input()
+for i in range(n):
+    if s1[i]==s2[i]=='C':
+        ans+=1
+print(ans)
