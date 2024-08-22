@@ -1,0 +1,9 @@
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+if li==[0]:
+    print('YES')
+    print(0)
+else:
+    print('YES')
+    print(f'{li[-1]}'*3)
