@@ -1,0 +1,8 @@
+se=set()
+for i in range(5):
+    n=int(input())
+    if n in se:
+        se.remove(n)
+    else:
+        se.add(n)
+print(*se)
