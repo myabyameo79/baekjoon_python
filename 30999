@@ -1,0 +1,7 @@
+a,b=map(int,input().split())
+n=0
+for i in range(a):
+    s=input()
+    if s.count('O')>=(b+1)//2:
+        n+=1
+print(n)
