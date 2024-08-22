@@ -1,0 +1,15 @@
+import sys
+n=int(sys.stdin.readline())
+k=7368788
+che=[True]*k
+for i in range(2,k):
+    if che[i]:
+        for j in range(i+i,k,i):
+            che[j]=False
+num=0
+for i in range(2,k):
+    if che[i]:
+        num+=1
+    if num==n:
+        print(i)
+        break
