@@ -1,0 +1,11 @@
+a,b,c=map(int,input().split())
+li1=sorted(list(map(int,input().split())),reverse=True)
+li2=sorted(list(map(int,input().split())),reverse=True)
+li3=sorted(list(map(int,input().split())),reverse=True)
+print(sum(li1)+sum(li2)+sum(li3))
+ans=0
+for i in range(min(a,b,c)):
+    li1[i]*=0.9
+    li2[i]*=0.9
+    li3[i]*=0.9
+print(int(sum(li1)+sum(li2)+sum(li3)))
