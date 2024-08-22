@@ -1,0 +1,12 @@
+e=input()
+try:
+    i=e.index('x')
+    if i==0:
+        ans=1
+    elif e[:i]=='-':
+        ans=e[:i]+'1'
+    else:
+        ans=e[:i]
+    print(ans)
+except:
+    print(0)
