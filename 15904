@@ -1,0 +1,8 @@
+li=['U','C','P','C'][::-1]
+for i in input():
+    if i==li[-1]:
+        li.pop()
+    if not li:break
+if li:
+    print('I hate UCPC')
+else:print('I love UCPC')
