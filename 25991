@@ -1,0 +1,5 @@
+n=int(input())
+li=list(map(float,input().split()))
+a=0
+for i in li:a+=i**3
+print('%.6f'%a**(1/3))
