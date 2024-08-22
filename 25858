@@ -1,0 +1,6 @@
+a,b=map(int,input().split())
+li=[0]*a
+for i in range(a):
+    li[i]=int(input())
+s=b//sum(li)
+for i in map(lambda x:x*s,li):print(i)
