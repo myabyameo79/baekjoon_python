@@ -1,0 +1,10 @@
+x = int(input())
+n = int(input())
+t = []
+for i in range(n):
+  a, b = map(int, input().split())
+  t.append(a*b)
+if sum(t) != x:
+  print("No")
+else:
+  print("Yes")
