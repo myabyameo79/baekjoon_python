@@ -1,0 +1,7 @@
+a = int(input())
+b = int(input())
+n = 60 + b
+if a <= n:
+    print(a * 1500)
+else:
+    print(n * 1500 + (a-n)*3000)
