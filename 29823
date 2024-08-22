@@ -1,0 +1,3 @@
+input()
+s=input()
+print(abs(s.count('N')-s.count('S'))+abs(s.count('W')-s.count('E')))
