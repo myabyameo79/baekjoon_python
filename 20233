@@ -1,0 +1,2 @@
+a,b,c,d,e=[int(input()) for i in range(5)]
+print(a+max(e-30,0)*b*21, c+max(e-45,0)*d*21)
