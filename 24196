@@ -1,0 +1,12 @@
+s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+dic={s[i]:i+1 for i in range(len(s))}
+s=input()
+n=0
+ans=''
+while True:
+    try:
+        ans+=s[n]
+        n+=dic[s[n]]
+    except:
+        break
+print(ans)
