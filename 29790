@@ -1,0 +1,6 @@
+a,b,c=map(int,input().split())
+f=a>=1000
+s=b>=8000 or c>=260
+if f and s:print('Very Good')
+elif f:print('Good')
+else:print('Bad')
