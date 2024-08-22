@@ -1,0 +1,9 @@
+li='Joffrey Robb Stannis'.split()
+a,b,c,d,e,f=map(int,input().split())
+dic={'Joffrey':a*d,'Robb':b*e,'Stannis':c*f}
+li.sort(key=lambda x:dic[x],reverse=True)
+max=dic[li[0]]
+ans=[li[0]]
+if dic[li[1]]==dic[li[0]]:ans.append(li[1])
+if dic[li[2]]==dic[li[0]]:ans.append(li[2])
+print(*ans)
