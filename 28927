@@ -1,0 +1,10 @@
+a,b,c=map(int,input().split())
+d,e,f=map(int,input().split())
+Max=a*3+b*20+c*120
+Mel=d*3+e*20+f*120
+if Max>Mel:
+    print('Max')
+elif Max==Mel:
+    print('Draw')
+else:
+    print('Mel')
