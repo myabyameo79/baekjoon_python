@@ -1,0 +1,5 @@
+dic={1:1,2:3,3:5}
+for i in range(int(input())):
+    a,b,c=map(int,input().split())
+    a=dic[a]
+    print(a*(c-b) if c-b>=0 else 0)
