@@ -1,0 +1,27 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+li=[0]*b
+for i in range(b):
+    li[i]=list(map(int,sys.stdin.readline().split()))
+check=[[True for _ in range(a)] for _ in range(b)]
+deq=deque()
+deq.append((0,0))
+check[0][0]=False
+dx=[1,0]
+dy=[0,1]
+real=True
+while deq:
+    c,k=deq.popleft()
+    if c==b-1 and k==a-1:
+        print('Yes')
+        real=False
+        break
+    for i in range(2):
+        x=c+dx[i]
+        y=k+dy[i]
+        if 0<=x<b and 0<=y<a and li[x][y]==1 and check[x][y]:
+            check[x][y]=False
+            deq.append((x,y))
+if real:
+    print('No')
