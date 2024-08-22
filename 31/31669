@@ -1,0 +1,16 @@
+a,b=map(int,input().split())
+li=[0]*a
+for i in range(a):
+    li[i]=list(input())
+ans=True
+for i in range(b):
+    real=True
+    for j in range(a):
+        if li[j][i]=='O':
+            real=False
+    if real:
+        print(i+1)
+        ans=False
+        break
+if ans:
+    print('ESCAPE FAILED')
