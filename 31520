@@ -1,0 +1,4 @@
+s=int(input())
+if s==1 or s==12 or s==123 or s==1234 or s==12345 or s==123456 or s==1234567 or s==12345678 or s==123456789:
+    print(s%10)
+else:print(-1)
