@@ -1,0 +1,9 @@
+while True:
+    n=int(input())
+    if n==0:break
+    li=[0]*n
+    for i in range(n):
+        li[i]=int(input())
+    li=li[::-1]
+    for i in li:print(i)
+    print(0)
