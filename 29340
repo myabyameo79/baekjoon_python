@@ -1,0 +1,5 @@
+a,b=input(),input()
+ans=''
+for i in range(len(a)):
+    ans+=str(max(int(a[i]),int(b[i])))
+print(ans)
