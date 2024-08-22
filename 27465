@@ -1,0 +1,10 @@
+def sosu(n):
+    for i in range(2,int(n**0.5)+1):
+        if n%i==0:return False
+    return True
+n=int(input())
+if n<=10**6:print(n*4)
+else:
+    while True:
+        if not sosu(n):print(n);break
+        n+=1
