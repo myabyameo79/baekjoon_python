@@ -1,0 +1,6 @@
+from math import pi
+a=eval(input().replace(' ','/'))
+b,c=map(int,input().split())
+b=b**2*pi/c
+if a<=b:print('Whole pizza')
+else:print('Slice of pizza')
