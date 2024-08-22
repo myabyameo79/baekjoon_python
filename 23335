@@ -1,0 +1,10 @@
+li=[1]*(10**6+1)
+for i in range(2,10**6+1):
+    for j in range(i+i,10**6+1,i):
+        li[j]+=i
+li[1]=0
+input()
+for i in map(int,input().split()):
+    if li[i]==i:print('perfect')
+    elif li[i]>i:print('abundant')
+    else:print('deficient')
