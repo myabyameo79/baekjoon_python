@@ -1,0 +1,14 @@
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=int(input().split()[-1])
+if n<=2:
+    print(max(li))
+else:
+    dp=[0]*n
+    dp[0]=li[0]
+    dp[1]=li[1]
+    dp[2]=li[2]+li[0]
+    for i in range(3,n):
+        dp[i]=li[i]+max(dp[i-3],dp[i-2])
+    print(max(dp))
