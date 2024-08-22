@@ -1,0 +1,14 @@
+import sys
+for _ in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    li=input().split()
+    t=20
+    if n>32:
+        print(0)
+    else:
+        for i in range(n-2):
+            for j in range(i+1,n-1):
+                for k in range(j+1,n):
+                    um=[li[i],li[j],li[k]]
+                    t=min(t,12-len(set(li[i])&set(li[j]))-len(set(li[i])&set(li[k]))-len(set(li[k])&set(li[j])))
+        print(t)
