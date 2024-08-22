@@ -1,0 +1,6 @@
+n=0
+input()
+for i in input().split():
+    if i==i[::-1]:
+        n+=int(i)
+print(n)
