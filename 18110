@@ -1,0 +1,14 @@
+import sys
+import math
+n= int(sys.stdin.readline())
+
+if n == 0:
+    print(0)
+else:
+    t = [0 for _ in range(n)]
+    for i in range(n):
+        t[i] = int(sys.stdin.readline())
+    t.sort()
+    k = math.floor(0.5+n*0.15)
+    t=t[k:n-k]
+    print(math.floor(0.5+sum(t)/len(t)))
