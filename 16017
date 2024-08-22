@@ -1,0 +1,9 @@
+ans=0
+if 9>=int(input())>=8:
+    ans+=1
+if input()==input():
+    ans+=2
+if 8<=int(input())<=9:
+    ans+=1
+if ans==4:print('ignore')
+else:print('answer')
