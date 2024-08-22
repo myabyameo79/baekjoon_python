@@ -1,0 +1,21 @@
+import sys
+from collections import deque
+deq=deque()
+for i in range(int(sys.stdin.readline())):
+    n=sys.stdin.readline().strip().split()
+    if n[0]=='1':
+        deq.append(n[1])
+    elif n[0]=='2':
+        deq.appendleft(n[1])
+    elif n[0]=='3':
+        print(deq.pop() if len(deq) else -1)
+    elif n[0]=='4':
+        print(deq.popleft() if len(deq) else -1)
+    elif n[0]=='5':
+        print(len(deq))
+    elif n[0]=='6':
+        print(0 if len(deq) else 1)
+    elif n[0]=='7':
+        print(deq[-1] if len(deq) else -1)
+    else:
+        print(deq[0] if len(deq) else -1)
