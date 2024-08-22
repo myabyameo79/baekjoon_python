@@ -1,0 +1,22 @@
+import sys
+from collections import deque
+input=sys.stdin.readline
+a,b=map(int,input().split())
+f=[1,1]
+se=set()
+while f'{f[-2]} {f[-1]}' not in se:
+    se.add(f'{f[-2]} {f[-1]}')
+    f.append((f[-1]+f[-2])%b)
+deq=deque()
+for i in f:
+    i=str(i)
+    for j in i:
+        deq.append(int(j))
+deq.pop()
+deq.pop()
+f=list(deq)
+l=len(f)
+for i in range(a):
+    n=int(input())-1
+    try:print(f[n])
+    except:print(f[n%l])
