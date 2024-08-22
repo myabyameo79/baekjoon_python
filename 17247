@@ -1,0 +1,9 @@
+an,b=map(int,input().split())
+a=[]
+li=[0]*an
+for i in range(an):
+    li[i]=input().split()
+    for j in range(b):
+        if li[i][j]=='1':
+            a.append([i,j])
+print(abs(a[1][0]-a[0][0])+abs(a[1][1]-a[0][1]))
