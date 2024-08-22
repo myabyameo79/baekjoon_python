@@ -1,0 +1,6 @@
+fi=[0]*41
+fi[1]=1;fi[2]=1
+for i in range(3,41):
+    fi[i]=fi[i-1]+fi[i-2]
+n=int(input())
+print(fi[n],n-2)
