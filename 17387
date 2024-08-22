@@ -1,0 +1,25 @@
+import sys
+input=sys.stdin.readline
+def ccw(a,b,c,d,e,f):
+    c=(c-a)*(f-d)-(d-b)*(e-c)
+    if c>0:
+        return 1
+    if c==0:
+        return 0
+    if c<0:
+        return -1
+a,b,c,d=map(int,input().split())
+e,f,g,h=map(int,input().split())
+m=ccw(a,b,c,d,e,f)
+n=ccw(a,b,c,d,g,h)
+o=ccw(e,f,g,h,a,b)
+p=ccw(e,f,g,h,c,d)
+if m*n==0 and o*p==0:
+    if min(a,c)<=max(e,g) and max(a,c)>=min(e,g) and min(b,d)<=max(f,h) and max(b,d)>=min(f,h):
+        print(1)
+    else:
+        print(0)
+elif m*n<=0 and o*p<=0:
+    print(1)
+else:
+    print(0)
