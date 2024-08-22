@@ -1,0 +1,2 @@
+d={True:'YES',False:'NO'}
+print(d[eval(input().replace('=','=='))])
