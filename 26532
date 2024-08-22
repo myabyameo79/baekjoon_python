@@ -1,0 +1,2 @@
+from math import ceil
+print(ceil(ceil(eval(input().replace(' ','*'))/4840)/5))
