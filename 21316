@@ -1,0 +1,27 @@
+from itertools import combinations
+dic={x+1:[] for x in range(12)}
+for i in range(12):
+    t=list(map(int,input().split()))
+    dic[t[0]].append(t[1])
+    dic[t[1]].append(t[0])
+three={}
+one={}
+for i,j in dic.items():
+    if len(j)==3:
+        three[i]=j
+    elif len(j)==1:
+        one[i]=j
+one_real={}
+for i in one.keys():
+    if one[i][0] in three.keys():
+        one_real[i]=one[i]
+for i,j in combinations(three.keys(),2):
+    se=set(three[i])&set(three[j])
+    if len(se)==1:
+        s=list(se)[0]
+        if s not in three.keys():
+            k=[i,j]
+for i in list(one_real.values()):
+    if i[0] in k:
+        print(i[0])
+        break
