@@ -1,0 +1,21 @@
+from collections import deque
+li=[list(map(int,input().split())) for _ in range(5)]
+a,b=map(int,input().split())
+li[a][b]=-1
+deq=deque()
+deq.append((a,b,0,0))
+dx=[1,-1,0,0]
+dy=[0,0,1,-1]
+real=True
+while deq:
+    c,k,m,n=deq.popleft()
+    if m==1:
+        real=False
+        break
+    for i in range(4):
+        x=c+dx[i]
+        y=k+dy[i]
+        if 0<=x<=4 and 0<=y<=4 and li[x][y]!=-1:
+            deq.append((x,y,li[x][y],n+1))
+            li[x][y]=-1
+print(-1 if real else n)
