@@ -1,0 +1,4 @@
+s='1WelcomeToSMUPC'
+n=int(input())
+n=n%14 if n%14!=0 else 14
+print(s[n])
