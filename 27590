@@ -1,0 +1,8 @@
+n=0
+a,b=map(int,input().split())
+c,d=map(int,input().split())
+while True:
+    if (a+n)%b==0 and (c+n)%d==0:
+        break
+    n+=1
+print(n)
