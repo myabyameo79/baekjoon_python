@@ -1,0 +1,18 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+li=[0]*a
+for i in range(a):
+    li[i]=sys.stdin.readline().strip()
+li=list(filter(lambda x:len(x)>=b,li))
+se=list(set(li))
+di={x:0 for x in se}
+for i in li:
+    di[i]+=1
+ans=[]
+for i in list(set(li)):
+    ans.append([i,di[i]])
+ans.sort(key=lambda x:x[0])
+ans.sort(key=lambda x:-len(x[0]))
+ans.sort(key=lambda x:-x[1])
+for i in ans:
+    print(i[0])
