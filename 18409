@@ -1,0 +1,6 @@
+input()
+s=input()
+a='aeiou';k=0
+for i in s:
+    if i in a:k+=1
+print(k)
