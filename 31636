@@ -1,0 +1,8 @@
+k=0
+input()
+for i in input():
+    if i=='o':k+=1
+    else:k=0
+    if k==3:break
+if k==3:print('Yes')
+else:print('No')
