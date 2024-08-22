@@ -1,0 +1,4 @@
+k=input()
+t=list(k)
+n=int(input())
+print(t[n-1])
