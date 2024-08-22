@@ -1,0 +1,18 @@
+import sys
+from bisect import bisect_right
+a,b,c=map(int,sys.stdin.readline().split())
+li=list(map(int,sys.stdin.readline().split()))
+li.sort()
+t=list(map(int,sys.stdin.readline().split()))
+visit=[False]*b
+for i in t:
+    m=bisect_right(li,i)
+    if visit[m]:
+        for j in range(m+1,b):
+            if not visit[j]:
+                print(li[j])
+                visit[j]=True
+                break
+    else:
+        print(li[m])
+        visit[m]=True
