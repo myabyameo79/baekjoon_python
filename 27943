@@ -1,0 +1,32 @@
+import sys
+n=int(sys.stdin.readline())
+sys.stdout.write(f'? {(1+n)//2}\n')
+sys.stdout.flush()
+gaji=sys.stdin.readline().strip()
+ans=[0,0]
+low=1
+high=(1+n)//2
+while low<=high:
+    mid=(low+high)//2
+    sys.stdout.write(f'? {mid}\n')
+    sys.stdout.flush()
+    k=sys.stdin.readline().strip()
+    if k==gaji:
+        high=mid-1
+    else:
+        low=mid+1
+ans[0]=low
+low=(1+n)//2
+high=n
+while low<=high:
+    mid=(low+high)//2
+    sys.stdout.write(f'? {mid}\n')
+    sys.stdout.flush()
+    k=sys.stdin.readline().strip()
+    if k==gaji:
+        low=mid+1
+    else:
+        high=mid-1
+ans[1]=high
+sys.stdout.write(f'! {ans[0]} {ans[1]}\n')
+sys.stdout.flush()
