@@ -1,0 +1,8 @@
+for i in range(int(input())):
+    print(f'Case #{i+1}: ', end='')
+    n=int(input())
+    if n<=25:
+        print('World Finals')
+    elif n<=1000:print('Round 3')
+    elif n<=4500:print('Round 2')
+    else:print('Round 1')
