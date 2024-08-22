@@ -1,0 +1,67 @@
+import math
+import sys
+def C(a,b):
+    ans=1
+    for i in range(b):ans*=a-i
+    for i in range(b):ans//=i+1
+    return ans
+for _ in range(int(sys.stdin.readline())):
+    n,m=map(int,sys.stdin.readline().split())
+    if m==1:
+        if n==0:
+            print(1)
+        else:
+            print(0)
+        continue
+    if m==2:
+        if n==0:
+            print(0)
+        else:
+            print(1)
+        continue
+    if n==1 or n==0:
+        print(0)
+        continue
+    if n<m-1:
+        print(0)
+        continue
+    n-=1;m-=2
+    n2=n;m2=m
+    guchil_n_li=[]
+    k=int(math.log(n,97))
+    for i in range(k,-1,-1):
+        c=97**i
+        guchil_n_li.append(n//c)
+        n%=c
+
+    k2=int(math.log(m,97))
+    guchil_m_li=[0]*(k-k2)
+    for i in range(k2,-1,-1):
+        c=97**i
+        guchil_m_li.append(m//c)
+        m%=c
+
+    guchil_rest=1
+    for i in range(k+1):
+        guchil_rest*=C(guchil_n_li[i],guchil_m_li[i])%97
+        guchil_rest%=97
+
+    ilgongsamil_n_li=[]
+    k=int(math.log(n2,1031))
+    for i in range(k,-1,-1):
+        c=1031**i
+        ilgongsamil_n_li.append(n2//c)
+        n2%=c
+
+    k2=int(math.log(m2,1031))
+    ilgongsamil_m_li=[0]*(k-k2)
+    for i in range(k2,-1,-1):
+        c=1031**i
+        ilgongsamil_m_li.append(m2//c)
+        m2%=c
+
+    ilgongsamil_rest=1
+    for i in range(k+1):
+        ilgongsamil_rest*=C(ilgongsamil_n_li[i],ilgongsamil_m_li[i])%1031
+        ilgongsamil_rest%=1031
+    print((guchil_rest*36085+ilgongsamil_rest*63923)%100007)
