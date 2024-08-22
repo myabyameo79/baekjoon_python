@@ -1,0 +1,4 @@
+input()
+if '7' in input().split() and '7' in input().split() and '7' in input().split():
+    print(777)
+else:print(0)
