@@ -1,0 +1,2 @@
+a=int(input())+int(input())
+print(a%12 if a%12 else 12)
