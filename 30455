@@ -1,0 +1,2 @@
+if int(input())%2:print('Goose')
+else:print('Duck')
