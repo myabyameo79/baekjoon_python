@@ -1,0 +1,12 @@
+import math
+import sys
+n=int(sys.stdin.readline())
+li=list(map(int,sys.stdin.readline().split()))
+dic={x:0 for x in list(set(li))}
+for i in li:
+    dic[i]+=1
+m=max(dic.values())
+if m>math.ceil(n/2):
+    print('NO')
+else:
+    print('YES')
