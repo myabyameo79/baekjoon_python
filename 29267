@@ -1,0 +1,10 @@
+a,b=map(int,input().split())
+n=0
+ans=0
+for i in range(a):
+    s=input()
+    if s=='save':n=ans
+    elif s=='load':ans=n
+    elif s=='shoot':ans-=1
+    else:ans+=b
+    print(ans)
