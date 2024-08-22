@@ -1,0 +1,5 @@
+s=input()
+if '7' in s and int(s)%7==0:print(3)
+elif '7' in s and int(s)%7!=0:print(2)
+elif int(s)%7==0:print(1)
+else:print(0)
