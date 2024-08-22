@@ -1,0 +1,11 @@
+s=list(map(lambda x:bin(int(x))[2:].rjust(4,'0'),list(input())))
+dic={x:[] for x in range(4)}
+for i in range(4):
+    for j in s:
+        if j[i]=='0':
+            dic[i].append('.')
+        else:
+            dic[i].append('*')
+    dic[i].insert(2,' ')
+for i in dic.values():
+    print(' '.join(i))
