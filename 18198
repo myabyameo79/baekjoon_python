@@ -1,0 +1,9 @@
+ans={'A':0,'B':0}
+s=input()
+real=True
+for i in range(0,len(s),2):
+    ans[s[i]]+=int(s[i+1])
+    if ans['A']==ans['B']==10:real=False
+    if real and ans[s[i]]>=11:print(s[i])
+    if (not real) and ans['A']-ans['B']>=2:print('A')
+    if (not real) and ans['B']-ans['A']>=2:print('B')
