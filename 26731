@@ -1,0 +1,4 @@
+s=input()
+li=list('ABCDEFGHIJKLMONPQRSTUVWXYZ')
+for i in s:li.remove(i)
+print(*li)
