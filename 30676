@@ -1,0 +1,15 @@
+n = int(input())
+if 780 >= n >= 620:
+  print("Red")
+elif 620 >= n>= 590:
+  print("Orange")
+elif 590 >= n>= 570:
+  print("Yellow")
+elif 570 >= n>= 495:
+  print("Green")
+elif 495 >= n>= 450:
+  print("Blue")
+elif 450 >= n>= 425:
+  print("Indigo")
+else:
+  print("Violet")
