@@ -1,0 +1,11 @@
+for _ in range(int(input())):
+    a,b,c=map(int,input().split())
+    ans=[]
+    k=a*30+b/2+c/120
+    l=b*6+c/10
+    n=c*6
+    k,l,n=sorted([k,l,n])
+    ans.append(l-k if l-k<=180 else 360-l+k)
+    ans.append(n - k if n - k <= 180 else 360 - n + k)
+    ans.append(n - l if n - l <= 180 else 360 - n + l)
+    print(min(ans))
