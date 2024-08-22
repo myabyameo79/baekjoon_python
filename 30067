@@ -1,0 +1,5 @@
+li=[int(input()) for _ in range(10)]
+s=sum(li)
+t=list(map(lambda x:s-x,li))
+for i in range(10):
+    if li[i]==t[i]:print(li[i]);break
