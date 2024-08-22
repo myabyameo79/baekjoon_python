@@ -1,0 +1,17 @@
+from collections import deque
+a,b=map(int,input().split())
+check=[True]*1000001
+deq=deque()
+deq.append((a,0))
+check[a]=False
+while deq:
+    n,m=deq.popleft()
+    if n==b:
+        print(m)
+        break
+    m+=1
+    if n+1<=10**6 and check[n+1]:
+        check[n+1]=False
+        deq.append((n+1,m))
+    if n*2<=10**6 and check[n*2]:
+        deq.append((n*2,m))
