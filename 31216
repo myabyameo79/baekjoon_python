@@ -1,0 +1,16 @@
+import sys
+from collections import deque
+n=318138
+che=[True]*n
+for i in range(2,n):
+    if che[i]==True:
+        for j in range(i+i, n, i):
+            che[j]=False
+deq = deque()
+for i in range(2,n):
+    if che[i]==True:
+        deq.append(i)
+deq=list(deq)
+for i in range(int(sys.stdin.readline())):
+    n=int(sys.stdin.readline())
+    print(deq[deq[n-1]-1])
