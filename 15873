@@ -1,0 +1,5 @@
+s=input()
+if len(s)-2:
+    print(int(s[:2])+int(s[2:]) if s[-1]!='0' else int(s[:-2])+int(s[-2:]))
+else:
+    print(int(s[0])+int(s[1]))
