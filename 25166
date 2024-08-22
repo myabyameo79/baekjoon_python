@@ -1,0 +1,11 @@
+a,b=map(int,input().split())
+if a<=1023:
+    print('No thanks')
+elif a<=1023+b:
+    b=bin(b)[2:][::-1]
+    k=bin(a-1023)[2:][::-1]
+    real=True
+    for i in range(min(len(b),len(k))):
+        if b[i]!='1' and k[i]=='1':real=False
+    print('Thanks' if real else 'Impossible')
+else:print('Impossible')
