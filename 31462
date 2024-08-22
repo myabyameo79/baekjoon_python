@@ -1,0 +1,30 @@
+n=int(input())
+li=[list(input()) for _ in range(n)]
+real=True
+try:
+    for i in range(n):
+        for j in range(i+1):
+            if li[i][j]=='R':
+                if li[i+1][j]==li[i+1][j+1]=='R':
+                    li[i][j]='-'
+                    li[i+1][j]='-'
+                    li[i+1][j+1]='-'
+                else:
+                    real=False
+                    break
+            elif li[i][j]=='B':
+                if li[i][j+1]==li[i+1][j+1]=='B':
+                    li[i][j]='-'
+                    li[i][j+1]='-'
+                    li[i+1][j+1]='-'
+                else:
+                    real=False
+                    break
+        if not real:
+            break
+    if real:
+        print(1)
+    else:
+        print(0)
+except:
+    print(0)
