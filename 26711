@@ -1,0 +1,3 @@
+hehe = int(input())
+boom = int(input())
+print(hehe+boom)
