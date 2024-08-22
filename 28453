@@ -1,0 +1,10 @@
+def pandan(a):
+    if a<250:return 4
+    if a<275:return 3
+    if a<300:return 2
+    return 1
+a=int(input())
+li=list(map(int,input().split()))
+for i in range(a):
+    li[i]=pandan(li[i])
+print(*li)
