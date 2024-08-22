@@ -1,0 +1,17 @@
+n , m = map(int, input().split())
+hh = dict()
+while True:
+  if n == 0:
+    break
+  else:
+    a, b= input().split()
+    hh[a] = b
+    n-=1
+
+while True:
+  if m == 0:
+    break
+  else:
+    r = input()
+    print(hh[r])
+    m-=1
