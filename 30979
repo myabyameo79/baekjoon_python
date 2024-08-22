@@ -1,0 +1,5 @@
+n=int(input())
+input()
+s=sum(list(map(int,input().split())))
+if n<=s:print('Padaeng_i Happy')
+else:print('Padaeng_i Cry')
