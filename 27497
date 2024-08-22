@@ -1,0 +1,21 @@
+from collections import deque
+deq=deque()
+t=[]
+for i in range(int(input())):
+    li=input().split()
+    if li[0]=='1':
+        deq.append(li[1])
+        t.append(-1)
+    elif li[0]=='2':
+        deq.insert(0,li[1])
+        t.append(0)
+    elif li[0]=='3':
+        try:
+            if t[-1]==0:
+                deq.popleft()
+            else:
+                deq.pop()
+            t.pop()
+        except:
+            continue
+print(''.join(deq) if len(deq)!=0 else 0)
