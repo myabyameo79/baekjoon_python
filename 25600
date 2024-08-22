@@ -1,0 +1,6 @@
+t = 0
+for i in range(int(input())):
+    a,b,c=map(int,input().split())
+    if a==b+c:t=max(t,2*a*(b+c))
+    else:t=max(t,a*(b+c)) 
+print(t)
