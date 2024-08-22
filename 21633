@@ -1,0 +1,8 @@
+n = float(input())
+t = 25.0+(n*0.01)
+if t <= 100: 
+    print("100.00")
+elif t >= 2000: 
+    print("2000.00")
+else: 
+    print("%.2f" %t)
