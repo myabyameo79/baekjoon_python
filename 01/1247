@@ -11,4 +11,4 @@ while a != 0:
     print("+")
   elif result < 0:
     print("-")
-  a-=1
+  a-=1 
