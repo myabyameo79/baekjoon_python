@@ -1,0 +1,17 @@
+import sys
+n=int(sys.stdin.readline())
+low=1
+high=n
+while low<=high:
+    mid=(low+high)//2
+    sys.stdout.write(f'? {mid}\n')
+    sys.stdout.flush()
+    k=int(sys.stdin.readline())
+    if k==0:
+        sys.stdout.write(f'= {mid}\n')
+        sys.stdout.flush()
+        break
+    elif k==-1:
+        low=mid+1
+    else:
+        high=mid-1
