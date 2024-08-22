@@ -1,0 +1,12 @@
+p=1234567891
+s='abcdefghijklmnopqrstuvwxyz'
+dic={}
+for i in range(26):
+    dic[s[i]]=i+1
+n=int(input())
+st=input()
+ans=0
+for i in range(n):
+    ans+=dic[st[i]]*((31**i)%p)
+    ans%=p
+print(ans)
