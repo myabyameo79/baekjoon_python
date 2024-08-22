@@ -1,0 +1,11 @@
+n=bin(int(input()))[2:].rjust(32,'0')
+b=''
+for i in n:
+    if i=='0':
+        b+='1'
+    else:b+='0'
+b=bin(int(b,2)+1)[2:]
+ans=0
+for i in range(32):
+    if b[i]!=n[i]:ans+=1
+print(ans)
