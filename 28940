@@ -1,0 +1,5 @@
+from math import ceil
+a,b=map(int,input().split())
+c,d,e=map(int,input().split())
+if a<d or b<e:print(-1)
+else:print(ceil(c/((a//d)*(b//e))))
