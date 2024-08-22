@@ -1,0 +1,2 @@
+a,b,c=map(int,input().split())
+print(4*max(a-b,b)*max(a-c,c))
