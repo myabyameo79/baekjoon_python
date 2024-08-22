@@ -1,0 +1,12 @@
+n=1000001
+che=[True]*n
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+input()
+ans=1
+for i in set(map(int,input().split())):
+    if che[i]:
+        ans*=i
+print(ans if ans!=1 else -1)
