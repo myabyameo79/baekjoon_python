@@ -1,0 +1,9 @@
+l=lambda a,b:a**2+b**2
+a,b=map(int,input().split())
+li=[0]*a
+for i in range(a):
+    n=int(input())
+    t=list(map(int,input().split()))
+    li[i]=max(l(t[j*2],t[j*2+1]) for j in range(n))
+li.sort()
+print('%.2f'%li[b-1])
