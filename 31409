@@ -1,0 +1,45 @@
+import sys
+from collections import deque
+n=int(sys.stdin.readline());m=n
+li=list(map(int,sys.stdin.readline().split()))
+dic={x:set() for x in range(1,n+1)}
+check=[False]*(n+1)
+for i in range(n):
+    if li[i]!=i+1 and check[i+1]==False:
+        check[i+1]=True
+        n-=1
+        deq=deque()
+        deq.append(li[i])
+        while deq:
+            c=deq.popleft()
+            if check[c]:
+                break
+            elif li[c-1]!=c:
+                check[c]=True
+                n-=1
+                deq.append(li[c-1])
+            else:
+                break
+check=check[1:]
+if n>1:
+    ind=-1
+    for i in range(m):
+        if check[i]==False:
+            if ind==-1:
+                ind=i
+                t=i
+            else:
+                k=li[i]
+                li[i]=ind+1
+                check[i]=True
+                ind=i
+    li[t]=k
+if n==1:
+    for i in range(m):
+        if check[i]==False:
+            if li[i]==1:
+                li[i]+=1
+            else:
+                li[i]-=1
+print(n)
+print(*li)
