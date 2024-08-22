@@ -1,0 +1,14 @@
+import sys
+n=int(sys.stdin.readline())
+li=[0]*n
+for i in range(n):
+    li[i]=sys.stdin.readline().strip()
+li=li+li
+for i in li:
+    sys.stdout.write(f'? {i}\n')
+    sys.stdout.flush()
+    ans=int(sys.stdin.readline())
+    if ans==1:
+        sys.stdout.write(f'! {i}\n')
+        sys.stdout.flush()
+        break
