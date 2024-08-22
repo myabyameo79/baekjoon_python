@@ -1,0 +1,3 @@
+a,b,c,d,e=map(int,input().split())
+n=4*e-a-b-c-d
+print(n if n>=0 else 0)
