@@ -1,0 +1,7 @@
+ans=0
+y=0
+for i in input():
+    if i in ['a','e','i','o','u']:
+        ans+=1
+    if i=='y':y+=1
+print(ans,ans+y)
