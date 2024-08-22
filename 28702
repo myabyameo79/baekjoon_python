@@ -1,0 +1,19 @@
+li=[]
+for i in range(3):
+    n=input()
+    try:
+        li.append(int(n))
+    except:
+        li.append(n)
+for i in [2,1,0]:
+    if type(li[i])==int:
+        ans=li[i]+3-i
+        if ans%15==0:
+            print('FizzBuzz')
+        elif ans%3==0:
+            print('Fizz')
+        elif ans%5==0:
+            print('Buzz')
+        else:
+            print(ans)
+        break
