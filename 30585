@@ -1,0 +1,10 @@
+zero=0
+one=0
+a,b=map(int,input().split())
+for i in range(a):
+    s=input()
+    zero+=s.count('0')
+    one+=s.count('1')
+if zero<=one:
+    print(zero)
+else:print(one)
