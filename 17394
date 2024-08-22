@@ -1,0 +1,43 @@
+import sys
+from collections import deque
+n=10**6+1
+che=[True]*n
+for i in range(2,n):
+    if che[i]:
+        for j in range(i+i,n,i):
+            che[j]=False
+for _ in range(int(sys.stdin.readline())):
+    check=[True]*(10**6+1)
+    a,b,d=map(int,sys.stdin.readline().split())
+    check[a]=False
+    real=True
+    for i in range(b,d+1):
+        if che[i]:
+            real=False
+            break
+    if real:
+        print(-1)
+        continue
+    deq=deque()
+    deq.append((a,0))
+    while deq:
+        c,k=deq.popleft()
+        if che[c] and b<=c<=d:
+            print(k)
+            break
+        if c>0:
+            if check[c//2]:
+                deq.append((c//2,k+1))
+                check[c//2]=False
+            if check[c//3]:
+                deq.append((c//3,k+1))
+                check[c//3]=False
+            if c+1<=10**6 and check[c+1]:
+                deq.append((c+1,k+1))
+                check[c+1]=False
+            if c-1>=0 and check[c-1]:
+                deq.append((c-1,k+1))
+                check[c-1]=False
+        elif c==0 and check[c+1]:
+            deq.append((c+1,k+1))
+            check[c+1]=False
