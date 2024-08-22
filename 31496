@@ -1,0 +1,9 @@
+a,b=input().split()
+ans=0
+for i in range(int(a)):
+    s,n=input().split()
+    n=int(n)
+    li=set(s.split('_'))
+    if b in li:
+        ans+=n
+print(ans)
