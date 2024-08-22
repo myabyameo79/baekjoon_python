@@ -1,0 +1,8 @@
+a,b,c=map(int,input().split())
+d,e,f=map(int,input().split())
+ans=[0,0,0]
+if [b,c]<=[e,f]:ans[0]=d-a
+else:ans[0]=d-a-1
+ans[2]=d-a
+ans[1]=ans[2]+1
+[print(i) for i in ans]
