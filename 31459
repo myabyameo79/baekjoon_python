@@ -1,0 +1,16 @@
+import sys
+for _ in range(int(sys.stdin.readline())):
+    a,b,c,d=map(int,sys.stdin.readline().split())
+    if c>=a or d>=b:
+        print(a*b)
+        continue
+    li=[[1 for _ in range(c)]+[0 for _ in range(a-c)] for _ in range(b)]
+    for i in range(d):
+        li[i]=[1 for _ in range(a)]
+    ans=a*d+c*b-c*d
+    for i in range(d,b):
+        for j in range(c,a):
+            if li[i-d][j-c]==0:
+                ans+=1
+                li[i][j]=1
+    print(ans)
