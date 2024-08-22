@@ -1,0 +1,7 @@
+dic={1:'-500',2:'*0.9',3:'-2000',4:'*0.75'}
+a=int(input())
+b=input()
+ans=int(b)
+for i in range(1,a//5+1):
+    ans=min(ans,int(eval(b+dic.get(i,''))) if int(eval(b+dic.get(i,'')))>0 else 0)
+print(ans)
