@@ -1,0 +1,15 @@
+t = []
+while True:
+    try:
+        a, b= input().split()
+        t.append([a, b])
+    except:
+        break
+es = 0
+st = 0
+for i in t:
+    if i[0] == "Es":
+      es += int(i[1])
+    else:
+        st += int(i[1])
+print(es*21 + st*17)
