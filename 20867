@@ -1,0 +1,6 @@
+from math import ceil
+a,b,c=map(float,input().split())
+d,e=map(float,input().split())
+f,g=map(float,input().split())
+if ceil(a/c)+f/d < ceil(a/b)+g/e:print('friskus')
+else:print('latmask')
