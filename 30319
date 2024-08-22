@@ -1,0 +1,4 @@
+a,b,c=map(int,input().split('-'))
+if b<9:print('GOOD')
+elif b==9 and c<=16:print('GOOD')
+else:print('TOO LATE')
