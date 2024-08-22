@@ -1,0 +1,12 @@
+che=[True]*5001
+for i in range(2,5001):
+    if che[i]:
+        for j in range(i+i, 5001, i):
+            che[j]=False
+li=[]
+n=int(input())
+for i in range(2,5001):li.append(i) if che[i] else False
+for i in range(len(li)-1):
+    if li[i]*li[i+1]>n:
+        print(li[i]*li[i+1])
+        break
