@@ -1,0 +1,6 @@
+a,b=map(int,input().split())
+v=a/b
+if v<0.2:print('weak')
+elif v<0.4:print('normal')
+elif v<0.6:print('strong')
+else:print('very strong')
