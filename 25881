@@ -1,0 +1,5 @@
+a,b=map(int,input().split())
+for i in range(int(input())):
+    n=int(input())
+    if n>1000:print(n,a*1000+b*(n-1000))
+    else:print(n,a*n)
