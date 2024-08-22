@@ -1,0 +1,28 @@
+import sys
+from collections import deque
+a,c=map(int,sys.stdin.readline().split())
+b,d=map(int,sys.stdin.readline().split())
+dic={x+1:[] for x in range(a)}
+check=[True]*(a+1)
+for i in range(c):
+    m,n=map(int,sys.stdin.readline().split())
+    dic[m].append(n)
+    dic[n].append(m)
+deq=deque()
+deq.append((b,0))
+check[b]=False
+while deq:
+    c,k=deq.popleft()
+    if c==d:
+        print(k)
+        break
+    if c-1>0 and check[c-1]:
+        check[c-1]=False
+        deq.append((c-1,k+1))
+    if c+1<=a and check[c+1]:
+        check[c+1]=False
+        deq.append((c+1,k+1))
+    for i in dic[c]:
+        if check[i]:
+            check[i]=False
+            deq.append((i,k+1))
