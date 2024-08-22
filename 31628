@@ -1,0 +1,24 @@
+li=[0]*10
+for i in range(10):
+    li[i]=list(input().split())
+for i in range(10):
+    real=True
+    ans=li[i][0]
+    for j in range(10):
+        if ans!=li[i][j]:
+            real=False
+    if real:
+        break
+if not real:
+    for j in range(10):
+        ans=li[0][j]
+        real=True
+        for i in range(10):
+            if ans!=li[i][j]:
+                real=False
+        if real:
+            break
+if real:
+    print(1)
+else:
+    print(0)
