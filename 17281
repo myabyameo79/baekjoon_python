@@ -1,0 +1,40 @@
+import sys
+from itertools import permutations
+num=[x for x in range(1,9)]
+inning=int(sys.stdin.readline())
+ab=[list(map(int,sys.stdin.readline().split())) for _ in range(inning)]
+ans=0
+for i in permutations(num,8):
+    i=list(i)
+    i=i[:3]+[0]+i[3:]
+    now_hitter=0
+    score=0
+    for j in range(inning):
+        out=0
+        base=[0,0,0]
+        while out<3:
+            if (k:=ab[j][i[now_hitter]])==0:
+                out+=1
+            elif k==1:
+                score+=base[2]
+                base[2]=base[1]
+                base[1]=base[0]
+                base[0]=1
+            elif k==2:
+                score+=base[2]+base[1]
+                base[2]=base[0]
+                base[1]=1
+                base[0]=0
+            elif k==3:
+                score+=base[2]+base[1]+base[0]
+                base[2]=1
+                base[1]=0
+                base[0]=0
+            elif k==4:
+                score+=base[2]+base[1]+base[0]+1
+                base=[0,0,0]
+            now_hitter+=1
+            if now_hitter==9:
+                now_hitter=0
+    ans=max(ans,score)
+print(ans)
