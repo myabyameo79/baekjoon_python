@@ -1,0 +1,9 @@
+for i in range(int(input())):
+    li=list(map(int,input().split()))
+    n=len(list(filter(lambda x:x>=10,li)))
+    print(*li)
+    if n==0:print('zilch')
+    elif n==1:print('double')
+    elif n==2:print('double-double')
+    elif n==3:print('triple-double')
+    print()
