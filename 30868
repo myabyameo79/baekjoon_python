@@ -1,0 +1,8 @@
+for i in range(int(input())):
+    a=int(input())
+    for _ in range(a//5):
+        print('++++', end=' ')
+    for _ in range(a%5):
+        if _!=a%5-1:
+            print('|',end='')
+        else:print('|')
