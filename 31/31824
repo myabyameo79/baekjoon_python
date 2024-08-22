@@ -1,0 +1,16 @@
+a,b=map(int,input().split())
+dic={}
+for i in range(a):
+    x,y=input().split()
+    dic[x]=y
+
+for _ in range(b):
+    s=input()
+    l=len(s)
+    ans=''
+    for i in range(l):
+        t=[]
+        for j in range(l+1):
+            ans+=dic.get(s[i:j],'')
+    if ans:print(ans)
+    else:print(-1)
