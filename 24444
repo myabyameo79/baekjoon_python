@@ -1,0 +1,30 @@
+from collections import deque
+a,b,c=map(int,input().split())
+ans=[0]*(a+1)
+ans[c]=1
+dic={x+1:[] for x in range(a)}
+check=[True]*(a+1)
+check[c]=False
+for i in range(b):
+    li=list(map(int,input().split()))
+    dic[li[0]].append(li[1])
+    dic[li[1]].append(li[0])
+for i in dic:
+    dic[i].sort()
+deq=deque()
+k=1
+for i in dic[c]:
+    k+=1
+    deq.append(i)
+    check[i]=False
+    ans[i]=k
+while deq:
+    m=deq.popleft()
+    for i in dic[m]:
+        if check[i]:
+            k+=1
+            deq.append(i)
+            check[i]=False
+            ans[i]=k
+for i in ans[1:]:
+    print(i)
