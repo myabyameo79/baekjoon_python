@@ -1,0 +1,5 @@
+a,b=map(int,input().split())
+ans=0
+for i in map(int,input().split()):
+    ans+=i//b
+print(ans)
