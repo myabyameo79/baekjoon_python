@@ -1,0 +1,12 @@
+li=[]
+while True:
+    try:
+        s=input()
+        if s:
+            li+=list(s)
+        else:
+            break
+    except:
+        break
+li.sort()
+print(''.join(li))
