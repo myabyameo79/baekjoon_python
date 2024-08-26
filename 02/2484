@@ -1,0 +1,12 @@
+ans=0
+for i in range(int(input())):
+    a,b,c,d=sorted(list(map(int,input().split())))
+    if a==b==c==d:ans=max(ans,50000+a*5000)
+    elif a==b==c or b==c==d:ans=max(ans,10000+b*1000)
+    elif a==b and c==d:ans=max(ans,2000+a*500+c*500)
+    elif a==b or b==c or c==d:
+        if a==b:ans=max(ans,1000+a*100)
+        if b==c:ans=max(ans,1000+b*100)
+        if c==d:ans=max(ans,1000+c*100)
+    else:ans=max(ans,d*100)
+print(ans)
