@@ -1,0 +1,30 @@
+def f(a,b):
+    ans=0
+    for i in range(5):
+        for j in range(5):
+            if a[i][j]!=b[i][j]:
+                ans+=1
+    return ans
+a,b=map(int,input().split())
+li=[0]*a
+for i in range(a):
+    t=[0]*5
+    for j in range(5):
+        t[j]=input()
+    li[i]=t.copy()
+for i in range(b):
+    sim=float('inf')
+    ans=[]
+    t = [0] * 5
+    for j in range(5):
+        t[j] = input()
+    for j in range(a):
+        tmp=f(li[j],t)
+        if tmp<sim:
+            ans=[j+1]
+            sim=tmp
+        elif tmp==sim:
+            ans.append(j+1)
+    print(f'Data Set {i+1}:')
+    print(*ans)
+    print()
