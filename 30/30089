@@ -1,0 +1,10 @@
+for i in range(int(input())):
+    s=input()
+    l=len(s)
+    t=''
+    for i in s:
+        ans=s+t[::-1]
+        if ans[-l:]==s[::-1]:
+            print(ans)
+            break
+        t+=i
