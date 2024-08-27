@@ -1,0 +1,6 @@
+for i in range(int(input())):
+    se=set()
+    a,b=map(int,input().split())
+    for _ in range(a):
+        se.add(input())
+    print(a-len(se))
