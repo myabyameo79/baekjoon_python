@@ -1,0 +1,56 @@
+def rkxdmsrntjd(a,b):
+    adic={}
+    for i in a:
+        if i in adic:
+            adic[i]+=1
+        else:
+            adic[i]=1
+    bdic = {}
+    for i in b:
+        if i in bdic:
+            bdic[i] += 1
+        else:
+            bdic[i] = 1
+    if bdic==adic:return True
+    else:return False
+s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=list(input())
+m=li[0]
+li=li[1:]
+ans=0
+for i in li:
+    if rkxdmsrntjd(m,i):
+        ans+=1
+    else:
+        stop=False
+        for j in range(len(i)):
+            for k in s:
+                t=i.copy()
+                t.insert(j,k)
+                if rkxdmsrntjd(m,t):
+                    ans+=1
+                    stop=True
+                    break
+            if stop:break
+        if stop:continue
+        for j in range(len(i)):
+            t=i.copy()
+            del t[j]
+            if rkxdmsrntjd(m,t):
+                ans+=1
+                stop=True
+                break
+        if stop:continue
+        for j in range(len(i)):
+            for k in s:
+                t=i.copy()
+                t[j]=k
+                if rkxdmsrntjd(t,m):
+                    ans+=1
+                    stop=True
+                    break
+            if stop:break
+print(ans)
