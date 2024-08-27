@@ -1,0 +1,26 @@
+import sys
+from collections import deque
+a,b=map(int,sys.stdin.readline().split())
+city=[[0 for _ in range(a+1)] for _ in range(a+1)]
+for i in range(b):
+    n,m=map(int,sys.stdin.readline().split())
+    city[n][m]=city[m][n]=1
+for _ in range(int(sys.stdin.readline())):
+    d,e,f=map(int,sys.stdin.readline().split())
+    if d==1:
+        city[e][f]=city[f][e]=1
+    else:
+        city[e][f]=city[f][e]=0
+    ans=[-1]*(a+1)
+    visit=[True]*(a+1)
+    deq=deque()
+    deq.append((1,0))
+    while deq:
+        c,k=deq.popleft()
+        if visit[c]:
+            visit[c]=False
+            ans[c]=k
+            for i in range(a+1):
+                if city[c][i]==1 and visit[i]:
+                    deq.append((i,k+1))
+    print(*ans[1:])
