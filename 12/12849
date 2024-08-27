@@ -1,0 +1,15 @@
+li=[1,0,0,0,0,0,0,0]
+p=10**9+7
+for i in range(int(input())):
+    t=[0 for _ in range(8)]
+    t[0]=li[1]+li[3]
+    t[1]=li[0]+li[2]+li[3]
+    t[2]=li[1]+li[3]+li[4]+li[5]
+    t[3]=li[0]+li[1]+li[2]+li[5]
+    t[4]=li[2]+li[5]+li[6]
+    t[5]=li[2]+li[3]+li[4]+li[7]
+    t[6]=li[4]+li[7]
+    t[7]=li[5]+li[6]
+    for j in range(8):
+        li[j]=t[j]%p
+print(li[0])
