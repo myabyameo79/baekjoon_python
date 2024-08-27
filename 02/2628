@@ -1,0 +1,12 @@
+a,b=map(int,input().split())
+r=[0,a]
+c=[0,b]
+for i in range(int(input())):
+    n,m=map(int,input().split())
+    if n==0:
+        c.append(m)
+    else:
+        r.append(m)
+r.sort()
+c.sort()
+print(max(r[i]-r[i-1] for i in range(1,len(r)))*max(c[i]-c[i-1] for i in range(1,len(c))))
