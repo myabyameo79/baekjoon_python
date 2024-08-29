@@ -1,0 +1,14 @@
+for _ in range(int(input())):
+    n=int(input())
+    li=[0]*n
+    for i in range(n):
+        li[i]=list(map(int,input().split()))
+    li.sort(key=lambda x:x[0])
+    li.sort(key=lambda x:x[1])
+    if all(i in map(lambda x:x[1],li) for i in range(1,11)):
+        dic={}
+        for i,j in li:
+            dic[j]=i
+        print(sum(dic.values()))
+    else:
+        print('MOREPROBLEMS')
