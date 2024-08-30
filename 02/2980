@@ -1,0 +1,37 @@
+import sys
+def change(li):
+    for i in range(len(li)):
+        li[i][0]+=1
+        if li[i][1]=='R' and light[i][1]<li[i][0]:
+            li[i][1]='G'
+            li[i][0]=1
+        elif li[i][1]=='G' and light[i][2]<li[i][0]:
+            li[i][0]=1
+            li[i][1]='R'
+    return li
+
+a,b=map(int,sys.stdin.readline().split())
+n=0
+light=[0]*a
+for i in range(a):
+    light[i]=list(map(int,sys.stdin.readline().split()))
+now=[[0,'R'] for _ in range(a)]
+ans=0
+while n<b:
+    if not light:
+        n+=1
+        ans+=1
+    elif light[0][0]==n:
+        if now[0][-1]=='G':
+            n+=1
+            ans+=1
+            light.pop(0)
+            now=change(now[1:])
+        else:
+            ans+=1
+            now=change(now)
+    else:
+        n+=1
+        ans+=1
+        now=change(now)
+print(ans-1)
