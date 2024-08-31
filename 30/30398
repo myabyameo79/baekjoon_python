@@ -5,8 +5,6 @@ def pow(a,b):
     t=pow(a,b//2)
     if b%2:return (t*t*a)%p
     return (t*t)%p
-'''def C(a,b):
-    return (fac[a]%p)*pow(fac[b]*fac[a-b]%p,p-2)%p'''
 p=10**9+7
 a,b,c=map(int,sys.stdin.readline().split())
 fac=[1]*((a-1)*b+1)
