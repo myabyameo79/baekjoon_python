@@ -1,0 +1,19 @@
+n=int(input())
+ans=0
+t=[]
+for j in range(n//2,n+1):
+    high=n
+    res=2
+    i=j
+    li=[high,i]
+    while high<=i*2:
+        high,i=i,high-i
+        li.append(i)
+        res+=1
+    li.append(high-i)
+    res+=1
+    if res>ans:
+        ans=res
+        t=li
+print(ans)
+print(*t)
