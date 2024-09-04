@@ -1,0 +1,13 @@
+for _ in range(int(input())):
+    li=[]
+    while True:
+        k=int(input())
+        if k==0:
+            break
+        li.append(k)
+    li.sort(reverse=True)
+    ans=0
+    for i in range(len(li)):
+        ans+=2*(li[i]**(i+1))
+    if ans>5*10**6:print('Too expensive')
+    else:print(ans)
