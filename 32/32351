@@ -1,0 +1,16 @@
+from decimal import Decimal as D
+a,bpm,c=map(D,input().split())
+a=int(a)
+if int(c):
+    ans=0
+    now=1
+    for i in range(int(c)):
+        n,m=map(D,input().split())
+        qkr=(n-now)*4
+        ans+=qkr*60/bpm
+        bpm=m
+        now=int(n)
+    ans+=(a-n+1)*240/bpm
+    print(f'{ans:.12f}')
+else:
+    print(f'{a*240/bpm:.12f}')
