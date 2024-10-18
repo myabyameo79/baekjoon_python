@@ -1,7 +1,1 @@
-p=10**9+9
-n=[0]*33334
-n[2]=2
-n[3]=6
-for i in range(4,33334):
-    n[i]=n[i-1]*3%p
-print(n[int(input())])
+p=10**9+9;n=int(input());print(pow(3,n-2,p)*2%p if n-1 else 0)
