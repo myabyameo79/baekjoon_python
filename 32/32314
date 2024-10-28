@@ -1,0 +1,1 @@
+print(int(int(input())<=eval(input().replace(' ','/'))))
