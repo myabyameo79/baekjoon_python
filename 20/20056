@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 a,b,c=map(int,input().split())
 li=[0]*b
 dx=[-1,-1,0,1,1,1,0,-1]
