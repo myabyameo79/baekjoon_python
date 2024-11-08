@@ -1,0 +1,34 @@
+# making the answer
+
+def change(li,co1,co2,co3):
+    for x in range(co1[0],co3[0]):
+        for y in range(co1[1],co2[1]):
+            if li[x][y]==1:
+                li[x][y]=0
+            else:li[x][y]=1
+    return li
+
+n=int(input())
+li=[0]*n
+for i in range(n):
+    li[i]=list(map(int,input().split()))
+print('check')
+ans=[]
+for i in range(n):
+    for j in range(n):
+        if li[i][j]==1:
+            right=0
+            for k in range(j,n):
+                if li[i][k]==1:
+                    right=max(right,k)
+            under=0
+            right+=1
+            for k in range(i,n):
+                if li[k][j]==1:
+                    under=max(under,k)
+            under+=1
+            li=change(li,[i,j],[i,right],[under,j])
+            ans.append((j+1,right,i+1,under))
+print(len(ans))
+for i in ans:
+    print(*i)
