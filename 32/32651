@@ -1,0 +1,1 @@
+print('No' if (n:=int(input()))%2024==0 and n<=10**6 else 'Yes')
