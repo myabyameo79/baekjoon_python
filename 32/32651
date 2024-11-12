@@ -1,1 +1,3 @@
-print('No' if (n:=int(input()))%2024==0 and n<=10**6 else 'Yes')
+n=int(input())
+if n%2024 or n>10**5:print('No')
+else:print('Yes')
