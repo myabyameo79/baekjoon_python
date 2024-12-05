@@ -1,12 +1,11 @@
-import sys
 che=[i for i in range(1001)]
 for i in range(2,1001):
     if che[i]==i:
         for j in range(i+i,1001,i):
             che[j]=che[i]
-for _ in range(int(sys.stdin.readline())):
-    n=int(sys.stdin.readline())
-    li=list(map(int,sys.stdin.readline().split()))
+for _ in range(int(input())):
+    n=int(input())
+    li=list(map(int,input().split()))
     dic={}
     for i in li:
         t={}
