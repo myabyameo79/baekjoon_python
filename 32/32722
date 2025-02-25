@@ -1,0 +1,1 @@
+print('JAH' if int(input()) in [1,3] and int(input()) in [6,8] and int(input()) in [2,5] else 'EI')
