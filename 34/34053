@@ -1,0 +1,15 @@
+a,b=map(int,input().split())
+li=[list(map(int,input().split())) for _ in range(a)]
+real=False
+for i in range(a):
+    for j in range(b):
+        if li[i][j]==0:
+            real=True
+if real:
+    print(sum(sum(i) for i in li))
+else:
+    m=float('inf')
+    for i in range(a):
+        for j in range(b):
+            m=min(m,li[i][j])
+    print(sum(sum(i) for i in li)-m)
