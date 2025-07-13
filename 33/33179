@@ -1,0 +1,2 @@
+input()
+print(sum(i for i in map(lambda x:(x+1)//2,map(int,input().split()))))
