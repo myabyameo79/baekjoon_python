@@ -1,0 +1,14 @@
+input()
+left=0
+while True:
+    t=input()
+    if t=='고무오리 디버깅 끝':
+        print('힝구' if left else '고무오리야 사랑해')
+        break
+    if t=='고무오리':
+        if left:
+            left-=1
+        else:
+            left=2
+    else:
+        left+=1
