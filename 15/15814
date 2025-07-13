@@ -1,0 +1,5 @@
+t=list(input())
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    t[a],t[b]=t[b],t[a]
+print(''.join(t))
