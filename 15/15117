@@ -1,0 +1,39 @@
+def row(n):
+    global se
+    s=set()
+    for i in li[n]:
+        s.add(i)
+    if s==se:
+        return True
+    return False
+def column(k):
+    global se
+    global n
+    s=set()
+    for i in range(n):
+        s.add(li[i][k])
+    if s==se:
+        return True
+    return False
+def reduced(li):
+    global s,n
+    st=''
+    for i in li[0]:
+        st+=i
+    st2=''
+    for i in range(n):
+        st2+=li[i][0]
+    if st==st2==s:
+        return True
+    return False
+
+n=int(input())
+s='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'[:n]
+se=set(s)
+li=[input() for _ in range(n)]
+if all(row(i) for i in range(n)) and all(column(i) for i in range(n)):
+    if reduced(li):
+        print('Reduced')
+    else:
+        print('Not Reduced')
+else:print('No')
