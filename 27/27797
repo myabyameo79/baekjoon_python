@@ -1,0 +1,23 @@
+def row(n):
+    global se
+    s=set()
+    for i in li[n]:
+        s.add(i)
+    if s==se:
+        return 0
+    return 1
+def column(k):
+    global se
+    global n
+    s=set()
+    for i in range(n):
+        s.add(li[i][k])
+    if s==se:
+        return 0
+    return 1
+
+for _ in range(int(input())):
+    n=int(input())
+    se=set([i+1 for i in range(n)])
+    li=[list(map(int,input().split())) for i in range(n)]
+    print(f'Case #{_+1}: {sum(li[i][i] for i in range(n))} {sum(row(i) for i in range(n))} {sum(column(i) for i in range(n))}')
