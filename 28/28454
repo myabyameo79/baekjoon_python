@@ -1,0 +1,7 @@
+now=list(map(int,input().split('-')))
+n=0
+for _ in range(int(input())):
+    li=list(map(int,input().split('-')))
+    if now<=li:
+        n+=1
+print(n)
