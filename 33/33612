@@ -1,0 +1,4 @@
+n=1+7*int(input())
+y=2024+n//12
+m=n%12
+print(f'{y} {m}' if m else f'{y-1} {12}')
