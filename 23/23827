@@ -1,0 +1,12 @@
+n=int(input())
+li=list(map(int,input().split()))
+t=[0 for _ in range(n)]
+t[-1]=li[-1]
+p=10**9+7
+for i in range(n-2,-1,-1):
+    t[i]=(t[i+1]+li[i])%p
+ans=0
+for i in range(n-1):
+    ans+=(t[i]-li[i])*li[i]%p
+    ans%=p
+print(ans)
