@@ -1,0 +1,16 @@
+n=int(input())
+m=int(input())
+i=0
+j=n-1
+li=sorted(list(map(int,input().split())))
+ans=0
+while i<j:
+    if li[i]+li[j]==m:
+        ans+=1
+        i+=1
+        j-=1
+    elif li[i]+li[j]<m:
+        i+=1
+    elif li[i]+li[j]>m:
+        j-=1
+print(ans)
