@@ -1,0 +1,9 @@
+s='012345678'
+dic={i:0 for i in s}
+for i in input():
+    if i=='6' or i=='9':
+        dic['6']+=1
+    else:
+        dic[i]+=1
+dic['6']=(dic['6']+1)//2
+print(max(dic.values()))
