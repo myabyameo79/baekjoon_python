@@ -1,0 +1,41 @@
+from collections import deque
+a,b=map(int,input().split())
+li=[list(map(int,input().split())) for _ in range(a)]
+deq=deque()
+check=[[False for _ in range(b)] for _ in range(a)]
+first=tuple()
+se=set()
+for i in range(a):
+    for j in range(b):
+        if li[i][j]==1:
+            if not first:
+                first=(i,j)
+            else:
+                se.add((i,j))
+                check[i][j]=True
+
+if not first:
+    print(0)
+    exit()
+deq.append(first)
+ans=1
+dx=[1,-1,0,0,1,-1,1,-1]
+dy=[0,0,1,-1,1,1,-1,-1]
+while deq:
+    ix,iy=deq.popleft()
+    for i in range(8):
+        x=ix+dx[i]
+        y=iy+dy[i]
+        if 0<=x<a and 0<=y<b and li[x][y]==1 and check[x][y]==True:
+
+            se.remove((x,y))
+            deq.append((x,y))
+            check[x][y]=False
+    if (not deq) and se:
+        t=list(se)
+        deq.append(t[0])
+        check[t[0][0]][t[0][1]]=False
+        del t[0]
+        se=set(t)
+        ans+=1
+print(ans)
