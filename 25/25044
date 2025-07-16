@@ -1,0 +1,21 @@
+a,b=map(int,input().split())
+ans=[]
+i=0
+while (i+1)*b+24*60*(i+1)<a*24*60+9*60:
+    i+=1
+if i*b+24*60*i>=(a-1)*24*60+9*60:
+    ans.append([(15+(i*b)//60)%24,(i*b)%60])
+i=0
+while (i+1)*b+24*60*(i+1)<a*24*60+6*60:
+    i+=1
+if i*b+24*60*i>=(a-1)*24*60+6*60:
+    ans.append([(18+(i*b)//60)%24,(i*b)%60])
+i=0
+while (i+1)*b+24*60*(i+1)<a*24*60+3*60:
+    i+=1
+if i*b+24*60*i>=(a-1)*24*60+3*60:
+    ans.append([(21+(i*b)//60)%24,(i*b)%60])
+ans.sort()
+print(len(ans))
+for i,j in ans:
+    print('%02d:%02d' %(i,j))
