@@ -1,0 +1,7 @@
+import sys
+input=sys.stdin.readline
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    li=[list(map(int,input().split()[1:])) for _ in range(a)]
+    sticker=list(map(int,input().split()))
+    print(sum(li[i][-1]*min(sticker[j-1] for j in li[i][:-1]) for i in range(a)))
