@@ -1,0 +1,13 @@
+import sys
+c=0
+d=0
+#print('%02d' %d)
+while True:
+    s=sys.stdin.readline().strip()
+    if s=='':
+        c+=d//100
+        print(f'{c}.%02d' %(d%100))
+        break
+    a,b=map(int,s.split('.'))
+    c+=a
+    d+=b
