@@ -1,0 +1,21 @@
+def effort(a,b):
+    dic={1:(0,0),2:(1,0),3:(2,0),4:(0,1),5:(1,1),6:(2,1),7:(0,2),8:(1,2),9:(2,2),0:(1,3)}
+    return abs(dic[a][0]-dic[b][0])+abs(dic[a][1]-dic[b][1])
+a,b=map(int,input().split(':'))
+i=0
+ans=float('inf')
+res=tuple()
+while a+i*24<=99:
+    n=a+i*24
+    j=0
+    while b+j*60<=99:
+        eff=effort(n//10,n%10)
+        m=b+j*60
+        eff+=effort(n%10,m//10)
+        eff+=effort(m//10,m%10)
+        if eff<ans:
+            ans=eff
+            res=(n,m)
+        j+=1
+    i+=1
+print(f'%02d:%02d' %(res[0],res[1]))
