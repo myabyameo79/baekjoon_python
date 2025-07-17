@@ -1,0 +1,8 @@
+def happy(n):
+    if n==1:return 0
+    if n==2:return 1
+    if n%2:
+        return happy(n//2)+happy(n//2+1)+(n//2)*(n//2+1)
+    else:
+        return happy(n//2)*2+(n//2)**2
+print(happy(int(input())))
