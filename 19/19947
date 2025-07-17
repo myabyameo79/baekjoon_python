@@ -1,0 +1,15 @@
+a,b=map(int,input().split())
+if b<=1:
+    print(a+int(a*5/100)*b)
+    exit()
+dp=[a]*(b+1)
+dp[1]+=int(a*5/100)
+dp[2]=int(dp[1]*5/100)+dp[1]
+for i in range(2,b+1):
+    if i>=5:
+        dp[i]=max(dp[i-1]+int(dp[i-1]*5/100),dp[i-3]+int(dp[i-3]/5),dp[i-5]+int(dp[i-5]*35/100))
+    elif i>=3:
+        dp[i]=max(dp[i-1]+int(dp[i-1]*5/100),dp[i-3]+int(dp[i-3]/5))
+    elif i>=1:
+        dp[i]=dp[i-1]+int(dp[i-1]*5/100)
+print(dp[b])
