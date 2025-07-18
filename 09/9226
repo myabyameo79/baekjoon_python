@@ -1,0 +1,13 @@
+a=list('aeiou')
+while True:
+    s=input()
+    if s=='#':
+        break
+    if all(i not in s for i in a):
+        print(s+'ay')
+        continue
+    s=list(s)
+    while s[0] not in a:
+        s.append(s[0])
+        del s[0]
+    print(''.join(s)+'ay')
