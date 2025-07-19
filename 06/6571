@@ -1,0 +1,15 @@
+import sys
+input=sys.stdin.readline
+while True:
+    l,h=1,2
+    a,b=map(int,input().split())
+    if a==b==0:
+        break
+    ans=0
+    while True:
+        if a<=l<=b:
+            ans+=1
+        l,h=h,l+h
+        if l>b:
+            break
+    print(ans)
