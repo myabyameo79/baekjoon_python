@@ -1,0 +1,5 @@
+li=[0,'SK','CY','SK','SK']
+for i in range(5,1001):
+    if li[i-1]==li[i-3]==li[i-4]=='SK':li.append('CY')
+    else:li.append('SK')
+print(li[int(input())])
