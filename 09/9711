@@ -1,0 +1,5 @@
+for i in range(int(input())):
+    l,h=1,1
+    a,b=map(int,input().split())
+    for _ in range(a-1):l,h=h,(l+h)%b
+    print(f'Case #{i+1}: {l%b}')
