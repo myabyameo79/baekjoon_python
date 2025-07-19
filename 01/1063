@@ -1,0 +1,36 @@
+def okay(li):
+    if 0<=li[0]<8 and 0<li[1]<=8:return True
+    return False
+king,stone,n=input().split()
+n=int(n)
+row=list('ABCDEFGH')
+nking=[row.index(king[0]),int(king[1])]
+nstone=[row.index(stone[0]),int(stone[1])]
+for i in range(n):
+    s=input()
+    mking=nking.copy()
+    if s[0]=='R':
+        mking[0]+=1
+    elif s[0]=='L':
+        mking[0]-=1
+    if s[-1]=='B':
+        mking[1]-=1
+    elif s[-1]=='T':
+        mking[1]+=1
+    if mking!=nstone and okay(mking):
+        nking=mking.copy()
+    elif mking==nstone:
+        mstone=nstone.copy()
+        if s[0] == 'R':
+            mstone[0] += 1
+        elif s[0] == 'L':
+            mstone[0] -= 1
+        if s[-1] == 'B':
+            mstone[1] -= 1
+        elif s[-1] == 'T':
+            mstone[1] += 1
+        if okay(mking) and okay(mstone):
+            nking=mking.copy()
+            nstone=mstone.copy()
+print(f'{row[nking[0]]}{nking[1]}')
+print(f'{row[nstone[0]]}{nstone[1]}')
