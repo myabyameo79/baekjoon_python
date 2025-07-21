@@ -1,0 +1,19 @@
+s=input()
+for i in range(len(s)):
+    if s[i]=='*':
+        ind=i
+su=0
+for i in range(len(s)):
+    if s[i]=='*':continue
+    if i%2:
+        su+=int(s[i])*3
+    else:su+=int(s[i])
+for i in range(10):
+    if ind%2:
+        if (su+i*3)%10==0:
+            print(i)
+            break
+    else:
+        if (su+i)%10==0:
+            print(i)
+            break
