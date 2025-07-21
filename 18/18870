@@ -1,0 +1,10 @@
+n=int(input())
+li=list(map(int,input().split()))
+li2=sorted(li)
+dic={li2[0]:0}
+a=0
+for i in range(1,n):
+    if li2[i]>li2[i-1]:
+        a+=1
+        dic[li2[i]]=a
+print(*[dic[i] for i in li])
