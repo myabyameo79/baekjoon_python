@@ -1,0 +1,33 @@
+import sys
+from collections import deque
+input=sys.stdin.readline
+a,b=map(int,input().split())
+li=[list(map(int,input().split())) for _ in range(a)]
+check=[[True for _ in range(b)] for _ in range(a)]
+deq=deque()
+for i in range(a):
+    for j in range(b):
+        if li[i][j]==2:
+            deq.append((i,j,0))
+            check[i][j]=False
+            break
+    if deq:break
+ans=[[0 for _ in range(b)] for _ in range(a)]
+dx=[0,0,1,-1]
+dy=[1,-1,0,0]
+while deq:
+    ix,iy,d=deq.popleft()
+    ans[ix][iy]=d
+    for i in range(4):
+        x=ix+dx[i]
+        y=iy+dy[i]
+        if 0<=x<a and 0<=y<b and check[x][y]:
+            if li[x][y]==0:check[x][y]=False;continue
+            deq.append((x,y,d+1))
+            check[x][y]=False
+for i in range(a):
+    for j in range(b):
+        if li[i][j]==1 and check[i][j]:
+            ans[i][j]=-1
+            check[i][j]=False
+for i in ans:print(*i)
