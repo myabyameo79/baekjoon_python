@@ -1,0 +1,13 @@
+n=int(input())
+li=[0]+list(map(int,input().split()))
+t=[0]+list(map(int,input().split()))
+dp=[[0 for _ in range(101)] for _ in range(n+1)]
+for i in range(n+1):
+    for j in range(101):
+        if i==0 or j==0:
+            dp[i][j]=0
+        elif li[i]<j:
+            dp[i][j]=max(dp[i-1][j-li[i]]+t[i],dp[i-1][j])
+        else:
+            dp[i][j]=dp[i-1][j]
+print(dp[-1][-1])
