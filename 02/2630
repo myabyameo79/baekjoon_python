@@ -1,0 +1,24 @@
+def wo(x,y,b,w,n):
+    color=li[x][y]
+    real=True
+    for i in range(x,x+n):
+        for j in range(y,y+n):
+            if li[i][j]!=color:
+                real=False
+                break
+    if real:
+        if color:
+            return (w,b+1)
+        else:
+            return (w+1,b)
+    for i in range(4):
+        if i==0:c,m=wo(x,y,0,0,n//2)
+        elif i==1:c,m=wo(x+n//2,y,0,0,n//2)
+        elif i==2:c,m=wo(x,y+n//2,0,0,n//2)
+        elif i==3:c,m=wo(x+n//2,y+n//2,0,0,n//2)
+        b+=m
+        w+=c
+    return (w,b)
+n=int(input())
+li=[list(map(int,input().split())) for _ in range(n)]
+for i in wo(0,0,0,0,n):print(i)
