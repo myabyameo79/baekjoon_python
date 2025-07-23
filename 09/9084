@@ -1,0 +1,17 @@
+for _ in range(int(input())):
+    n=int(input())
+    li=list(map(int,input().split()))
+    k=int(input())
+    dp=[[0 for _ in range(k+1)] for _ in range(n+1)]
+    for i in range(n+1):
+        for j in range(k+1):
+            if j==0:
+                dp[i][j]=1
+                continue
+            if i==0:
+                continue
+            if li[i-1]<=j:
+                dp[i][j]=dp[i-1][j]+dp[i][j-li[i-1]]
+            else:
+                dp[i][j]=dp[i-1][j]
+    print(dp[-1][-1])
