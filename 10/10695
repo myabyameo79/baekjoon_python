@@ -1,0 +1,13 @@
+dx=[1,1,2,2,-1,-1,-2,-2]
+dy=[2,-2,1,-1,2,-2,1,-1]
+for _ in range(int(input())):
+    a,b,c,d,e=map(int,input().split())
+    real=True
+    for i in range(8):
+        x=b+dx[i]
+        y=c+dy[i]
+        if 0<x<=a and 0<y<=a and x==d and y==e:
+            print(f"Case {_+1}: YES")
+            real=False
+            break
+    if real:print(f"Case {_+1}: NO")
