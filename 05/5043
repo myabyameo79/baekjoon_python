@@ -1,0 +1,2 @@
+a,b=map(int,input().split())
+print('no' if a>2**b*2-1 else 'yes')
