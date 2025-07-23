@@ -1,0 +1,16 @@
+a,b,c,d=map(int,input().split())
+if a%c:
+    n=(a//c+1)//2
+else:
+    if (a//c)%2:
+        n=(a//c+1)//2
+    else:
+        n=(a//c)//2
+if b%d:
+    m=(b//d+1)//2
+else:
+    if (b//d)%2:
+        m=(b//d+1)//2
+    else:
+        m=(b//d)//2
+print(n*m)
