@@ -1,0 +1,31 @@
+li=[input().split() for _ in range(4)]
+t=['']*6
+for i in range(4):
+    for j in range(6):
+        t[j]+=li[i][j]
+time=[str(int(i,2)) for i in t]
+time=[int(time[0]+time[1]),int(time[2]+time[3]),int(time[4]+time[5])]
+li=[input().split() for _ in range(4)]
+t=['']*6
+for i in range(4):
+    for j in range(6):
+        t[j]+=li[i][j]
+time2=[str(int(i,2)) for i in t]
+time2=[int(time2[0]+time2[1]),int(time2[2]+time2[3]),int(time2[4]+time2[5])]
+li=[time[i]+time2[i] for i in range(3)]
+li[1]+=li[2]//60
+li[2]%=60
+li[0]+=li[1]//60
+li[1]%=60
+li[0]%=24
+ans=[]
+for i in li:
+    i='%02d' %i
+    for j in i:
+        ans.append('%04d' %int(bin(int(j))[2:]))
+for i in range(4):
+    for j in range(6):
+        if j<5:
+            print(ans[j][i],end=' ')
+        else:
+            print(ans[j][i])
