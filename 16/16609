@@ -1,0 +1,9 @@
+n=int(input())
+li=sorted(list(map(int,input().split())))
+ans=float('inf')
+for i in [_+1 for _ in range(n)]:
+    if i<li[i-1]:
+        ans='impossible'
+        break
+    ans=min(ans,li[i-1]/i)
+print(ans)
