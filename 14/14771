@@ -1,0 +1,15 @@
+for _ in range(int(input())):
+    n,m=map(int,input().split())
+    li=[list(map(int,input().split())) for _ in range(n)]
+    ans=0
+    for i in range(m):
+        a,b,c=map(int,input().split())
+        if li[a-1][0]==1:
+            ans+=li[a-1][1]
+        if li[b-1][0]==1:
+            ans+=li[b-1][1]
+        if c==1:
+            ans+=0 if li[a-1][0] else li[a-1][1]
+        if c==2:
+            ans+=0 if li[b-1][0] else li[b-1][1]
+    print(f'Data Set {_+1}:\n{ans}\n')
