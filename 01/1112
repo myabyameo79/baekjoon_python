@@ -1,0 +1,33 @@
+def mod(a,b):
+    if a>=0 and b>0:
+        return divmod(a,b)
+    if a>=0 and b<0:
+        n,m=divmod(a,b)
+        if m:
+            n+=1
+            m+=abs(b)
+        return n,m
+    if a<0 and b>0:
+        n,m=divmod(a,b)
+        if m:
+            n-=1
+            m+=b
+        return n,m
+    if a<0 and b<0:
+        n,m=divmod(a,b)
+        if m:
+            n+=1
+            m+=abs(b)
+        return n,m
+a,b=map(int,input().split())
+li=[]
+real=False
+if a<0 and b>0:
+    a*=-1
+    real=True
+while a//b:
+    a,m=mod(a,b)
+    li.append(m)
+li+=list(mod(a,b))[::-1]
+li=list(map(str,li[::-1]))
+print('-'+str(int(''.join(li))) if real else str(int(''.join(li))))
