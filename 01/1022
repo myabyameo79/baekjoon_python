@@ -1,0 +1,45 @@
+def point(a,b):
+    if a<=0 and b<0:
+        k=max(abs(a),abs(b))
+        n=(2*k)**2+1
+        if a>b:
+            n+=abs(a-b)
+        elif a<b:
+            n-=abs(a-b)
+    if a>0 and b<0:
+        k=max(a,abs(b))
+        n=1+2*(2*k*k+k)
+        if a>abs(b):
+            n+=abs(a-abs(b))
+        elif a<abs(b):
+            n-=abs(a-abs(b))
+    if a<=0 and b>=0:
+        k=max(abs(a),b)
+        n=1+2*(2*k*k-k)
+        if abs(a)>b:
+            n+=abs(abs(a)-b)
+        elif abs(a)<b:
+            n-=abs(abs(a)-b)
+    if a>0 and b>=0:
+        k=max(a,b-1)
+        n=(2*k+1)**2
+        if b>a:
+            n+=b-a
+        elif b<a:
+            n-=a-b
+    return n
+a,b,c,d=map(int,input().split())
+li=[[0 for _ in range(d-b+1)] for _ in range(c-a+1)]
+for i in range(a,c+1):
+    for j in range(b,d+1):
+        li[i-a][j-b]=point(i,j)
+l=0
+for j in range(d-b+1):
+    for i in range(c-a+1):
+        l=max(l,len(str(li[i][j])))
+for i in range(c-a+1):
+    for j in range(d-b+1):
+        if j!=d-b:
+            print(f'%{l}s' %li[i][j],end=' ')
+        else:
+            print(f'%{l}s' %li[i][j],end='\n')
