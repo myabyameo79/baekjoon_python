@@ -1,0 +1,10 @@
+n=300000
+dp=[float('inf') for _ in range(n+1)]
+dp[1]=1
+dp[0]=0
+for i in range(n+1):
+    k=1
+    while i+k*(k+1)*(k+2)//6<=n:
+        dp[i+k*(k+1)*(k+2)//6]=min(dp[i+k*(k+1)*(k+2)//6],dp[i]+1)
+        k+=1
+print(dp[int(input())])
