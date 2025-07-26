@@ -1,0 +1,37 @@
+def w(a,b,c):
+    global dp
+    if a<=0 or b<=0 or c<=0:
+        return 1
+    if a>20 or b>20 or c>20:
+        if dp[20][20][20]:
+            return dp[20][20][20]
+        else:
+            k=w(20,20,20)
+            dp[20][20][20]=k
+            return k
+    if a<b<c:
+        k=dp[a][b][c-1] if dp[a][b][c-1] else w(a,b,c-1)
+        m=dp[a][b-1][c-1] if dp[a][b-1][c-1] else w(a,b-1,c-1)
+        n=dp[a][b-1][c] if dp[a][b-1][c] else w(a,b-1,c)
+        dp[a][b][c-1]=k
+        dp[a][b-1][c-1]=m
+        dp[a][b-1][c]=n
+        return k+m-n
+    else:
+        k=dp[a-1][b][c] if dp[a-1][b][c] else w(a-1,b,c)
+        m=dp[a-1][b-1][c] if dp[a-1][b-1][c] else w(a-1,b-1,c)
+        n=dp[a-1][b][c-1] if dp[a-1][b][c-1] else w(a-1,b,c-1)
+        l=dp[a-1][b-1][c-1] if dp[a-1][b-1][c-1] else w(a-1,b-1,c-1)
+        dp[a-1][b][c]=k
+        dp[a-1][b-1][c]=m
+        dp[a-1][b][c-1]=n
+        dp[a-1][b-1][c-1]=l
+        return k+m+n-l
+
+dp=[[[None for _ in range(21)] for _ in range(21)] for _ in range(21)]
+dp[0][0][0]=1
+while True:
+    a,b,c=map(int,input().split())
+    if a==b==c==-1:
+        break
+    print(f'w({a}, {b}, {c}) = {w(a, b, c)}')
