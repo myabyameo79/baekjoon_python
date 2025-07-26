@@ -1,0 +1,8 @@
+from math import comb
+a,b,c=map(int,input().split())
+if c:
+    x=(c-1)//b
+    y=c%b-1 if c%b else b-1
+else:
+    x,y=0,0
+print(comb(x+y,x)*comb(a+b-x-y-2,a-x-1))
