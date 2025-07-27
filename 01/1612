@@ -1,0 +1,19 @@
+n=int(input())
+se=set()
+if n%2 and n%5:
+    i=1
+    ans=1
+    while True:
+        if i%n==0:
+            print(ans)
+            break
+        if i%n in se:
+            print(-1)
+            break
+        se.add(i%n)
+        i%=n
+        i*=10
+        i+=1
+        ans+=1
+else:
+    print(-1)
