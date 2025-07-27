@@ -1,0 +1,43 @@
+import sys
+input=sys.stdin.readline
+zero=['###','#.#','#.#','#.#','###']
+one=['..#','..#','..#','..#','..#']
+two=['###','..#','###','#..','###']
+three=['###','..#','###','..#','###']
+four=['#.#','#.#','###','..#','..#']
+five=['###','#..','###','..#','###']
+six=['###','#..','###','#.#','###']
+seven=['###','..#','..#','..#','..#']
+eight=['###','#.#','###','#.#','###']
+nine=['###','#.#','###','..#','###']
+def possible_num(t):
+    res=[]
+    dic={0:zero,1:one,2:two,3:three,4:four,5:five,6:six,7:seven,8:eight,9:nine}
+    for k in range(10):
+        real=True
+        for i in range(5):
+            for j in range(3):
+                if t[i][j]=='#':
+                    if dic[k][i][j]=='.':
+                        real=False
+                        break
+            if not real:
+                break
+        if real:
+            res.append(k)
+    return res
+n=int(input())
+li=[list() for _ in range(n)]
+for i in range(5):
+    s=input().strip()
+    for j in range(n):
+        li[j].append(s[j*4:j*4+3])
+ans=0
+for i in range(n):
+    t2=possible_num(li[i])
+    if t2:
+        ans+=sum(t2)*10**(n-i-1)/len(t2)
+    else:
+        ans=-1
+        break
+print(ans)
