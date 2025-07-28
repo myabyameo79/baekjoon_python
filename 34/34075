@@ -1,0 +1,39 @@
+n=int(input())
+algo={}
+for i in range(n):
+    a,b=input().split()
+    b=int(b)
+    algo[a]=b
+k=int(input())
+dic={}
+for _ in range(k):
+    a,b=input().split()
+    b=int(b)
+    first=['',float('inf')]
+    second=['',float('inf')]
+    for i,j in algo.items():
+        if abs(j-b)<first[1]:
+            second=first.copy()
+            first=[i,abs(j-b)]
+        elif abs(j-b)==first[1]:
+            if i<first[0]:
+                second=first.copy()
+                first=[i,abs(j-b)]
+            elif abs(j-b)<second[1]:
+                second=[i,abs(j-b)]
+            elif abs(j-b)==second[1]:
+                if i<second[0]:
+                    second=[i,abs(j-b)]
+        elif abs(j-b)<second[1]:
+            second=[i,abs(j-b)]
+        elif abs(j-b)==second[1]:
+            if i<second[0]:
+                second=[i,abs(j-b)]
+    dic[a]=[first[0],second[0]]
+for _ in range(int(input())):
+    s=input()
+    if s=='nani ga suki?':
+        print(f'{dic[name][1]} yori mo {dic[name][0]}')
+    else:
+        name=s.split()[0]
+        print('hai!')
