@@ -1,0 +1,41 @@
+p=10**6
+li=list(input())
+n=len(li)
+dp=[0]*n
+if n==1:
+    if li[0]=='0':print(0)
+    else:print(1)
+    exit()
+if n==2:
+    if li[0]=='0':
+        print(0)
+        exit()
+    if li[1]=='0':
+        if 1<=int(li[0]+li[1])<=26:print(1)
+        else:print(0)
+        exit()
+    if 1<=int(li[0]+li[1])<=26:print(2)
+    else:print(1)
+    exit()
+dp[0]=1 if li[0]!='0' else 0
+if dp[0]==0:
+    dp[1]=0
+else:
+    if li[1]=='0':
+        if 1<=int(li[0]+li[1])<=26:dp[1]=1
+        else:dp[:1]=[0,0]
+    else:
+        if 1<=int(li[0]+li[1])<=26:dp[1]=2
+        else:dp[1]=1
+for i in range(2,n):
+    if li[i]=='0':
+        if 1<=int(li[i-1]+li[i])<=26:
+            dp[i]=dp[i-2]
+        else:
+            dp[i]=0
+        continue
+    if li[i-1]=='0':
+        dp[i]=dp[i-1]
+    else:
+        dp[i]=(dp[i-1]+dp[i-2])%p if 1<=int(li[i-1]+li[i])<=26 else dp[i-1]
+print(dp[-1])
