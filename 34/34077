@@ -1,0 +1,13 @@
+for _ in range(int(input())):
+    n=int(input())
+    s=input()
+    real=False
+    ind=float('inf')
+    ans='YES'
+    for i in range(2*n+1):
+        if s[i]=='-':
+            ind=i
+        if real and s[i].isdigit() and s[i]!='0':
+            ans='NO'
+        if i==ind+1:real=True
+    print(ans)
