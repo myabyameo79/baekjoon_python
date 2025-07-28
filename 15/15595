@@ -1,0 +1,21 @@
+dic={}
+for _ in range(int(input())):
+    li=input().split()
+    if li[1] not in dic:
+        if li[2]=='4':
+            dic[li[1]]=[1,0]
+        else:
+            dic[li[1]]=[0,1]
+    else:
+        if li[2]!='4' and dic[li[1]][0]==0:
+            dic[li[1]][1]+=1
+        else:
+            dic[li[1]][0]+=1
+right_person=0
+assign=0
+for i,j in dic.items():
+    if i=='megalusion':
+        continue
+    right_person+=1 if j[0] else 0
+    assign+=j[1] if j[0] else 0
+print(right_person/(assign+right_person)*100 if assign+right_person else 0)
