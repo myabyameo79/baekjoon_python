@@ -1,0 +1,7 @@
+n=int(input())
+li=input().split()
+for i in range(n):
+    if i!=n-1:
+        print(li[i]+'DORO',end=' ')
+    else:
+        print(li[i]+'DORO',end='\n')
