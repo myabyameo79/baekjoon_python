@@ -1,0 +1,18 @@
+import sys
+input=sys.stdin.readline
+li=list(input().strip())
+li2=[]
+for i in range(int(input())):
+    t=input().strip().split()
+    if t[0]=='P':
+        li.append(t[1])
+    elif t[0]=='D':
+        if li2:
+            li.append(li2.pop())
+    elif t[0]=='L':
+        if li:
+            li2.append(li.pop())
+    else:
+        if li:
+            li.pop()
+print(*li,*reversed(li2),sep='')
