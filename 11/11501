@@ -1,0 +1,11 @@
+for _ in range(int(input())):
+    n=int(input())
+    now=0
+    ans=0
+    li=list(map(int,input().split()))
+    for i in li[::-1]:
+        if i<now:
+            ans+=now-i
+        else:
+            now=i
+    print(ans)
