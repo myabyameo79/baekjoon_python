@@ -1,0 +1,22 @@
+from collections import deque
+a,b,m,d=map(int,input().split())
+dic={i:[] for i in range(a+1)}
+check=[True for _ in range(a+1)]
+ans=[0 for _ in range(a+1)]
+for _ in range(b):
+    c,k=map(int,input().split())
+    dic[c].append(k)
+deq=deque()
+deq.append((d,0))
+check[d]=False
+while deq:
+    c,k=deq.popleft()
+    for i in dic[c]:
+        if check[i]:
+            ans[i]=k+1
+            deq.append((i,k+1))
+            check[i]=False
+li=[i for i in range(a+1) if ans[i]==m]
+if li:
+    for i in li:print(i)
+else:print(-1)
