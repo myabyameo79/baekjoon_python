@@ -1,0 +1,91 @@
+a,b=map(int,input().split())
+li=[list(map(int,input().split())) for _ in range(a)]
+ans=0
+for i in range(a):
+    for j in range(b-3):
+        ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i][j+3])
+for i in range(b):
+    for j in range(a-3):
+        ans=max(ans,li[j][i]+li[j+1][i]+li[j+2][i]+li[j+3][i])
+for i in range(a-1):
+    for j in range(b-1):
+        ans=max(ans,li[i][j]+li[i+1][j+1]+li[i+1][j]+li[i][j+1])
+for i in range(a):
+    for j in range(b-2):
+        if i==0:
+            ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i+1][j],li[i][j]+li[i][j+1]+li[i][j+2]+li[i+1][j+2])
+        elif i==a-1:
+            ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i-1][j],li[i][j]+li[i][j+1]+li[i][j+2]+li[i-1][j+2])
+        else:
+            ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i+1][j],li[i][j]+li[i][j+1]+li[i][j+2]+li[i+1][j+2],li[i][j]+li[i][j+1]+li[i][j+2]+li[i-1][j],li[i][j]+li[i][j+1]+li[i][j+2]+li[i-1][j+2])
+for j in range(b):
+    for i in range(a-2):
+        if j==0:
+            ans=max(ans,li[i][j]+li[i+1][j]+li[i+2][j]+li[i][j+1],li[i][j]+li[i+1][j]+li[i+2][j]+li[i+2][j+1])
+        elif j==b-1:
+            ans=max(ans,li[i][j]+li[i+1][j]+li[i+2][j]+li[i][j-1],li[i][j]+li[i+1][j]+li[i+2][j]+li[i+2][j-1])
+        else:
+            ans=max(ans,li[i][j]+li[i+1][j]+li[i+2][j]+li[i][j-1],li[i][j]+li[i+1][j]+li[i+2][j]+li[i+2][j-1],li[i][j]+li[i+1][j]+li[i+2][j]+li[i][j+1],li[i][j]+li[i+1][j]+li[i+2][j]+li[i+2][j+1])
+for i in range(a):
+    for j in range(b-1):
+        if i==0:
+            if j==0:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i+1][j+1]+li[i+1][j+2])
+            elif j==b-2:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i+1][j]+li[i+1][j-1])
+            else:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i+1][j+1]+li[i+1][j+2],li[i][j]+li[i][j+1]+li[i+1][j]+li[i+1][j-1])
+        elif i==a-1:
+            if j==0:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i-1][j+1]+li[i-1][j+2])
+            elif j==b-2:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i-1][j]+li[i-1][j-1])
+            else:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i-1][j+1]+li[i-1][j+2],li[i][j]+li[i][j+1]+li[i-1][j]+li[i-1][j-1])
+        else:
+            if j==0:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i+1][j+1]+li[i+1][j+2],li[i][j]+li[i][j+1]+li[i-1][j+1]+li[i-1][j+2])
+            elif j==b-2:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i+1][j]+li[i+1][j-1],li[i][j]+li[i][j+1]+li[i-1][j]+li[i-1][j-1])
+            else:
+                ans=max(ans,li[i][j]+li[i][j+1]+li[i+1][j+1]+li[i+1][j+2],li[i][j]+li[i][j+1]+li[i-1][j+1]+li[i-1][j+2],li[i][j]+li[i][j+1]+li[i+1][j]+li[i+1][j-1],li[i][j]+li[i][j+1]+li[i-1][j]+li[i-1][j-1])
+for j in range(b):
+    for i in range(a-1):
+        if j==0:
+            if i==0:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i+1][j+1]+li[i+2][j+1])
+            elif i==a-2:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i][j+1]+li[i-1][j+1])
+            else:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i+1][j+1]+li[i+2][j+1],li[i][j]+li[i+1][j]+li[i][j+1]+li[i-1][j+1])
+        elif j==b-1:
+            if i == 0:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i+1][j-1]+li[i+2][j-1])
+            elif i == a - 2:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i][j-1]+li[i-1][j-1])
+            else:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i+1][j-1]+li[i+2][j-1],li[i][j]+li[i+1][j]+li[i][j-1]+li[i-1][j-1])
+        else:
+            if i == 0:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i+1][j+1]+li[i+2][j+1],li[i][j]+li[i+1][j]+li[i+1][j-1]+li[i+2][j-1])
+            elif i == a - 2:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i][j+1]+li[i-1][j+1],li[i][j]+li[i+1][j]+li[i][j-1]+li[i-1][j-1])
+            else:
+                ans=max(ans,li[i][j]+li[i+1][j]+li[i+1][j+1]+li[i+2][j+1],li[i][j]+li[i+1][j]+li[i+1][j-1]+li[i+2][j-1],li[i][j]+li[i+1][j]+li[i][j+1]+li[i-1][j+1],li[i][j]+li[i+1][j]+li[i][j-1]+li[i-1][j-1])
+for i in range(a):
+    for j in range(b-2):
+        if i==0:
+            ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i+1][j+1])
+        elif i==a-1:
+            ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i-1][j+1])
+        else:
+            ans=max(ans,li[i][j]+li[i][j+1]+li[i][j+2]+li[i+1][j+1],li[i][j]+li[i][j+1]+li[i][j+2]+li[i-1][j+1])
+for j in range(b):
+    for i in range(a-2):
+        if j==0:
+            ans=max(ans,li[i][j]+li[i+1][j]+li[i+2][j]+li[i+1][j+1])
+        elif j==b-1:
+            ans=max(ans,li[i][j]+li[i+1][j]+li[i+2][j]+li[i+1][j-1])
+        else:
+            ans=max(ans,li[i][j]+li[i+1][j]+li[i+2][j]+li[i+1][j+1],li[i][j]+li[i+1][j]+li[i+2][j]+li[i+1][j-1])
+print(ans)
