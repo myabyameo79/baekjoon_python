@@ -1,0 +1,129 @@
+import sys
+def k(p,x):
+    res=0
+    i=1
+    while x//p**i:
+        res+=x//p**i
+        i+=1
+    return res
+def r(p,x):
+    if x==p:
+        return p-1
+    if x>p:
+        res=mul(p-1,x//p,p)
+        res*=r(p,x//p)%p
+        res%=p
+        res*=r(p,x%p)%p
+        res%=p
+        return res
+    res=1
+    for i in range(1,x+1):
+        res*=(i//(p**k(p,x)))%p
+        res%=p
+    return res
+def mul(a,b,c):
+    if b==1:return a%c
+    if b==0:return 1
+    t=mul(a,b//2,c)
+    if b%2:return (t*t*a)%c
+    return (t*t)%c
+def facp(p,k):
+    res=1
+    for i in range(1,k+1):
+        if i%p:
+            res*=i
+            res%=27
+    return res
+def mod_inverse(a,b):
+    b0=b
+    x0,x1=0,1
+    if b==1:
+        return 1
+    while a>1:
+        q=a//b
+        a,b=b,a%b
+        x0,x1=x1-q*x0,x0
+    if x1<0:
+        x1+=b0
+    return x1
+for _ in range(int(sys.stdin.readline())):
+    a,b=map(int,sys.stdin.readline().split())
+    mod11=0
+    if k(11,a)>k(11,b)+k(11,a-b):
+        mod11=0
+    else:
+        mod11=(mul((r(11,b)*r(11,a-b))%11,9,11)*r(11,a))%11
+    mod13=0
+    if k(13,a)>k(13,b)+k(13,a-b):
+        mod13=0
+    else:
+        mod13=(mul((r(13,b)*r(13,a-b))%13,11,13)*r(13,a))%13
+    mod37=0
+    if k(37,a)>k(37,b)+k(37,a-b):
+        mod37=0
+    else:
+        mod37=(mul((r(37,b)*r(37,a-b))%37,35,37)*r(37,a))%37
+    mod27=0
+    if k(3,a)-k(3,b)-k(3,a-b)>=3:
+        mod27=0
+    else:
+        c=a-b
+        initial=[a,b,c]
+        lia=[]
+        lib=[]
+        lic=[]
+        lmin=2
+        l=0
+        while a>0 or b>0 or c>0 or l<=lmin:
+            lia.append(a%3)
+            a//=3
+            lib.append(b%3)
+            b//=3
+            lic.append(c%3)
+            c//=3
+            l+=1
+        l-=1
+        a,b,c=initial
+        liA=[]
+        liB=[]
+        liC=[]
+        for _ in range(l+1):
+            liA.append(a%27)
+            a//=3
+            liB.append(b%27)
+            b//=3
+            liC.append(c%27)
+            c//=3
+        e=0
+        e0=0
+        carry=0
+        for i in range(l+1):
+            if lib[i]+lic[i]+carry>=3:
+                if i>=2:
+                    e+=1
+                e0+=1
+                carry=1
+            else:
+                carry=0
+        ans=1
+        for i in range(l+1):
+            ans*=facp(3,liA[i])
+            ans%=27
+            ans*=mod_inverse(facp(3,liB[i]),27)
+            ans%=27
+            ans*=mod_inverse(facp(3,liC[i]),27)
+            ans%=27
+        mod27=ans
+        mod27*=3**e0*(-1)**e
+        mod27%=27
+    ans=0
+    li=[mod27,mod11,mod13,mod37]
+    num=[27,11,13,37]
+    for i in range(4):
+        if i==0:
+            ans+=((li[i]*mod_inverse(142857//num[i],num[i])%142857)*142857//num[i])%142857
+            ans%=142857
+        else:
+            ans+=((li[i]*mul(142857//num[i],num[i]-2,num[i])%142857)*142857//num[i])%142857
+            ans%=142857
+    print(ans)
