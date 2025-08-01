@@ -1,0 +1,40 @@
+n=int(input())
+li=[list(map(int,input().split())) for _ in range(n)]
+ans=0
+win=0
+game={1:'hoof',2:'paper',3:'scissors'}
+for i in range(n):
+    if (game[li[i][0]]=='hoof' and game[li[i][1]]=='scissors')or(game[li[i][0]]=='paper' and game[li[i][1]]=='hoof')or(game[li[i][0]]=='scissors' and game[li[i][1]]=='paper'):
+        win+=1
+ans=max(win,ans)
+win=0
+game={2:'hoof',3:'paper',1:'scissors'}
+for i in range(n):
+    if (game[li[i][0]]=='hoof' and game[li[i][1]]=='scissors')or(game[li[i][0]]=='paper' and game[li[i][1]]=='hoof')or(game[li[i][0]]=='scissors' and game[li[i][1]]=='paper'):
+        win+=1
+ans=max(win,ans)
+win=0
+game={3:'hoof',1:'paper',2:'scissors'}
+for i in range(n):
+    if (game[li[i][0]]=='hoof' and game[li[i][1]]=='scissors')or(game[li[i][0]]=='paper' and game[li[i][1]]=='hoof')or(game[li[i][0]]=='scissors' and game[li[i][1]]=='paper'):
+        win+=1
+ans=max(win,ans)
+win=0
+game={1:'hoof',3:'paper',2:'scissors'}
+for i in range(n):
+    if (game[li[i][0]]=='hoof' and game[li[i][1]]=='scissors')or(game[li[i][0]]=='paper' and game[li[i][1]]=='hoof')or(game[li[i][0]]=='scissors' and game[li[i][1]]=='paper'):
+        win+=1
+ans=max(ans,win)
+win=0
+game={2:'hoof',1:'paper',3:'scissors'}
+for i in range(n):
+    if (game[li[i][0]]=='hoof' and game[li[i][1]]=='scissors')or(game[li[i][0]]=='paper' and game[li[i][1]]=='hoof')or(game[li[i][0]]=='scissors' and game[li[i][1]]=='paper'):
+        win+=1
+ans=max(ans,win)
+win=0
+game={3:'hoof',2:'paper',1:'scissors'}
+for i in range(n):
+    if (game[li[i][0]]=='hoof' and game[li[i][1]]=='scissors')or(game[li[i][0]]=='paper' and game[li[i][1]]=='hoof')or(game[li[i][0]]=='scissors' and game[li[i][1]]=='paper'):
+        win+=1
+ans=max(ans,win)
+print(ans)
