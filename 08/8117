@@ -1,0 +1,14 @@
+li=[]
+while True:
+    s=input()
+    if s=='0':
+        break
+    li.append((int(s)))
+li.sort()
+real=True
+for i in range(len(li)-2):
+    if li[i+2]<li[i+1]+li[i]:
+        print(li[i],li[i+1],li[i+2])
+        real=False
+        break
+if real:print('NIE')
