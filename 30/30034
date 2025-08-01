@@ -1,0 +1,18 @@
+input()
+li=input().split()
+input()
+li+=input().split()
+se=set(li)
+input()
+se-=set(input().split())
+se.add(' ')
+input()
+s=''
+for i in input():
+    if i in se:
+        if s:print(s)
+        s=''
+    else:
+        s+=i
+if s:
+    print(s)
