@@ -1,0 +1,21 @@
+n=int(input())
+li=sorted(list(map(int,input().split())))
+ans=0
+now=li[0]
+people=0
+i=0
+while i<n:
+    if people==0:
+        now=li[i]
+        i+=1
+        people+=1
+    else:
+        if people<now:
+            people+=1
+            i+=1
+        elif people==now:
+            people=1
+            now=li[i]
+            i+=1
+            ans+=1
+print(ans+1)
