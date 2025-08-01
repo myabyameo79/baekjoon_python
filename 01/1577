@@ -1,0 +1,21 @@
+a,b=map(int,input().split())
+field=[[0 for _ in range(a+1)] for _ in range(b+1)]
+n=int(input())
+li=[list(map(int,input().split())) for _ in range(n)]
+for j in range(a+1):
+    for i in range(b+1):
+        if j==0:
+            if i==0:
+                field[i][j]=1
+                continue
+            if [j,i,j,i-1] in li or [j,i-1,j,i] in li:
+                field[i][j]=0
+            else:
+                field[i][j]=field[i-1][j]
+        else:
+            if i==0:
+                field[i][j]+=0 if [j-1,i,j,i] in li or [j,i,j-1,i] in li else field[i][j-1]
+            else:
+                field[i][j]+=0 if [j,i,j,i-1] in li or [j,i-1,j,i] in li else field[i-1][j]
+                field[i][j]+=0 if [j-1,i,j,i] in li or [j,i,j-1,i] in li else field[i][j-1]
+print(field[-1][-1])
