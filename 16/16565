@@ -1,0 +1,9 @@
+from math import comb
+n=int(input())
+p=10007
+li=[(-1)**(i+1) for i in range(14)]
+ans=0
+for i in range(1,n//4+1):
+    ans+=comb(52-4*i,n-4*i)%p*comb(13,i)%p*(li[i])
+ans%=p
+print(ans)
