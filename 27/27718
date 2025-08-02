@@ -1,0 +1,46 @@
+def cross(t1,t2):
+    def ccw(a,b,c,d,e,f):
+        c=(c-a)*(f-d)-(d-b)*(e-c)
+        if c>0:
+            return 1
+        if c==0:
+            return 0
+        if c<0:
+            return -1
+    a,b,c,d=t1
+    e,f,g,h=t2
+    m=ccw(a,b,c,d,e,f)
+    n=ccw(a,b,c,d,g,h)
+    o=ccw(e,f,g,h,a,b)
+    p=ccw(e,f,g,h,c,d)
+    if m==n==o==p==0:
+        if a==c and e==g:
+            if (max(f,h)>min(b,d) and min(f,h)<max(b,d)) or (max(b,d)>min(f,h) and min(b,d)<max(f,h)):
+                return '3'
+            elif max(b,d)==min(f,h) or min(b,d)==max(f,h):
+                return '1'
+            else:return '0'
+        elif max(a,c)==min(e,g) or min(a,c)==max(e,g):
+            return '1'
+        elif min(a,c)<=max(e,g) and max(a,c)>=min(e,g) and min(b,d)<=max(f,h) and max(b,d)>=min(f,h):
+            return '3'
+        else:
+            return '0'
+    elif m*n<=0 and o*p<=0:
+        if m==0 or n==0 or o==0 or p==0:
+            return '1'
+        else:
+            return '2'
+    else:
+        return '0'
+n=int(input())
+li=[list(map(int,input().split())) for _ in range(n)]
+ans=[[0 for _ in range(n)] for _ in range(n)]
+for i in range(n):
+    for j in range(i+1):
+        if i==j:
+            ans[i][j]='3'
+        else:
+            ans[i][j]=cross(li[i],li[j])
+            ans[j][i]=ans[i][j]
+for i in ans:print(''.join(i))
