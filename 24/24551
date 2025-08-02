@@ -1,0 +1,29 @@
+from itertools import combinations
+def gcd(a,b):
+    if a%b:
+        return gcd(b,a%b)
+    return b
+def lcm(a,b):
+    return a*b//gcd(a,b)
+a=int(input())
+t=[11]
+for i in range(16):
+    t.append(t[-1]*10+1)
+b=17
+li=[]
+for i in range(b):
+    if all(t[i]%t[j]!=0 for j in range(i)):
+        li.append(t[i])
+ans=0
+pm=[(-1)**(i+1) for i in range(b+1)]
+for i in range(1,b+1):
+    for j in combinations(t,i):
+        if i==1:
+            if j[0] in t:
+                ans+=a//j[0]*pm[i]
+        else:
+            l=j[0]
+            for k in j[1:]:
+                l=lcm(l,k)
+            ans+=a//l*pm[i]
+print(ans)
