@@ -1,0 +1,24 @@
+n=int(input())
+i=1
+p=0
+n0=n
+while i*2<n:
+    n-=i*2
+    i*=2
+    p+=1
+ans=''
+while True:
+    if p<1:
+        break
+    if n>i:
+        ans+='7'
+    else:
+        ans+='4'
+    if n>i:
+        n-=i
+    i//=2
+    p-=1
+if n==1:
+    ans+='4'
+else:ans+='7'
+print(ans)
