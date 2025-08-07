@@ -1,0 +1,46 @@
+from math import sin,cos,pi
+def fft(li,l,inv):
+    for i in range(l):
+        rev=0
+        j=1
+        target=i
+        while j<l:
+            rev=(rev<<1)+(target&1)
+            j<<=1
+            target>>=1
+        if i<rev:
+            li[i],li[rev]=li[rev],li[i]
+    le=2
+    while le<=l:
+        if inv:
+            angle=2*pi/le
+        else:
+            angle=-2*pi/le
+        w=complex(cos(angle),sin(angle))
+        for i in range(0,l,le):
+            e=complex(1,0)
+            for j in range(le//2):
+                even=li[i+j]
+                odd=li[i+j+le//2]*e
+                li[i+j]=even+odd
+                li[i+j+le//2]=even-odd
+                e*=w
+        le<<=1
+    if inv:
+        for i in range(l):
+            li[i]/=l
+    return li
+def inner(lia,lib,n):
+    for i in range(n):
+        lia[i]*=lib[i]
+    return lia
+n=int(input())
+lia=list(map(int,input().split()))*2
+lib=list(map(int,input().split()))[::-1]
+l=1
+while l<n*2:
+    l<<=1
+lia+=[0 for _ in range(l-n*2)]
+lib+=[0 for _ in range(l-n)]
+li=fft(inner(fft(lia,l,False),fft(lib,l,False),l),l,True)
+print(max(int(round(i.real)) for i in li))
