@@ -1,0 +1,52 @@
+import sys
+from math import sin,cos,pi
+def fft(li,l,inv):
+    for i in range(l):
+        rev=0
+        j=1
+        target=i
+        while j<l:
+            rev=(rev<<1)+(target&1)
+            j<<=1
+            target>>=1
+        if i<rev:
+            li[i],li[rev]=li[rev],li[i]
+    le=2
+    while le<=l:
+        angle=2*pi/le if inv else -2*pi/le
+        w=complex(cos(angle),sin(angle))
+        for i in range(0,l,le):
+            e=complex(1,0)
+            for j in range(le//2):
+                even=li[i+j]
+                odd=li[i+j+le//2]*e
+                li[i+j]=even+odd
+                li[i+j+le//2]=even-odd
+                e*=w
+        le<<=1
+    if inv:
+        for i in range(l):
+            li[i]/=l
+    return li
+def inner(lia,lib,n):
+    return [lia[i]*lib[i] for i in range(n)]
+n=10**6+1
+che=[True]*n
+li=[0 for i in range(n)]
+t=[0 for i in range(n)]
+for i in range(2,n):
+    if che[i]:
+        if i%2:li[i]=1
+        if i*2<n:t[i*2]=1
+        for j in range(i+i,n,i):
+            che[j]=False
+l=1
+while l<n*2:
+    l<<=1
+li+=[0 for _ in range(l-n)]
+t+=[0 for _ in range(l-n)]
+res=fft(inner(fft(li,l,False),fft(t,l,False),l),l,True)
+for i in range(l):
+    res[i]=int(round(res[i].real))
+for _ in range(int(sys.stdin.readline())):
+    print(res[int(sys.stdin.readline())])
