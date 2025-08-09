@@ -1,0 +1,8 @@
+a,b=map(int,input().split())
+real=True
+for i in range(b):
+    n=int(input())
+    li=list(map(int,input().split()))
+    if sorted(li,reverse=True)!=li:
+        real=False
+print('Yes' if real else 'No')
