@@ -1,0 +1,13 @@
+num=0
+n=int(input())
+left=30
+li=[int(input()) for _ in range(n)]
+for i in range(n):
+    if li[i]>=left:
+        if li[i]<=left*2:
+            num+=1
+        left=30
+    else:
+        num+=1
+        left-=li[i]
+print(num)
