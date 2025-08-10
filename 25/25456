@@ -1,0 +1,55 @@
+def power(a,b,c):
+    res=1
+    while b:
+        if b&1:res=res*a%c
+        a=a*a%c
+        b>>=1
+    return res
+def fft(k,l,inv):
+    mod=998244353
+    for i in range(l):
+        rev=0
+        j=1
+        target=i
+        while j<l:
+            rev=(rev<<1)+(target&1)
+            j<<=1
+            target>>=1
+        if i<rev:
+            k[i],k[rev]=k[rev],k[i]
+    x=power(3,(mod-1)//l,mod)
+    if inv:x=power(x,mod-2,mod)
+    root=[1 for _ in range(l)]
+    for i in range(1,l):
+        root[i]=root[i-1]*x%mod
+    le=2
+    while le<=l:
+        step=l//le
+        for i in range(0,l,le):
+            for j in range(le>>1):
+                even=k[i|j]
+                odd=k[i|j|le>>1]*root[step*j]%mod
+                k[i|j]=(even+odd)%mod
+                k[i|j|le>>1]=(even-odd)%mod
+                if k[i|j|le>>1]<0:li[i|j|le>>1]+=mod
+        le<<=1
+    if inv:
+        t=power(l,mod-2,mod)
+        for i in range(l):
+            k[i]=k[i]*t%mod
+    return k
+def mul(li1,li2,l):
+    mod=998244353
+    t1=fft(li1,l,False)
+    t2=fft(li2,l,False)
+    res=fft([t1[i]*t2[i]%mod for i in range(l)],l,True)
+    return res
+li1=list(map(int,list(input())))
+li2=list(map(int,list(input())))
+n=len(li1)+len(li2)
+l=1
+while l<n:
+    l<<=1
+li1+=[0]*(l-len(li1))
+li2+=[0]*(l-len(li2))
+print(max(mul(li1,li2,l)))
