@@ -1,0 +1,16 @@
+pascal=[[1],[1,1]]
+for i in range(2,30):
+    res=[0]*(i+1)
+    for j in range(i-1):
+        res[j+1]=pascal[i-1][j]+pascal[i-1][j+1]
+    res[0]=1
+    res[i]=1
+    pascal.append(res)
+a,b,c=map(int,input().split())
+a-=1
+b-=1
+ans=0
+for i in range(c):
+    for j in range(i+1):
+        ans+=pascal[a+i][b+j]
+print(ans)
