@@ -1,0 +1,26 @@
+def find_in_right(c):
+    global right,guess
+    for i in range(3):
+        for j in range(3):
+            if right[i][j]==c:
+                right[i][j]=''
+                return True
+    return False
+right=[list(input()) for _ in range(3)]
+guess=[list(input()) for _ in range(3)]
+green=0
+for i in range(3):
+    for j in range(3):
+        if right[i][j]==guess[i][j]:
+            right[i][j]=''
+            guess[i][j]=''
+            green+=1
+print(green)
+yellow=0
+for i in range(3):
+    for j in range(3):
+        if guess[i][j]:
+            if find_in_right(guess[i][j]):
+                guess[i][j]=''
+                yellow+=1
+print(yellow)
