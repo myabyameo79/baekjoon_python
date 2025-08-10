@@ -1,0 +1,21 @@
+from collections import deque
+deq=deque()
+cownum=1
+for _ in range(int(input())):
+    t=input().split()
+    if t[0]=='A':
+        if t[1]=='L':
+            deq.appendleft(cownum)
+            cownum+=1
+        else:
+            deq.append(cownum)
+            cownum+=1
+    else:
+        if t[1]=='L':
+            for i in range(int(t[2])):
+                deq.popleft()
+        else:
+            for i in range(int(t[2])):
+                deq.pop()
+for i in deq:
+    print(i)
