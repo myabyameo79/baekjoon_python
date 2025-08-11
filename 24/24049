@@ -1,0 +1,17 @@
+a,b=map(int,input().split())
+nli=list(map(int,input().split()))
+mli=list(map(int,input().split()))
+dp=[[0 for _ in range(b)] for _ in range(a)]
+for i in range(a):
+    for j in range(b):
+        if i==0:
+            if j==0:
+                dp[i][j]=nli[0]^mli[0]
+            else:
+                dp[i][j]=dp[i][j-1]^mli[j]
+        else:
+            if j==0:
+                dp[i][j]=dp[i-1][j]^nli[i]
+            else:
+                dp[i][j]=dp[i-1][j]^dp[i][j-1]
+print(dp[-1][-1])
