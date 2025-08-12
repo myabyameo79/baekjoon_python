@@ -1,0 +1,34 @@
+p=313109
+fac=[1]*p
+for i in range(1,p):
+    fac[i]=fac[i-1]*i%p
+def power(a,b):
+    global p
+    if b==0:return 1
+    if b==1:return a%p
+    t=power(a,b//2)
+    if b&1:return t*t*a%p
+    return t*t%p
+comb_with_flt=lambda n,k:fac[n]*power((fac[k]*fac[n-k]%p),p-2)%p if n-k>=0 else 0
+def comb(n,k):
+    global p
+    lin=[]
+    d=0
+    while n//p:
+        lin.append(n%p)
+        n//=p
+        d+=1
+    lin.append(n)
+    d+=1
+    lik=[0]*d
+    for i in range(d):
+        lik[i]=k%p
+        k//=p
+    ans=1
+    for i in range(d):
+        ans*=comb_with_flt(lin[i],lik[i])
+        ans%=p
+    return ans
+for _ in range(int(input())):
+    n=int(input())
+    print(comb(n,n>>1)*power((n>>1)+1,p-2)%p)
