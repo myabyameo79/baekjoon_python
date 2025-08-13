@@ -1,0 +1,12 @@
+n=int(input())
+li=sorted(list(map(int,input().split())))
+half=(n+1)//2
+low=sorted(li[:half],reverse=True)
+high=sorted(li[half:])
+for i in range(n):
+    if i!=n-1:
+        if i&1:print(high[i//2],end=' ')
+        else:print(low[i//2],end=' ')
+    else:
+        if i&1:print(high[i//2])
+        else:print(low[i//2])
