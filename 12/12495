@@ -1,0 +1,13 @@
+def check(n,li):
+    if all(i%n==0 or n%i==0 for i in li):
+        return True
+    return False
+for _ in range(int(input())):
+    a,b,c=map(int,input().split())
+    li=list(map(int,input().split()))
+    ans='NO'
+    for i in range(b,c+1):
+        if check(i,li):
+            ans=i
+            break
+    print(f'Case #{_+1}: {ans}')
