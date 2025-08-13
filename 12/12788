@@ -1,0 +1,12 @@
+n=int(input())
+a,b=map(int,input().split())
+li=sorted(list(map(int,input().split())),reverse=True)
+k=a*b
+ans=0
+for i in range(n):
+    if li[i]>=k:
+        k-=li[i]
+        break
+    else:
+        k-=li[i]
+print(i+1 if k<=0 else 'STRESS')
