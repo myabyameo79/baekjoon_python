@@ -1,0 +1,27 @@
+def check0(s):
+    low=0
+    for i in s:
+        if i.islower():low+=1
+    return True if low else False
+def check1(s):
+    up=0
+    for i in s:
+        if i.isupper():up+=1
+    return True if up else False
+def check2(s):
+    num=0
+    for i in s:
+        if i.isdigit():num+=1
+    return True if num else False
+def check3(s):
+    n=0
+    for i in s:
+        if i in '+_)(*&^%$#@!. /,; {}':n+=1
+    return True if n else False
+def check4(s):
+    return True if len(s)>=12 else False
+for _ in range(int(input())):
+    n=int(input())
+    s=input()
+    if all(eval(f'check{i}(s)') for i in range(5)):print('valid')
+    else:print('invalid')
