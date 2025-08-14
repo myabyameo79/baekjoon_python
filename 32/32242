@@ -1,0 +1,193 @@
+def power(a,b,p):
+    if b==0:return 1
+    if b==1:return a%p
+    t=power(a,b//2,p)
+    if b&1:return t*t*a%p
+    return t*t%p
+def prime(n,a):
+    s=0
+    d=n-1
+    while d%2==0:
+        d//=2
+        s+=1
+    x=power(a,d,n)
+    if x==1 or x+1==n:return True
+    for i in range(s-1):
+        x=power(x,2,n)
+        if x+1==n:return True
+    return False
+primeli=[2,3,5,7,11,13,17,19,23,29,31,37,41]
+def isprime(n):
+    if n<=41:
+        if n in primeli:return True
+        return False
+    check=0
+    for i in primeli:
+        if prime(n,i):check+=1
+        else:return False
+    if check==13:return True
+    return False
+def gcd(a,b):
+    if a<b:a,b=b,a
+    while b:a,b=b,a%b
+    return a
+f=lambda x,p:(x*x+1)%p
+def pollard_ro(n,x):
+    p=x
+    if isprime(n):return n
+    for i in primeli:
+        if n%i==0:return i
+    y=x
+    d=1
+    while d==1:
+        x=f(x,n)
+        y=f(f(y,n),n)
+        d=gcd(abs(x-y),n)
+    if d==n:return pollard_ro(n,p+1)
+    if isprime(d):return d
+    return pollard_ro(d,2)
+def factorization(n):
+    li=[]
+    while n!=1:
+        p=pollard_ro(n,2)
+        li.append(p)
+        n//=p
+    li.sort()
+    return li
+def dividing(li):
+    dic={}
+    for i in li:dic[i]=dic.get(i,0)+1
+    ans=[1]
+    for i,j in dic.items():
+        t=[]
+        for l in ans:
+            for k in range(j+1):
+                t.append(l*i**k)
+        ans=t.copy()
+    ans.sort()
+    return ans
+a,b,c,d=map(int,input().split())
+if a==0:
+    if b==0:
+        if c==0:
+            if d==0:print('INFINITY');exit()
+            else:print(0);exit()
+        else:
+            if d==0:print('INFINITY');exit()
+            else:
+                if d%c==0:print('INFINITY');exit()
+                else:print(0);exit()
+    else:
+        if c==0:
+            if d==0:print('INFINITY');exit()
+            else:
+                if d%b==0:print('INFINITY');exit()
+                else:print(0);exit()
+        else:
+            if d==0:print('INFINITY');exit()
+            else:
+                if d%gcd(b,c)==0:print('INFINITY');exit()
+                else:print(0);exit()
+if b==c==0:
+    if d==0:print('INFINITY');exit()
+    else:
+        if d%a==0:
+            d//=a
+            primefactorli=factorization(abs(d))
+            yaksu=dividing(primefactorli)
+            print(2*len(yaksu))
+            for i in yaksu[::-1]:
+                print(-i,d//i)
+            for i in yaksu:
+                print(i,d//(-i))
+            exit()
+        else:print(0);exit()
+if b==0:
+    if d==0:print('INFINITY');exit()
+    primefactorli=factorization(abs(d))
+    yaksu=dividing(primefactorli)
+    d*=-1
+    ans=[]
+    for i in yaksu:
+        y=i
+        k=d//y
+        if (k-c)%a==0:
+            ans.append(((k-c)//a,y))
+        y=-i
+        k=d//y
+        if (k-c)%a==0:
+            ans.append(((k-c)//a,y))
+    ans.sort(key=lambda x:x[1])
+    ans.sort(key=lambda x:x[0])
+    print(len(ans))
+    for i in ans:print(*i)
+    exit()
+if c==0:
+    if d==0:print('INFINITY');exit()
+    primefactorli=factorization(abs(d))
+    yaksu=dividing(primefactorli)
+    d*=-1
+    ans=[]
+    for i in yaksu:
+        x=i
+        k=d//x
+        if (k-b)%a==0:
+            ans.append((x,(k-b)//a))
+        x=-i
+        k=d//x
+        if (k-b)%a==0:
+            ans.append((x,(k-b)//a))
+    ans.sort(key=lambda x:x[1])
+    ans.sort(key=lambda x:x[0])
+    print(len(ans))
+    for i in ans:print(*i)
+    exit()
+if d==0:
+    primefactorli=factorization(abs(b))+factorization(abs(c))
+    yaksu=dividing(primefactorli)
+    bc=b*c
+    ans=[]
+    for i in yaksu:
+        if (i-c)%a==0:
+            x=(i-c)//a
+            k=bc//i
+            if (k-b)%a==0:
+                ans.append((x,(k-b)//a))
+        if (-i-c)%a==0:
+            x=(-i-c)//a
+            k=bc//(-i)
+            if (k-b)%a==0:
+                ans.append((x,(k-b)//a))
+    ans.sort(key=lambda x:x[1])
+    ans.sort(key=lambda x:x[0])
+    print(len(ans))
+    for i in ans:print(*i)
+    exit()
+n=b*c-a*d
+if n==0:
+    if (-c)%a==0:
+        print('INFINITY')
+        exit()
+    elif (-b)%a==0:
+        print('INFINITY')
+        exit()
+    else:print(0);exit()
+primefactorli=factorization(abs(n))
+yaksu=dividing(primefactorli)
+ans=[]
+for i in yaksu:
+    if (i-c)%a==0:
+        x=(i-c)//a
+        k=n//i
+        if (k-b)%a==0:
+            ans.append((x,(k-b)//a))
+    if (-i-c)%a==0:
+        x=(-i-c)//a
+        k=n//(-i)
+        if (k-b)%a==0:
+            ans.append((x,(k-b)//a))
+ans.sort(key=lambda x:x[1])
+ans.sort(key=lambda x:x[0])
+print(len(ans))
+for i in ans:print(*i)
+exit()
