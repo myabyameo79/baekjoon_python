@@ -1,0 +1,43 @@
+def power(a, b, p):
+    if b == 0: return 1
+    if b == 1: return a % p
+    t = power(a, b // 2, p)
+    if b & 1: return t * t * a % p
+    return t * t % p
+
+
+def prime(n, a):
+    s = 0
+    d = n - 1
+    while d % 2 == 0:
+        d //= 2
+        s += 1
+    x = power(a, d, n)
+    if x == 1 or x + 1 == n: return True
+    for i in range(s - 1):
+        x = power(x, 2, n)
+        if x + 1 == n: return True
+    return False
+
+
+primeli = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
+
+
+def isprime(n):
+    if n <= 41:
+        if n in primeli: return True
+        return False
+    check = 0
+    for i in primeli:
+        if prime(n, i):
+            check += 1
+        else:
+            return False
+    if check == 13: return True
+    return False
+i=101
+while True:
+    if isprime(6*i+1) and isprime(12*i+1) and isprime(18*i+1):
+        print((6*i+1)*(12*i+1)*(18*i+1), 6*i+1)
+        break
+    i+=1
