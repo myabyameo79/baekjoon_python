@@ -1,0 +1,35 @@
+from collections import deque
+import sys
+input=sys.stdin.readline
+def graph(field,n):
+    global a
+    deq=deque()
+    check=[[0 for _ in range(a)] for _ in range(a)]
+    num=1
+    for i in range(a):
+        for j in range(a):
+            if field[i][j]>n:
+                deq.append((i,j,num))
+                num+=1
+    if not deq:return -1
+    dx=[1,-1,0,0]
+    dy=[0,0,1,-1]
+    while deq:
+        x,y,num=deq.popleft()
+        if check[x][y]!=0:
+            check[x][y]=min(check[x][y],num)
+            continue
+        check[x][y]=num
+        for i in range(4):
+            x2=x+dx[i]
+            y2=y+dy[i]
+            if 0<=x2<a and 0<=y2<a and check[x2][y2]==0 and field[x2][y2]>n:
+                deq.appendleft((x2,y2,num))
+    dic={}
+    for i in range(a):
+        for j in range(a):
+            dic[check[i][j]]=dic.get(check[i][j],0)+1
+    return len(dic)-1 if 0 in dic else len(dic)
+a=int(input())
+li=[list(map(int,input().split())) for _ in range(a)]
+print(max(graph(li,i) for i in range(100)))
