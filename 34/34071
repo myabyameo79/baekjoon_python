@@ -1,0 +1,5 @@
+n=int(input())
+li=[int(input()) for _ in range(n)]
+if li[0]==min(li):print('ez');exit()
+if li[0]==max(li):print('hard');exit()
+print('?')
