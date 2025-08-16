@@ -1,0 +1,6 @@
+from math import tan,pi,sqrt
+d,h=map(float,input().split())
+while True:
+    a,b,c=map(float,input().split())
+    if a==b==c==0:break
+    print(int(round(d*sqrt(2/(1/(tan(a*pi/180)**2)+1/(tan(c*pi/180)**2)-2/(tan(b*pi/180)**2)))+h)))
