@@ -1,0 +1,24 @@
+from decimal import Decimal,getcontext,ROUND_HALF_UP
+def cos(theta):
+    i=Decimal('1')
+    ans=Decimal('1')
+    plus=Decimal('1')
+    for _ in range(50):
+        ans+=plus*Decimal('-1')*theta*theta/(Decimal('2')*i)/(Decimal('2')*i-Decimal('1'))
+        plus*=Decimal('-1')*theta*theta/(Decimal('2')*i)/(Decimal('2')*i-Decimal('1'))
+        i+=Decimal('1')
+    return ans
+pi=Decimal('3.141592653589793238')
+getcontext().prec=50
+getcontext().rounding=ROUND_HALF_UP
+while True:
+    try:
+        li=input().split()
+    except:break
+    r,h,d1,a1,d2,a2=map(Decimal,li)
+    theta1=a1/Decimal('360')/(r**Decimal('2')+h**Decimal('2')).sqrt()*(Decimal('2')*pi*r)
+    theta2=a2/Decimal('360')/(r**Decimal('2')+h**Decimal('2')).sqrt()*(Decimal('2')*pi*r)
+    theta=min(Decimal('2')*r*pi/(r*r+h*h).sqrt()-abs(theta1-theta2),abs(theta1-theta2))
+    ans=d1**Decimal('2')+d2**Decimal('2')-Decimal('2')*d1*d2*cos(theta)
+    ans=ans.sqrt()
+    print(ans.quantize(Decimal('0.01')))
