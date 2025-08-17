@@ -1,0 +1,23 @@
+from math import comb
+def combination(a,b):
+    p=3
+    lia=[]
+    d=0
+    while a//p:
+        lia.append(a%p)
+        a//=p
+        d+=1
+    lia.append(a)
+    d+=1
+    lib=[0]*d
+    for i in range(d):
+        lib[i]=b%p
+        b//=p
+    ans=1
+    for i in range(d):
+        ans*=comb(lia[i],lib[i])
+        ans%=p
+    return ans
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    print(combination(a*2,b)*(-1)**b%3)
