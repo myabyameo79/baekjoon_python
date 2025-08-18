@@ -1,0 +1,68 @@
+def factorization(n):
+    f=lambda x,p:(x*x+1)%p
+    def power(a,b,p):
+        if b==0:return 1
+        if b==1:return a%p
+        t=power(a,b//2,p)
+        if b&1:return t*t*a%p
+        return t*t%p
+    def prime(n,a):
+        s=0
+        d=n-1
+        while d%2==0:
+            d//=2
+            s+=1
+        x=power(a,d,n)
+        if x==1 or x+1==n:return True
+        for i in range(s-1):
+            x=power(x,2,n)
+            if x+1==n:return True
+        return False
+    primeli=[2,3,5,7,11,13,17,19,23,29,31,37,41]
+    def isprime(n):
+        if n<=41:
+            if n in primeli:return True
+            return False
+        check=0
+        for i in primeli:
+            if prime(n,i):check+=1
+            else:return False
+        if check==13:return True
+        return False
+    def gcd(a,b):
+        if a<b:a,b=b,a
+        while b:a,b=b,a%b
+        return a
+    def pollard_ro(n,x):
+        p=x
+        if isprime(n):return n
+        for i in primeli:
+            if n%i==0:return i
+        y=x
+        d=1
+        while d==1:
+            x=f(x,n)
+            y=f(f(y,n),n)
+            d=gcd(abs(x-y),n)
+        if d==n:return pollard_ro(n,p+1)
+        if isprime(d):return d
+        return pollard_ro(d,2)
+    li=[]
+    while n!=1:
+        p=pollard_ro(n,2)
+        li.append(p)
+        n//=p
+    li.sort()
+    return li
+while True:
+    n=int(input())
+    if n==0:break
+    li=factorization(n)
+    dic={}
+    for i in li:
+        if i&1:
+            dic[i]=dic.get(i,0)+1
+    ans=1
+    for i in dic.values():
+        ans*=i*2+1
+    print(ans*2)
