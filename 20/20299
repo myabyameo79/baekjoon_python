@@ -1,0 +1,10 @@
+a,b,c=map(int,input().split())
+li=[]
+ans=0
+for _ in range(a):
+    t=list(map(int,input().split()))
+    if all(i>=c for i in t) and sum(t)>=b:
+        ans+=1
+        li+=t
+print(ans)
+print(*li)
