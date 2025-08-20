@@ -1,0 +1,50 @@
+import sys
+input=sys.stdin.readline
+p=10**9+7
+def segment(start,end,ind):
+    if start==end:
+        tree[ind]=li[start]
+        return tree[ind]
+    mid=(start+end)//2
+    tree[ind]=segment(start,mid,ind*2)*segment(mid+1,end,ind*2+1)%p
+    return tree[ind]
+def multiply(start,end,ind,left,right):
+    if left>end or right<start:return 1
+    if left<=start and right>=end:return tree[ind]
+    mid=(start+end)//2
+    return multiply(start,mid,ind*2,left,right)*multiply(mid+1,end,ind*2+1,left,right)%p
+def change(start,end,ind,value,place):
+    if place<start or place>end:return 1
+    if start<=place<=end:
+        tree[ind]=tree[ind]*value%p
+    if start==end:return 1
+    mid=(start+end)//2
+    change(start,mid,ind*2,value,place)
+    change(mid+1,end,ind*2+1,value,place)
+def power(a,b,c):
+    if b==0:return 1
+    if b==1:return a%c
+    t=power(a,b//2,c)
+    if b&1:return t*t*a%c
+    return t*t%c
+a,b,c=map(int,input().split())
+li=[int(input()) for _ in range(a)]
+l=1
+while l<a:
+    l<<=1
+l<<=1
+tree=[0]*l
+segment(0,a-1,1)
+for _ in range(b+c):
+    q,w,e=map(int,input().split())
+    if q==1:
+        if li[w-1]==0:
+            li[w-1]=e
+            tree=[0]*l
+            segment(0,a-1,1)
+        else:
+            k=e*power(li[w-1],p-2,p)%p
+            change(0,a-1,1,k,w-1)
+            li[w-1]=e
+    else:
+        print(multiply(0,a-1,1,w-1,e-1))
