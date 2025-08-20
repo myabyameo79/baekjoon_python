@@ -1,0 +1,36 @@
+def segment(start,end,ind):
+    global tree
+    if start==end:
+        tree[ind]=li[start]
+        return tree[ind]
+    mid=(start+end)//2
+    tree[ind]=segment(start,mid,ind*2)+segment(mid+1,end,ind*2+1)
+    return tree[ind]
+def segsum(start,end,ind,left,right):
+    if left>end or right<start:return 0
+    if left<=start and right>=end:
+        return tree[ind]
+    mid=(start+end)//2
+    return segsum(start,mid,ind*2,left,right)+segsum(mid+1,end,ind*2+1,left,right)
+def change(start,end,node,ind,ch):
+    if ind<start or ind>end:return 0
+    tree[node]+=ch
+    if start==end:return 0
+    mid=(start+end)//2
+    change(start,mid,node*2,ind,ch)
+    change(mid+1,end,node*2+1,ind,ch)
+a,b,c=map(int,input().split())
+li=[int(input()) for _ in range(a)]
+l=1
+while l<a:
+    l<<=1
+l<<=1
+tree=[0]*l
+segment(0,a-1,1)
+for _ in range(b+c):
+    q,w,e=map(int,input().split())
+    if q==1:
+        change(0,a-1,1,w-1,e-li[w-1])
+        li[w-1]=e
+    else:
+        print(segsum(0,a-1,1,w-1,e-1))
