@@ -1,0 +1,9 @@
+for _ in range(int(input())):
+    a,b=map(float,input().split())
+    n=int(b-a)
+    ans=[0,0,0,0,0]
+    money=[50,20,10,5,1]
+    for i in range(5):
+        ans[i]=n//money[i]
+        n%=money[i]
+    print(f'{ans[0]}-$50, {ans[1]}-$20, {ans[2]}-$10, {ans[3]}-$5, {ans[4]}-$1')
