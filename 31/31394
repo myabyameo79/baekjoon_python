@@ -1,0 +1,12 @@
+n=int(input())
+li=[int(input()) for _ in range(n)]
+if 3 in li:
+    print('None')
+    exit()
+if sum(li)==5*n:
+    print('Named')
+    exit()
+if sum(li)>=9*n/2:
+    print('High')
+    exit()
+print('Common')
