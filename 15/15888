@@ -1,0 +1,22 @@
+a,b,c=map(int,input().split())
+if b*b-4*a*c<=0:
+    print('둘다틀렸근')
+    exit()
+li=[2,4,8,16,32,64,128]
+if b%a!=0 or c%a!=0:
+    print('둘다틀렸근')
+    exit()
+b//=a
+c//=a
+for i in range(len(li)):
+    for j in range(len(li)):
+        if i==j:
+            continue
+        if li[i]*li[i]+b*li[i]+c==0 and li[j]*li[j]+b*li[j]+c==0:
+            print('이수근')
+            exit()
+for i in range(-200,201):
+    if i*i+b*i+c==0 and c%i==0 and c//i*c//i+b*c//i+c==0:
+        print('정수근')
+        exit()
+print('둘다틀렸근')
