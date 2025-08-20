@@ -1,0 +1,41 @@
+def minsegment(start,end,ind):
+    if start==end:
+        mintree[ind]=li[start]
+        return mintree[ind]
+    mid=(start+end)//2
+    mintree[ind]=min(minsegment(start,mid,ind*2),minsegment(mid+1,end,ind*2+1))
+    return mintree[ind]
+def maxsegment(start,end,ind):
+    if start==end:
+        maxtree[ind]=li[start]
+        return mintree[ind]
+    mid=(start+end)//2
+    maxtree[ind]=max(maxsegment(start,mid,ind*2),maxsegment(mid+1,end,ind*2+1))
+    return maxtree[ind]
+def segmin(start,end,ind,left,right):
+    global mans
+    if left>end or right<start:return float('inf')
+    if left<=start and right>=end:return min(mans,mintree[ind])
+    mid=(start+end)//2
+    return min(mans,segmin(start,mid,ind*2,left,right),segmin(mid+1,end,ind*2+1,left,right))
+def segmax(start,end,ind,left,right):
+    global nans
+    if left>end or right<start:return 0
+    if left<=start and right>=end:return max(nans,maxtree[ind])
+    mid=(start+end)//2
+    return max(nans,segmax(start,mid,ind*2,left,right),segmax(mid+1,end,ind*2+1,left,right))
+a,b=map(int,input().split())
+li=[int(input()) for _ in range(a)]
+l=1
+while l<a:
+    l<<=1
+l<<=1
+mintree=[float('inf')]*l
+maxtree=[0]*l
+minsegment(0,a-1,1)
+maxsegment(0,a-1,1)
+for _ in range(b):
+    q,w=map(int,input().split())
+    mans=float('inf')
+    nans=0
+    print(segmin(0,a-1,1,q-1,w-1),segmax(0,a-1,1,q-1,w-1))
