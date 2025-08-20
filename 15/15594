@@ -1,0 +1,8 @@
+n=int(input())
+li=[int(input()) for _ in range(n)]
+t=sorted(li)
+if t==li:print(0);exit()
+ans=0
+for i in range(n):
+    if li[i]!=t[i]:ans+=1
+print(ans-1)
