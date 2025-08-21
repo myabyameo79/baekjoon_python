@@ -1,0 +1,48 @@
+n=input()
+n=n[::-1]
+li=[0]*10
+l=len(n)
+if l==1:
+    for i in range(1,int(n)+1):
+        li[i]+=1
+    print(*li)
+    exit()
+for i in range(1,10):
+    for j in range(l):
+        if int(n[j])>i:
+            if j==0:
+                li[i]+=int(n[j+1:][::-1])+1
+            elif j==l-1:
+                li[i]+=10**j
+            else:
+                li[i]+=(int(n[j+1:][::-1])+1)*10**j
+        elif int(n[j])==i:
+            if j!=l-1 and j!=0:
+                li[i]+=int(n[j+1:][::-1])*10**j+int(n[:j][::-1])+1
+            elif j==l-1:
+                li[i]+=int(n[:j][::-1])+1
+            elif j==0:
+                li[i]+=int(n[j+1:][::-1])+1
+        elif int(n[j])<i:
+            if j==0:
+                li[i]+=int(n[j+1:][::-1])
+            elif j==l-1:
+                continue
+            else:
+                li[i]+=int(n[j+1:][::-1])*10**j
+for j in range(l):
+    if int(n[j])==0:
+        if j==0:
+            li[0]+=int(n[j+1:][::-1])
+        elif j==l-1:
+            li[0]+=0
+        else:
+            li[0]+=(int(n[j+1:][::-1])-1)*10**j+int(n[:j][::-1])+1
+    elif int(n[j])>0:
+        if j==0:
+            li[0]+=int(n[j+1:][::-1])
+        elif j==l-1:
+            li[0]+=0
+        else:
+            li[0]+=int(n[j+1:][::-1])*10**j
+print(*li)
