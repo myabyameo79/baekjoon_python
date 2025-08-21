@@ -1,0 +1,17 @@
+def power(a,b,c):
+    if b==0:return 1
+    if b==1:return a%c
+    t=power(a,b//2,c)
+    if b&1:return t*t*a%c
+    return t*t%c
+a=int(input())
+li=sorted(list(map(int,input().split())))
+ans=0
+p=10**9+7
+for i in range(a-1,0,-1):
+    ans+=li[i]*(power(2,i,p)-1)%p
+    ans%=p
+for i in range(a-1):
+    ans-=li[i]*(power(2,a-i-1,p)-1)%p
+    ans%=p
+print(ans)
