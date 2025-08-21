@@ -1,0 +1,30 @@
+import sys
+input=sys.stdin.readline
+def plus(start,end,ind,left,right):
+    if left>end or right<start:return 0
+    if left<=start and right>=end:return tree[ind]
+    mid=(start+end)//2
+    return plus(start,mid,ind*2,left,right)+plus(mid+1,end,ind*2+1,left,right)
+def change(start,end,ind,value,place):
+    if place<start or place>end:return
+    if start<=place<=end:
+        tree[ind]=tree[ind]+value
+    if start==end:return
+    mid=(start+end)//2
+    change(start,mid,ind*2,value,place)
+    change(mid+1,end,ind*2+1,value,place)
+a,b=map(int,input().split())
+li=[0]*a
+l=1
+while l<a:
+    l<<=1
+l<<=1
+tree=[0]*l
+for _ in range(b):
+    q,w,e=map(int,input().split())
+    if q==0:
+        w,e=min(w,e),max(w,e)
+        print(plus(0,a-1,1,w-1,e-1))
+    else:
+        change(0,a-1,1,e-li[w-1],w-1)
+        li[w-1]=e
