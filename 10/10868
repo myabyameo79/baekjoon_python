@@ -1,0 +1,25 @@
+def segment(start,end,ind):
+    if start==end:
+        tree[ind]=li[start]
+        return tree[ind]
+    mid=(start+end)//2
+    tree[ind]=min(segment(start,mid,ind*2),segment(mid+1,end,ind*2+1))
+    return tree[ind]
+def findmin(start,end,ind,left,right):
+    global ans
+    if left>end or right<start:return float('inf')
+    if left<=start and end<=right:return min(ans,tree[ind])
+    mid=(start+end)//2
+    return min(ans,findmin(start,mid,ind*2,left,right),findmin(mid+1,end,ind*2+1,left,right))
+a,b=map(int,input().split())
+li=[int(input()) for _ in range(a)]
+l=1
+while l<a:
+    l<<=1
+l<<=1
+tree=[0]*l
+segment(0,a-1,1)
+for _ in range(b):
+    n,m=map(int,input().split())
+    ans=float('inf')
+    print(findmin(0,a-1,1,n-1,m-1))
