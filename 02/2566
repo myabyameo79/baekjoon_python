@@ -1,0 +1,6 @@
+li=[list(map(int,input().split())) for _ in range(9)]
+m=max(max(i) for i in li)
+print(m)
+for i in range(9):
+    for j in range(9):
+        if li[i][j]==m:print(i+1,j+1)
