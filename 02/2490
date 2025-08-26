@@ -1,0 +1,10 @@
+for _ in range(3):
+    li=input().split()
+    zero=0
+    for i in li:
+        if i=='0':zero+=1
+    if zero==0:print('E')
+    if zero==1:print('A')
+    if zero==2:print('B')
+    if zero==3:print('C')
+    if zero==4:print('D')
