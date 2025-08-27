@@ -1,0 +1,22 @@
+from itertools import permutations
+def threeline():
+    same=-1
+    if one[0] in two and one[0] in thr:
+        same=one[0]
+    if one[1] in two and one[1] in thr:
+        same=one[1]
+    if sum(one)+sum(two)+sum(thr)-same*3==same:
+        return True
+    return False
+def square(li):
+    for one,two,thr in permutations(li,3):
+        for i in range(2):
+            for j in range(2):
+                for k in range(2):
+                    if one[i]+two[j]==thr[k] and one[(i+1)%2]==two[(j+1)%2] and thr[k]==thr[(k+1)%2]+one[(i+1)%2]:return True
+one=list(map(int,input().split()))
+two=list(map(int,input().split()))
+thr=list(map(int,input().split()))
+if threeline() or square([one,two,thr]):
+    print('YES')
+else:print('NO')
