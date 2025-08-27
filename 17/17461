@@ -1,0 +1,23 @@
+def power(a,b,c):
+    if b==0:return 1
+    if b==1:return a%c
+    t=power(a,b//2,c)
+    if b&1:return t*t*a%c
+    return t*t%c
+a,b=map(int,input().split())
+l=b-a-1
+if a<=l:
+    ans=1
+    for i in range(2,a+1):
+        ans*=i
+        ans%=b
+    print(ans)
+else:
+    ans=1
+    for i in range(2,l+1):
+        ans*=i
+        ans%=b
+    ans=power(ans,b-2,b)
+    ans*=(-1)**(l+1)
+    ans%=b
+    print(ans)
