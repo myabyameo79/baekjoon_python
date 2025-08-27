@@ -1,0 +1,54 @@
+def fac(a):
+    ans=1
+    for i in range(2,a+1):
+        ans*=i
+    return ans
+def modfac(a,b):
+    def power(a,b,c):
+        if b==0:return 1
+        if b==1:return a%c
+        t=power(a,b//2,c)
+        if b&1:return t*t*a%c
+        return t*t%c
+    l=b-a-1
+    if a<=l:
+        ans=1
+        for i in range(2,a+1):
+            ans*=i
+            ans%=b
+        return ans
+    else:
+        ans=1
+        for i in range(2,l+1):
+            ans*=i
+            ans%=b
+        ans=power(ans,b-2,b)
+        ans*=(-1)**(l+1)
+        ans%=b
+        return ans
+a,b,c=map(int,input().split())
+if a==2:
+    print(2%c)
+    exit()
+if b==2:
+    if a>=13:
+        print(0)
+        exit()
+    else:
+        f=fac(a)
+        if f>=c:
+            print(0)
+            exit()
+        print(modfac(f,c))
+        exit()
+if b==3:
+    if a>=4:
+        print(0)
+        exit()
+    if a==3:
+        if c<=720:
+            print(0)
+            exit()
+        print(modfac(720,c))
+else:
+    print(0)
