@@ -1,0 +1,19 @@
+a,b=map(int,input().split())
+li=list(map(int,input().split()))
+t=list(map(int,input().split()))
+ans=[[i,j,li[i]*t[j]] for i in range(a) for j in range(a)]
+ans.sort(key=lambda x:x[2],reverse=True)
+se=set()
+ind=0
+while len(se)<b:
+    se.add(ans[ind][1])
+    ind+=1
+second=[]
+for i in range(a):
+    if i in se:continue
+    second.append(t[i])
+ans=-float('inf')
+for i in range(a):
+    for j in range(a-b):
+        ans=max(ans,li[i]*second[j])
+print(ans)
