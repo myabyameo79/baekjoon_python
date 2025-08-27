@@ -1,0 +1,12 @@
+n=int(input())
+a,b,c,d=map(int,input().split())
+x=0
+ans=-float('inf')
+res=[]
+while b*x<=n:
+    y=(n-b*x)//d
+    if a*x+c*y>ans:
+        res=[x,y]
+        ans=a*x+c*y
+    x+=1
+print(*res)
