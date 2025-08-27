@@ -1,0 +1,13 @@
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    li=[list(map(int,input().split())) for _ in range(a)]
+    row=[sum(i) for i in li]
+    column=[sum(li[j][i] for j in range(a)) for i in range(a)]
+    for _ in range(b):
+        q,w,e,r,t=map(int,input().split())
+        for x in range(q,e+1):
+            row[x-1]+=t*(r-w+1)
+        for y in range(w,r+1):
+            column[y-1]+=t*(e-q+1)
+    print(*row)
+    print(*column)
