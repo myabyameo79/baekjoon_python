@@ -1,0 +1,24 @@
+def fac(n):
+    k=n
+    li=[1,]
+    i=2
+    while i<=int(n**0.5)+1:
+        if n%i==0:
+            n//=i
+            li.append(i)
+        else:i+=1
+    for i in li:
+        k//=i
+    if k!=1:li.append(k)
+    return li[1:]
+def phi(n):
+    li=set(fac(n))
+    for i in li:
+        n*=i-1
+        n//=i
+    return n
+n=int(input())
+ans=0
+for i in range(2,n+1):
+    ans+=phi(i)
+print(ans)
