@@ -1,0 +1,7 @@
+s=''
+while True:
+    try:
+        n=input()
+        s+=n
+    except:break
+print(sum(list(map(int,s.split(',')))))
