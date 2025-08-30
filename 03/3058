@@ -1,0 +1,3 @@
+for _ in range(int(input())):
+    li=list(filter(lambda x:x%2==0,map(int,input().split())))
+    print(sum(li),min(li))
