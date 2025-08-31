@@ -1,0 +1,8 @@
+s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+li=[i+65 for i in range(26)]
+dic=dict(zip(s,li))
+for _ in range(int(input())):
+    ans=sum(li)
+    for i in input():
+        ans-=dic[i]
+    print(ans)
