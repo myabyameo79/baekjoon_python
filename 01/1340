@@ -1,0 +1,24 @@
+from decimal import Decimal as d
+def dbssus(n):
+    if n%400==0 or (n%4==0 and n%100!=0):return True
+    return False
+dic={'January':31,'February':28,'March':31,'April':30,'May':31,'June':30,'July':31,'August':31,'September':30,'October':31,'November':30,'December':31}
+t=input().split(', ')
+day=t[0].split()
+day[1]=int(day[1])
+t=t[1].split()
+year=int(t[0])
+time=list(map(int,t[1].split(':')))
+a=365
+if dbssus(year):
+    dic['February']+=1
+    a+=1
+left=0
+for i,j in dic.items():
+    if i==day[0]:
+        break
+    left+=j
+left+=day[1]-1
+left*=24*3600
+left+=time[0]*60*60+time[1]*60
+print(d(left)/d((a*24*60*60))*100)
