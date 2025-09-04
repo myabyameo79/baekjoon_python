@@ -1,0 +1,4 @@
+n=int(input())
+li=list(map(int,input().split()))
+x=li[-1]-li[-2]
+print(li[-1]+x)
