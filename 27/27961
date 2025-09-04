@@ -1,0 +1,8 @@
+n=int(input())
+if n<=2:print(n);exit()
+k=1
+ans=1
+while k<n:
+    k<<=1
+    ans+=1
+print(ans)
