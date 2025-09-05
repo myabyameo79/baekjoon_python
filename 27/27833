@@ -1,0 +1,13 @@
+for _ in range(int(input())):
+    input()
+    li=input().split()
+    num1=li[0]
+    num2=li[2]
+    num3=li[4]
+    if 'machula' in num1:
+        num1=int(num3)-int(num2)
+    elif 'machula' in num2:
+        num2=int(num3)-int(num1)
+    elif 'machula' in num3:
+        num3=int(num1)+int(num2)
+    print(f'{num1} + {num2} = {num3}')
