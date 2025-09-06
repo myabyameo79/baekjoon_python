@@ -1,0 +1,11 @@
+a,b=map(int,input().split())
+li=[int(input()) for _ in range(b)]
+ans=0
+for i in range(1,2**b):
+    s=bin(i)[2:].rjust(b,'0')
+    t=0
+    for j in range(b):
+        if s[j]=='1':
+            t+=li[j]
+    if t<=a:ans=max(ans,t)
+print(ans)
