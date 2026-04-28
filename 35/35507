@@ -1,0 +1,16 @@
+for _ in range(int(input())):
+    li=[0,0,0]
+    n=int(input())
+    ans='YES'
+    for i in range(n):
+        a,b,c,d=map(int,input().split())
+        if ans=='NO':
+            continue
+        li[0]=max(a,li[0])
+        li[1]=max(b,li[1])
+        li[2]=max(c,li[2])
+        if sum(li)+i+1<=d:
+            continue
+        else:
+            ans='NO'
+    print(ans)
