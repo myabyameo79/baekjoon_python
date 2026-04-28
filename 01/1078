@@ -1,0 +1,28 @@
+n=int(input())
+if n%9!=0:
+    print(-1)
+    exit()
+n//=9
+for i in range(2,14):
+    front=[]
+    back=[]
+    p=n
+    for j in range(i,0,-2):
+        now=int('1'*(j-1)+'0'*((i-j)//2))
+        q=p%(10**((i-j)//2+1))
+        q=q//(10**((i-j)//2))
+        if p>=0:
+            front.append(q)
+            back.append(0)
+            p-=now*q
+        else:
+            front.append(0)
+            back.append(10-q)
+            p+=now*(10-q)
+    if p==0:
+        break
+front.extend(reversed(back))
+if front[0]==0:
+    front[0]=1
+    front[-1]=1
+print(''.join(map(str,front)))
